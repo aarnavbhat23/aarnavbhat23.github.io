@@ -109,11 +109,14 @@ window.addEventListener("pointermove", (event) => {
 
 document.querySelectorAll("[data-fragment-canvas]").forEach((canvas) => {
   const context = canvas.getContext("2d");
-  const particles = [];
-  const palette = canvas.closest(".prisma-hero") ? ["#6f4e7c", "#245a8d", "#b7791f"] : ["#0f766e", "#245a8d", "#a94f36"];
   let width = 0;
   let height = 0;
   let animationFrame = 0;
+  let phase = 0;
+  let targetTilt = 0;
+  let targetLift = 0;
+  let currentTilt = 0;
+  let currentLift = 0;
 
   const resize = () => {
     const rect = canvas.getBoundingClientRect();
@@ -123,75 +126,103 @@ document.querySelectorAll("[data-fragment-canvas]").forEach((canvas) => {
     canvas.width = Math.floor(width * ratio);
     canvas.height = Math.floor(height * ratio);
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
-    particles.length = 0;
+  };
 
-    const count = width < 700 ? 34 : 58;
-    for (let index = 0; index < count; index += 1) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.22,
-        vy: (Math.random() - 0.5) * 0.22,
-        size: 1.5 + Math.random() * 2.6,
-        color: palette[index % palette.length],
-      });
-    }
+  const transformPoint = (x, y, angle, lift) => {
+    const centerX = width * 0.58;
+    const centerY = height * 0.5 + lift;
+    const dx = x - centerX;
+    const dy = y - centerY;
+    const cos = Math.cos(angle);
+    const sin = Math.sin(angle);
+    return {
+      x: centerX + dx * cos - dy * sin,
+      y: centerY + dx * sin + dy * cos,
+    };
+  };
+
+  const drawPath = (points, alpha, lineWidth) => {
+    context.globalAlpha = alpha;
+    context.lineWidth = lineWidth;
+    context.strokeStyle = "#fff";
+    context.beginPath();
+    points.forEach((point, index) => {
+      if (index === 0) {
+        context.moveTo(point.x, point.y);
+      } else {
+        context.lineTo(point.x, point.y);
+      }
+    });
+    context.stroke();
   };
 
   const draw = () => {
     context.clearRect(0, 0, width, height);
-    context.globalAlpha = 0.22;
-    context.strokeStyle = "#172026";
-    context.lineWidth = 1;
+    const rect = canvas.getBoundingClientRect();
+    const localPointerX = pointer.x - rect.left;
+    const localPointerY = pointer.y - rect.top;
+    const pointerInside = localPointerX >= 0 && localPointerX <= width && localPointerY >= 0 && localPointerY <= height;
 
-    particles.forEach((particle, index) => {
-      if (!prefersReducedMotion) {
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-      }
+    targetTilt = pointerInside ? ((localPointerX / width) - 0.5) * 0.26 : -0.08;
+    targetLift = pointerInside ? ((localPointerY / height) - 0.5) * 52 : 0;
+    currentTilt += (targetTilt - currentTilt) * 0.055;
+    currentLift += (targetLift - currentLift) * 0.055;
 
-      if (particle.x < -20) particle.x = width + 20;
-      if (particle.x > width + 20) particle.x = -20;
-      if (particle.y < -20) particle.y = height + 20;
-      if (particle.y > height + 20) particle.y = -20;
+    if (!prefersReducedMotion) {
+      phase += 0.012;
+    }
 
-      for (let nextIndex = index + 1; nextIndex < particles.length; nextIndex += 1) {
-        const next = particles[nextIndex];
-        const distance = Math.hypot(particle.x - next.x, particle.y - next.y);
-        if (distance < 105) {
-          context.globalAlpha = (105 - distance) / 620;
-          context.beginPath();
-          context.moveTo(particle.x, particle.y);
-          context.lineTo(next.x, next.y);
-          context.stroke();
-        }
-      }
+    const baseY = height * 0.58 + currentLift;
+    const amplitude = Math.min(86, Math.max(42, width * 0.06));
+    const startX = -width * 0.06;
+    const endX = width * 1.08;
+    const step = width < 700 ? 22 : 28;
+    const turns = width < 700 ? 2.3 : 3.1;
+    const topStrand = [];
+    const bottomStrand = [];
 
-      const rect = canvas.getBoundingClientRect();
-      const localPointerX = pointer.x - rect.left;
-      const localPointerY = pointer.y - rect.top;
-      const pointerDistance = Math.hypot(particle.x - localPointerX, particle.y - localPointerY);
+    for (let x = startX; x <= endX; x += 7) {
+      const progress = (x - startX) / (endX - startX);
+      const wave = Math.sin(progress * Math.PI * 2 * turns + phase);
+      const taper = 0.72 + 0.28 * Math.sin(progress * Math.PI);
+      topStrand.push(transformPoint(x, baseY + wave * amplitude * taper, currentTilt, 0));
+      bottomStrand.push(transformPoint(x, baseY - wave * amplitude * taper, currentTilt, 0));
+    }
 
-      if (pointerDistance < 150) {
-        context.globalAlpha = (150 - pointerDistance) / 280;
-        context.strokeStyle = particle.color;
-        context.beginPath();
-        context.moveTo(particle.x, particle.y);
-        context.lineTo(localPointerX, localPointerY);
-        context.stroke();
-        context.strokeStyle = "#172026";
-      }
+    drawPath(topStrand, 0.62, 1.4);
+    drawPath(bottomStrand, 0.62, 1.4);
 
-      context.globalAlpha = 0.48;
-      context.fillStyle = particle.color;
+    for (let x = startX; x <= endX; x += step) {
+      const progress = (x - startX) / (endX - startX);
+      const wave = Math.sin(progress * Math.PI * 2 * turns + phase);
+      const taper = 0.72 + 0.28 * Math.sin(progress * Math.PI);
+      const top = transformPoint(x, baseY + wave * amplitude * taper, currentTilt, 0);
+      const bottom = transformPoint(x, baseY - wave * amplitude * taper, currentTilt, 0);
+      const depth = 0.25 + 0.75 * Math.abs(Math.cos(progress * Math.PI * 2 * turns + phase));
+
+      context.globalAlpha = 0.18 + depth * 0.34;
+      context.lineWidth = 1;
+      context.strokeStyle = "#fff";
       context.beginPath();
-      if (typeof context.roundRect === "function") {
-        context.roundRect(particle.x, particle.y, particle.size * 6, particle.size, particle.size / 2);
-      } else {
-        context.rect(particle.x, particle.y, particle.size * 6, particle.size);
-      }
-      context.fill();
-    });
+      context.moveTo(top.x, top.y);
+      context.lineTo(bottom.x, bottom.y);
+      context.stroke();
+
+      context.globalAlpha = 0.72;
+      context.fillStyle = "#fff";
+      context.fillRect(top.x - 2, top.y - 2, 4, 4);
+      context.fillRect(bottom.x - 2, bottom.y - 2, 4, 4);
+    }
+
+    context.globalAlpha = 0.12;
+    context.lineWidth = 1;
+    context.strokeStyle = "#fff";
+    const axisStart = transformPoint(startX, baseY, currentTilt, 0);
+    const axisEnd = transformPoint(endX, baseY, currentTilt, 0);
+    context.beginPath();
+    context.moveTo(axisStart.x, axisStart.y);
+    context.lineTo(axisEnd.x, axisEnd.y);
+    context.stroke();
 
     if (!prefersReducedMotion) {
       animationFrame = window.requestAnimationFrame(draw);
