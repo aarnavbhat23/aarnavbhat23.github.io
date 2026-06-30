@@ -115,7 +115,7 @@ document.querySelectorAll("[data-fragment-canvas]").forEach((canvas) => {
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
     molecules.length = 0;
 
-    const count = width < 700 ? 90 : 190;
+    const count = width < 700 ? 130 : 280;
     for (let index = 0; index < count; index += 1) {
       molecules.push({
         x: Math.random() * width,

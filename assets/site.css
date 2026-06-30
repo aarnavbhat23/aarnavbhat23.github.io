@@ -55,15 +55,79 @@ body.loading {
   inset: 0;
   z-index: 100;
   display: grid;
+  justify-items: center;
   place-content: center;
-  gap: 12px;
+  gap: 13px;
   padding: 28px;
   background: #000;
   color: #fff;
+  text-align: center;
   transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-.site-loader span {
+.loader-ace-card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 116px;
+  aspect-ratio: 0.72;
+  margin-bottom: 8px;
+  border: 2px solid #fff;
+  border-radius: 7px;
+  background: #fff;
+  color: #000;
+  box-shadow: 0 0 0 1px #000 inset, 0 0 0 9px #000 inset, 0 0 46px rgba(255, 255, 255, 0.16);
+  animation: aceFloat 1.7s ease-in-out infinite alternate;
+}
+
+.loader-ace-card::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid #000;
+}
+
+.loader-ace-card::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  top: 50%;
+  border-top: 2px solid #000;
+  transform: translateY(-50%);
+}
+
+.loader-face,
+.loader-corner {
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-weight: 760;
+  line-height: 1;
+}
+
+.loader-face {
+  position: relative;
+  z-index: 1;
+  font-size: 5.6rem;
+  letter-spacing: 0;
+}
+
+.loader-corner {
+  position: absolute;
+  font-size: 1.35rem;
+}
+
+.loader-corner-top {
+  top: 15px;
+  left: 17px;
+}
+
+.loader-corner-bottom {
+  right: 17px;
+  bottom: 15px;
+  transform: rotate(180deg);
+}
+
+.site-loader > span {
   color: rgba(255, 255, 255, 0.64);
   font-size: 0.84rem;
   font-weight: 760;
@@ -106,6 +170,16 @@ body.loaded .site-loader {
 
   to {
     transform: translateX(138%);
+  }
+}
+
+@keyframes aceFloat {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-8px);
   }
 }
 
@@ -997,6 +1071,7 @@ h3 {
   }
 
   .belt-track,
+  .loader-ace-card,
   .loader-track i {
     animation: none;
   }
