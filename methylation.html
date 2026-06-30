@@ -24,7 +24,7 @@
 
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Aarnav Bhat home">
-      <span class="brand-mark"><img src="assets/favicon.svg" alt="" aria-hidden="true"></span>
+      <span class="brand-mark"><img src="assets/favicon.svg?v=ace-a" alt="" aria-hidden="true"></span>
       <span>Aarnav Bhat</span>
     </a>
     <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button>
@@ -204,6 +204,50 @@
           <img src="assets/figures/methylation/metabolite_roc_combined.png" alt="Combined metabolomic model ROC curve.">
           <figcaption>Orthogonal metabolomic analysis used as complementary molecular evidence.</figcaption>
         </figure>
+      </div>
+    </section>
+
+    <section class="section-block compact">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Tools and data resources</p>
+        <h2>The technical stack behind the methylation study.</h2>
+        <p>
+          The project used public cancer molecular data and scientific Python
+          tooling to preprocess methylation features, train the classifier, and
+          generate validation figures.
+        </p>
+      </div>
+      <div class="tool-grid reveal" aria-label="DNA methylation tools and data resources">
+        <article class="tool-card">
+          <span class="tool-logo icon-logo"><img src="assets/logos/tcga.png" alt=""></span>
+          <strong>TCGA / cancer data portals</strong>
+          <p>Public lung cancer molecular datasets for LUAD and LUSC analysis.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo icon-logo"><img src="assets/logos/python.svg" alt=""></span>
+          <strong>Python</strong>
+          <p>Preprocessing, model training, evaluation, and reproducible analysis.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo icon-logo"><img src="assets/logos/pandas.svg" alt=""></span>
+          <strong>pandas</strong>
+          <p>Methylation tables, labels, feature matrices, and cohort organization.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo icon-logo"><img src="assets/logos/numpy.svg" alt=""></span>
+          <strong>NumPy</strong>
+          <p>Numerical transformations and matrix operations for biomarker features.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo icon-logo"><img src="assets/logos/scikitlearn.svg" alt=""></span>
+          <strong>scikit-learn</strong>
+          <p>Gradient boosting, validation metrics, and threshold evaluation.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo icon-logo"><img src="assets/logos/matplotlib.png" alt=""></span>
+          <strong>Matplotlib / Seaborn</strong>
+          <p>ROC curves, biomarker heatmaps, validation plots, and threshold figures.</p>
+        </article>
       </div>
     </section>
 
