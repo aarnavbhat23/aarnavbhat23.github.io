@@ -552,7 +552,7 @@ h3 {
 .belt-track {
   display: inline-flex;
   min-width: max-content;
-  animation: beltMove 36s linear infinite;
+  animation: beltMove 54s linear infinite;
 }
 
 .belt-track span {
