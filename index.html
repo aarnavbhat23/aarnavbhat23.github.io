@@ -3,772 +3,226 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aarnav Bhat - computational biology, genomics, and machine learning research portfolio.">
+  <meta name="description" content="Aarnav Bhat - computational biology, genomics, cancer diagnostics, and machine learning research portfolio.">
   <title>Aarnav Bhat | Computational Biology Research</title>
-  <style>
-    :root {
-      --bg: #f7f7f4;
-      --paper: #ffffff;
-      --ink: #172026;
-      --muted: #59656f;
-      --line: #dde2e0;
-      --green: #0f766e;
-      --red: #b4533f;
-      --yellow: #b7791f;
-      --blue: #245a8d;
-      --shadow: 0 18px 55px rgba(23, 32, 38, 0.09);
-      --radius: 8px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--ink);
-      background:
-        linear-gradient(90deg, rgba(36, 90, 141, 0.05) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(15, 118, 110, 0.04) 1px, transparent 1px),
-        var(--bg);
-      background-size: 44px 44px;
-      line-height: 1.55;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      width: min(1120px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      padding: 22px 0;
-      position: sticky;
-      top: 0;
-      z-index: 5;
-      background: rgba(247, 247, 244, 0.88);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(221, 226, 224, 0.7);
-    }
-
-    .brand {
-      font-weight: 760;
-      letter-spacing: 0.01em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .nav-links a {
-      border-bottom: 1px solid transparent;
-    }
-
-    .nav-links a:hover {
-      color: var(--ink);
-      border-color: var(--green);
-    }
-
-    .hero {
-      min-height: 82vh;
-      display: grid;
-      grid-template-columns: minmax(0, 1.03fr) minmax(330px, 0.72fr);
-      align-items: center;
-      gap: 44px;
-      padding: 52px 0 64px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--green);
-      font-size: 0.82rem;
-      font-weight: 720;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 32px;
-      height: 2px;
-      background: var(--green);
-      display: inline-block;
-    }
-
-    h1 {
-      font-size: clamp(2.8rem, 7vw, 5.9rem);
-      line-height: 0.95;
-      margin: 0;
-      letter-spacing: 0;
-    }
-
-    .hero-copy {
-      font-size: clamp(1.03rem, 2vw, 1.25rem);
-      color: var(--muted);
-      max-width: 720px;
-      margin: 24px 0 0;
-    }
-
-    .hero-copy strong {
-      color: var(--ink);
-      font-weight: 740;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      min-height: 42px;
-      padding: 0 15px;
-      border-radius: 7px;
-      border: 1px solid var(--line);
-      background: var(--paper);
-      color: var(--ink);
-      font-weight: 690;
-      box-shadow: 0 8px 28px rgba(23, 32, 38, 0.05);
-      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      border-color: rgba(15, 118, 110, 0.55);
-    }
-
-    .button.primary {
-      background: var(--ink);
-      color: #fff;
-      border-color: var(--ink);
-    }
-
-    .signal-board {
-      background: var(--paper);
-      border: 1px solid rgba(221, 226, 224, 0.9);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 18px;
-      overflow: hidden;
-    }
-
-    .signal-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      color: var(--muted);
-      font-size: 0.82rem;
-      margin-bottom: 18px;
-    }
-
-    .curve {
-      height: 180px;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background:
-        linear-gradient(180deg, transparent 24%, rgba(221, 226, 224, 0.6) 25%, transparent 26%),
-        linear-gradient(180deg, transparent 49%, rgba(221, 226, 224, 0.7) 50%, transparent 51%),
-        linear-gradient(180deg, transparent 74%, rgba(221, 226, 224, 0.6) 75%, transparent 76%),
-        #fbfbfa;
-      position: relative;
-      margin-bottom: 16px;
-    }
-
-    .curve svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    .mini-metrics {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .metric {
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      padding: 10px;
-      background: #fcfcfb;
-    }
-
-    .metric .value {
-      display: block;
-      font-size: 1.45rem;
-      line-height: 1;
-      font-weight: 800;
-      color: var(--green);
-    }
-
-    .metric .label {
-      display: block;
-      color: var(--muted);
-      font-size: 0.76rem;
-      margin-top: 6px;
-    }
-
-    section {
-      padding: 56px 0;
-      border-top: 1px solid rgba(221, 226, 224, 0.9);
-    }
-
-    .section-title {
-      display: grid;
-      grid-template-columns: 220px minmax(0, 1fr);
-      gap: 28px;
-      align-items: start;
-      margin-bottom: 24px;
-    }
-
-    h2 {
-      margin: 0;
-      font-size: clamp(1.55rem, 3vw, 2.2rem);
-      line-height: 1.05;
-      letter-spacing: 0;
-    }
-
-    .section-title p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 760px;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .project-card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 20px;
-      box-shadow: 0 10px 35px rgba(23, 32, 38, 0.05);
-      min-height: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .project-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .project-card h3 {
-      margin: 0;
-      font-size: 1.08rem;
-      line-height: 1.28;
-    }
-
-    .status {
-      color: var(--muted);
-      font-size: 0.76rem;
-      white-space: nowrap;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 3px 8px;
-      background: #fbfbfa;
-    }
-
-    .project-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: auto;
-    }
-
-    .tag {
-      font-size: 0.74rem;
-      font-weight: 680;
-      color: var(--ink);
-      background: #eef5f4;
-      border: 1px solid rgba(15, 118, 110, 0.15);
-      border-radius: 999px;
-      padding: 4px 8px;
-    }
-
-    .tag.red {
-      background: #fff1ed;
-      border-color: rgba(180, 83, 63, 0.2);
-    }
-
-    .tag.yellow {
-      background: #fff8e6;
-      border-color: rgba(183, 121, 31, 0.22);
-    }
-
-    .timeline {
-      display: grid;
-      gap: 0;
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 160px minmax(0, 1fr);
-      gap: 22px;
-      padding: 18px 20px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .timeline-item:last-child {
-      border-bottom: 0;
-    }
-
-    .time {
-      color: var(--green);
-      font-weight: 760;
-      font-size: 0.9rem;
-    }
-
-    .timeline-item h3 {
-      margin: 0 0 5px;
-      font-size: 1rem;
-    }
-
-    .timeline-item p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .skill-layout {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 18px;
-    }
-
-    .panel {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 20px;
-    }
-
-    .panel h3 {
-      margin: 0 0 12px;
-      font-size: 1.02rem;
-    }
-
-    .skill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .contact-band {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 24px;
-      align-items: center;
-      background: var(--ink);
-      color: #fff;
-      border-radius: var(--radius);
-      padding: 28px;
-      margin: 58px 0 42px;
-    }
-
-    .contact-band h2 {
-      color: #fff;
-    }
-
-    .contact-band p {
-      margin: 8px 0 0;
-      color: rgba(255, 255, 255, 0.76);
-    }
-
-    .contact-band .button {
-      background: #fff;
-      color: var(--ink);
-      border-color: #fff;
-      box-shadow: none;
-    }
-
-    footer {
-      color: var(--muted);
-      font-size: 0.88rem;
-      padding: 0 0 44px;
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    footer a {
-      border-bottom: 1px solid var(--line);
-    }
-
-    @media (max-width: 900px) {
-      .hero,
-      .section-title,
-      .skill-layout,
-      .contact-band {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        min-height: auto;
-      }
-
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .page {
-        width: min(100% - 28px, 1120px);
-      }
-
-      .nav {
-        align-items: flex-start;
-        position: static;
-      }
-
-      .nav-links {
-        justify-content: flex-end;
-        flex-wrap: wrap;
-        gap: 10px 14px;
-        font-size: 0.86rem;
-      }
-
-      .hero {
-        padding-top: 34px;
-      }
-
-      .mini-metrics,
-      .timeline-item {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-band {
-        padding: 22px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-  <div class="page">
-    <nav class="nav" aria-label="Primary navigation">
-      <a class="brand" href="#top">Aarnav Bhat</a>
-      <div class="nav-links">
-        <a href="#research">Research</a>
-        <a href="#writing">Writing</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-
-    <main id="top">
-      <section class="hero" aria-label="Introduction">
-        <div>
-          <div class="eyebrow">Computational biology portfolio</div>
-          <h1>Building validated ML tools for cancer genomics.</h1>
-          <p class="hero-copy">
-            I am a high school researcher focused on <strong>genomics, fragmentomics,
-            epigenetics, and machine learning</strong>. My work centers on honest model
-            validation, public biomedical datasets, and translational cancer diagnostics.
-          </p>
-          <div class="actions" aria-label="Profile links">
-            <a class="button primary" href="mailto:aarnav.bhat0@gmail.com">Email</a>
-            <a class="button" href="https://www.linkedin.com/in/aarnavbhat" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="button" href="https://github.com/aarnavbhat23" target="_blank" rel="noopener">GitHub</a>
-          </div>
-        </div>
-
-        <aside class="signal-board" aria-label="Research signal summary">
-          <div class="signal-head">
-            <span>cfDNA fragment-size signal</span>
-            <span>validated models</span>
-          </div>
-          <div class="curve" aria-hidden="true">
-            <svg viewBox="0 0 420 180" role="img" aria-label="Stylized DNA fragmentomics curve">
-              <polyline points="16,151 60,145 98,129 130,92 154,40 181,31 211,80 248,123 294,143 343,151 402,154" fill="none" stroke="#0f766e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-              <polyline points="16,150 58,136 96,119 134,93 173,73 214,76 254,105 292,132 338,147 402,154" fill="none" stroke="#b4533f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
-              <circle cx="181" cy="31" r="5" fill="#0f766e"/>
-              <circle cx="173" cy="73" r="5" fill="#b4533f"/>
-            </svg>
-          </div>
-          <div class="mini-metrics">
-            <div class="metric">
-              <span class="value">0.900</span>
-              <span class="label">MiNAE ROC-AUC</span>
-            </div>
-            <div class="metric">
-              <span class="value">0.873</span>
-              <span class="label">MiNAE PR-AUC</span>
-            </div>
-            <div class="metric">
-              <span class="value">7,240</span>
-              <span class="label">methylation samples</span>
-            </div>
-          </div>
-        </aside>
-      </section>
-
-      <section id="research">
-        <div class="section-title">
-          <h2>Featured Research</h2>
-          <p>
-            Projects are framed around patient-level validation, interpretable features, and
-            careful checks against overfitting or technical confounding.
-          </p>
-        </div>
-
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="project-top">
-              <h3>MiNAE: Mutation-independent Nucleosome Architecture Evaluation</h3>
-              <span class="status">2026</span>
-            </div>
-            <p>
-              A cfDNA fragmentomics framework for hepatocellular carcinoma detection using
-              fragment-coordinate data instead of tumor mutation sequencing.
-            </p>
-            <p>
-              Processed public FinaleDB data by computing fragment lengths, creating patient
-              size-profile features, and validating models against cirrhosis and hepatitis B
-              controls. Final held-out validation reached ROC-AUC 0.900 and PR-AUC 0.873.
-            </p>
-            <div class="tags">
-              <span class="tag">cfDNA</span>
-              <span class="tag">Fragmentomics</span>
-              <span class="tag">ROC/PR-AUC</span>
-              <span class="tag red">HCC</span>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top">
-              <h3>PrISMA-RSC: Pancreatic Cancer Target Prioritization</h3>
-              <span class="status">2026</span>
-            </div>
-            <p>
-              PrISMA-RSC stands for Pancreatic Immunotherapy Screening and Microenvironment
-              Atlas with Robust Specificity-Aware Consensus.
-            </p>
-            <p>
-              Built a computational consensus algorithm to prioritize pancreatic cancer stromal
-              immunotherapy targets by integrating tumor specificity, stromal relevance,
-              robustness checks, and structure-aware target triage.
-            </p>
-            <div class="tags">
-              <span class="tag">Target ranking</span>
-              <span class="tag">Specificity</span>
-              <span class="tag">Robustness</span>
-              <span class="tag yellow">Pancreatic cancer</span>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top">
-              <h3>DNA Methylation Biomarkers for Lung Cancer Detection</h3>
-              <span class="status">Accepted</span>
-            </div>
-            <p>
-              Co-authored an accepted IEEE-credited conference study using 7,240 genomic
-              samples and methylation biomarkers including EGFR, PD-L1, SHOX2, RASSF1A, and
-              PTGER4.
-            </p>
-            <p>
-              Engineered and validated a gradient-boosting model achieving AUC 0.983,
-              92.7% accuracy, and 98.2% recall.
-            </p>
-            <div class="tags">
-              <span class="tag">Epigenomics</span>
-              <span class="tag">Gradient boosting</span>
-              <span class="tag">Biomarkers</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section aria-label="Research timeline">
-        <div class="section-title">
-          <h2>Research Path</h2>
-          <p>
-            A compact timeline of research, lab exposure, and activities that shaped the
-            current computational genomics focus.
-          </p>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="time">2026</div>
-            <div>
-              <h3>Patient-level computational genomics</h3>
-              <p>Built MiNAE and PrISMA-RSC, with emphasis on validation, ablation studies,
-              interpretable metrics, and honest limitations.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="time">2025-2026</div>
-            <div>
-              <h3>Accepted methylation biomarker study</h3>
-              <p>Worked on an AI-driven lung cancer methylation biomarker model across
-              thousands of genomic samples.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="time">2024-2025</div>
-            <div>
-              <h3>Wet-lab DNA research</h3>
-              <p>Studied caffeine's effects on DNA using micropipetting, DNA extraction, and
-              gel electrophoresis; recognized by the California State Assembly.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="time">Ongoing</div>
-            <div>
-              <h3>Coursework and community</h3>
-              <p>Completed coursework in precision medicine, genetics, and machine learning;
-              also involved in competitive swimming, Student Council, and Sanskrit teaching.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="writing">
-        <div class="section-title">
-          <h2>Manuscripts & Writing</h2>
-          <p>
-            Current work is research-centered, while earlier writing reflects long-running
-            interest in medicine, behavior, and public communication.
-          </p>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="time">Accepted</div>
-            <div>
-              <h3>DNA Methylation Biomarkers for Lung Cancer Detection</h3>
-              <p>Accepted at an IEEE-credited conference in 2026.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="time">Prepared</div>
-            <div>
-              <h3>MiNAE and PrISMA-RSC</h3>
-              <p>Manuscripts prepared for IEEE BIBM 2026 submission.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="time">Selected writing</div>
-            <div>
-              <h3>Public science and health writing</h3>
-              <p>
-                <a href="https://siliconeer.com/current/coronavirus-has-history-repeated-itself/" target="_blank" rel="noopener">Siliconeer article</a>
-                and
-                <a href="https://medium.com/@itsaarnavbhat" target="_blank" rel="noopener">Medium essays</a>.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="skills">
-        <div class="section-title">
-          <h2>Skills</h2>
-          <p>
-            A practical toolkit for computational biology projects, from data cleaning to
-            validation and manuscript preparation.
-          </p>
-        </div>
-
-        <div class="skill-layout">
-          <div class="panel">
-            <h3>Computational</h3>
-            <div class="skill-list">
-              <span class="tag">Python</span>
-              <span class="tag">pandas</span>
-              <span class="tag">NumPy</span>
-              <span class="tag">scikit-learn</span>
-              <span class="tag">Feature engineering</span>
-              <span class="tag">Cross-validation</span>
-              <span class="tag">ROC/PR analysis</span>
-              <span class="tag">Git/GitHub</span>
-              <span class="tag">LaTeX/Overleaf</span>
-            </div>
-          </div>
-          <div class="panel">
-            <h3>Biology and Communication</h3>
-            <div class="skill-list">
-              <span class="tag yellow">Genomics</span>
-              <span class="tag yellow">Epigenetics</span>
-              <span class="tag yellow">cfDNA</span>
-              <span class="tag yellow">Micropipetting</span>
-              <span class="tag yellow">DNA extraction</span>
-              <span class="tag yellow">Gel electrophoresis</span>
-              <span class="tag red">English</span>
-              <span class="tag red">Kannada</span>
-              <span class="tag red">Hindi</span>
-              <span class="tag red">Sanskrit</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="contact-band">
-        <div>
-          <h2>Open to remote computational research support.</h2>
-          <p>
-            Interested in genomics data analysis, literature review, model validation,
-            reproducibility checks, and manuscript support during the fall or winter.
-          </p>
-        </div>
-        <a class="button" href="mailto:aarnav.bhat0@gmail.com">aarnav.bhat0@gmail.com</a>
-      </section>
-    </main>
-
-    <footer>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Aarnav Bhat home">
+      <span class="brand-mark">AB</span>
       <span>Aarnav Bhat</span>
-      <span>
-        <a href="mailto:aarnav.bhat0@gmail.com">Email</a>
-        &nbsp;/&nbsp;
-        <a href="https://www.linkedin.com/in/aarnavbhat" target="_blank" rel="noopener">LinkedIn</a>
-        &nbsp;/&nbsp;
-        <a href="https://github.com/aarnavbhat23" target="_blank" rel="noopener">GitHub</a>
-      </span>
-    </footer>
-  </div>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="minae.html">MiNAE</a>
+      <a href="prisma.html">PrISMA</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-shell">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Computational biology + machine learning</p>
+        <h1>Building validated research tools for cancer genomics.</h1>
+        <p class="lead">
+          I am a high school researcher working across cfDNA fragmentomics,
+          epigenetic biomarkers, target prioritization, and translational ML.
+          My focus is not just building models, but testing whether they survive
+          realistic controls, external checks, and reviewer-grade validation.
+        </p>
+        <div class="hero-actions" aria-label="Primary profile links">
+          <a class="button primary" href="minae.html">View MiNAE</a>
+          <a class="button" href="prisma.html">View PrISMA</a>
+          <a class="button ghost" href="mailto:aarnav.bhat0@gmail.com">Email</a>
+        </div>
+      </div>
+      <figure class="portrait-card reveal">
+        <img src="assets/images/aarnav-research-portrait.jpg" alt="Aarnav Bhat presenting research at a science fair poster session.">
+        <figcaption>Research presentation, computational biology and biomedical science.</figcaption>
+      </figure>
+    </section>
+
+    <section class="signal-strip reveal" aria-label="Selected research metrics">
+      <article>
+        <span class="metric-value">0.900</span>
+        <span class="metric-label">MiNAE held-out ROC-AUC</span>
+      </article>
+      <article>
+        <span class="metric-value">0.873</span>
+        <span class="metric-label">MiNAE held-out PR-AUC</span>
+      </article>
+      <article>
+        <span class="metric-value">7,240</span>
+        <span class="metric-label">Methylation samples analyzed</span>
+      </article>
+      <article>
+        <span class="metric-value">2</span>
+        <span class="metric-label">BIBM 2026 manuscripts prepared</span>
+      </article>
+    </section>
+
+    <section id="research" class="section-block">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Featured work</p>
+        <h2>Projects with validation built into the story.</h2>
+        <p>
+          Each project is written as a research system: data source, biological
+          hypothesis, computational method, validation design, limitations, and
+          figures that make the model behavior inspectable.
+        </p>
+      </div>
+
+      <div class="project-feature-grid">
+        <a class="project-feature reveal" href="minae.html">
+          <div class="feature-image">
+            <img src="assets/figures/minae/roc-pr.png" alt="MiNAE ROC and precision-recall validation curves.">
+          </div>
+          <div class="feature-body">
+            <span class="status-pill">cfDNA fragmentomics</span>
+            <h3>MiNAE: Mutation-independent Nucleosome Architecture Evaluation</h3>
+            <p>
+              A liver cancer detection framework that uses cell-free DNA fragment
+              size profiles instead of tumor mutation sequencing, tested against
+              cirrhosis and hepatitis B controls.
+            </p>
+            <span class="text-link">Open project page</span>
+          </div>
+        </a>
+
+        <a class="project-feature reveal" href="prisma.html">
+          <div class="feature-image">
+            <img src="assets/figures/prisma/integrated-evidence.png" alt="PrISMA integrated target evidence matrix.">
+          </div>
+          <div class="feature-body">
+            <span class="status-pill amber">Target prioritization</span>
+            <h3>PrISMA-RSC: Pancreatic immunotherapy target ranking</h3>
+            <p>
+              A specificity-aware consensus algorithm for prioritizing pancreatic
+              cancer stromal targets using expression, spatial, structural, and
+              robustness evidence.
+            </p>
+            <span class="text-link">Open project page</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section-block compact">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Research timeline</p>
+        <h2>A focused path into computational oncology.</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <time>2026</time>
+          <div>
+            <h3>Patient-level cancer genomics validation</h3>
+            <p>Built MiNAE and PrISMA-RSC, emphasizing external checks, ablation studies, PR-AUC, confusion matrices, and technical-confounder audits.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <time>2025-2026</time>
+          <div>
+            <h3>AI-driven lung cancer methylation biomarkers</h3>
+            <p>Co-authored an accepted IEEE-credited conference study using 7,240 genomic samples and a gradient-boosting model for biomarker-based detection.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <time>2024-2025</time>
+          <div>
+            <h3>Wet-lab genetics foundation</h3>
+            <p>Studied DNA damage and repair concepts through micropipetting, DNA extraction, and gel electrophoresis, with formal public recognition for the project.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <time>Ongoing</time>
+          <div>
+            <h3>Coursework and communication</h3>
+            <p>Continuing work in precision medicine, genetics, machine learning, public science writing, Sanskrit teaching, and competitive swimming.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="writing" class="section-block">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Writing and manuscripts</p>
+        <h2>Research communication without overclaiming.</h2>
+        <p>
+          I keep public pages focused on accepted work, project summaries, and
+          selected figures. Full draft manuscripts for work under submission are
+          best shared by request until acceptance or formal preprint posting.
+        </p>
+      </div>
+
+      <div class="link-grid">
+        <a class="link-card reveal" href="https://siliconeer.com/current/coronavirus-has-history-repeated-itself/" target="_blank" rel="noopener">
+          <span>Article</span>
+          <h3>Coronavirus - Has History Repeated?</h3>
+          <p>Public science and health writing in Siliconeer.</p>
+        </a>
+        <a class="link-card reveal" href="https://medium.com/@itsaarnavbhat" target="_blank" rel="noopener">
+          <span>Essays</span>
+          <h3>Medium writing</h3>
+          <p>Selected essays on neuroscience, behavior, and health.</p>
+        </a>
+        <a class="link-card reveal" href="mailto:aarnav.bhat0@gmail.com?subject=Manuscript%20request%20-%20Aarnav%20Bhat">
+          <span>Manuscripts</span>
+          <h3>Drafts available by request</h3>
+          <p>For MiNAE and PrISMA-RSC, request a current draft or figure packet by email.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Technical toolkit</p>
+        <h2>Tools I use to turn messy biomedical data into testable models.</h2>
+      </div>
+      <div class="skill-cloud reveal">
+        <span>Python</span>
+        <span>pandas</span>
+        <span>NumPy</span>
+        <span>scikit-learn</span>
+        <span>Feature engineering</span>
+        <span>ROC/PR analysis</span>
+        <span>Permutation testing</span>
+        <span>SHAP</span>
+        <span>LaTeX/Overleaf</span>
+        <span>Git/GitHub</span>
+        <span>cfDNA</span>
+        <span>Epigenomics</span>
+        <span>Spatial validation</span>
+        <span>Structure-aware screening</span>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-panel reveal">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Open to remote computational research support.</h2>
+        <p>
+          Interested in genomics data analysis, literature review, reproducibility
+          checks, model validation, and manuscript support during the fall or winter.
+        </p>
+      </div>
+      <div class="contact-actions">
+        <a class="button primary" href="mailto:aarnav.bhat0@gmail.com">aarnav.bhat0@gmail.com</a>
+        <a class="button" href="https://www.linkedin.com/in/aarnavbhat" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="button" href="https://github.com/aarnavbhat23" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>Aarnav Bhat</span>
+    <span>Computational biology research portfolio</span>
+  </footer>
+
+  <script src="assets/site.js"></script>
 </body>
 </html>

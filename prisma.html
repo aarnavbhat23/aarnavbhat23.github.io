@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PrISMA-RSC project page - specificity-aware consensus ranking for pancreatic cancer stromal immunotherapy targets.">
+  <title>PrISMA-RSC | Aarnav Bhat</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Aarnav Bhat home">
+      <span class="brand-mark">AB</span>
+      <span>Aarnav Bhat</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="minae.html">MiNAE</a>
+      <a href="prisma.html" aria-current="page">PrISMA</a>
+      <a href="index.html#writing">Writing</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project-hero prisma-hero">
+      <div class="reveal">
+        <p class="eyebrow">PrISMA-RSC</p>
+        <h1>Pancreatic immunotherapy target prioritization with specificity-aware consensus.</h1>
+        <p class="lead">
+          PrISMA-RSC stands for Pancreatic Immunotherapy Screening and
+          Microenvironment Atlas with Robust Specificity-Aware Consensus. It is a
+          computational framework for ranking stromal immunotherapy targets in
+          pancreatic cancer while penalizing nonspecific or risky candidates.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#figures">View figures</a>
+          <a class="button" href="mailto:aarnav.bhat0@gmail.com?subject=PrISMA-RSC%20manuscript%20request">Request draft</a>
+        </div>
+      </div>
+      <div class="project-scoreboard reveal" aria-label="PrISMA-RSC metrics">
+        <article>
+          <span class="metric-value">LRRC15</span>
+          <span class="metric-label">recovered benchmark target</span>
+        </article>
+        <article>
+          <span class="metric-value">5+</span>
+          <span class="metric-label">evidence layers</span>
+        </article>
+        <article>
+          <span class="metric-value">100%</span>
+          <span class="metric-label">noise-test top rank for LRRC15</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-block compact">
+      <div class="section-heading reveal">
+        <p class="eyebrow">What it does</p>
+        <h2>A target ranking engine built for specificity, not just expression.</h2>
+      </div>
+      <div class="method-grid">
+        <article class="method-card reveal">
+          <span>01</span>
+          <h3>Score tumor-stromal relevance</h3>
+          <p>Starts from candidate pancreatic cancer stromal targets and measures whether they are enriched in the disease setting.</p>
+        </article>
+        <article class="method-card reveal">
+          <span>02</span>
+          <h3>Penalize normal tissue risk</h3>
+          <p>Uses specificity-aware logic to reduce false-positive targets that may look strong in tumors but are unsafe elsewhere.</p>
+        </article>
+        <article class="method-card reveal">
+          <span>03</span>
+          <h3>Add spatial and structure evidence</h3>
+          <p>Integrates spatial validation and structure-aware triage to separate plausible targets from weak biomarkers.</p>
+        </article>
+        <article class="method-card reveal">
+          <span>04</span>
+          <h3>Stress-test the ranking</h3>
+          <p>Runs ablation, negative-control, and weight-perturbation checks so the ranking is not dependent on one fragile setting.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Why it matters</p>
+        <h2>Target prioritization should survive reviewer skepticism.</h2>
+        <p>
+          Many target-ranking pipelines can surface genes that are highly
+          expressed, but that is not enough for therapeutic relevance. PrISMA-RSC
+          is designed around a stricter question: which candidates remain strong
+          after specificity, spatial context, structure, and negative controls?
+        </p>
+      </div>
+      <div class="evidence-grid">
+        <article class="evidence-card reveal">
+          <h3>Integrated evidence</h3>
+          <p>Combines expression, normal-tissue risk, surface accessibility, spatial support, and structure-aware evidence.</p>
+        </article>
+        <article class="evidence-card reveal">
+          <h3>Benchmark recovery</h3>
+          <p>Checks whether the scoring logic recovers LRRC15 and receptor-like translational targets above comparators.</p>
+        </article>
+        <article class="evidence-card reveal">
+          <h3>Robustness testing</h3>
+          <p>Weight perturbation and noisy-layer analyses test whether the top target changes when scoring assumptions move.</p>
+        </article>
+        <article class="evidence-card reveal">
+          <h3>Honest caveat</h3>
+          <p>The ROC-style benchmark is a small target-ranking diagnostic, not a patient-level clinical model validation.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="figures" class="section-block">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Figures</p>
+        <h2>Selected visual evidence from the PrISMA-RSC package.</h2>
+      </div>
+      <div class="figure-tabs reveal" data-tabs>
+        <div class="tab-buttons" role="tablist" aria-label="PrISMA figure selector">
+          <button type="button" class="active" data-tab="prisma-workflow">Workflow</button>
+          <button type="button" data-tab="prisma-evidence">Evidence matrix</button>
+          <button type="button" data-tab="prisma-spatial">Spatial validation</button>
+          <button type="button" data-tab="prisma-structure">Structure</button>
+          <button type="button" data-tab="prisma-controls">Controls</button>
+        </div>
+        <figure class="tab-panel active" data-panel="prisma-workflow">
+          <img src="assets/figures/prisma/workflow.png" alt="PrISMA-RSC workflow diagram.">
+          <figcaption>PrISMA-RSC workflow from candidate targets to specificity-aware consensus ranking.</figcaption>
+        </figure>
+        <figure class="tab-panel" data-panel="prisma-evidence">
+          <img src="assets/figures/prisma/integrated-evidence.png" alt="PrISMA integrated evidence matrix.">
+          <figcaption>Integrated evidence matrix summarizing target support across multiple biological and technical dimensions.</figcaption>
+        </figure>
+        <figure class="tab-panel" data-panel="prisma-spatial">
+          <img src="assets/figures/prisma/spatial-validation.png" alt="PrISMA independent spatial validation figure.">
+          <figcaption>Independent spatial context used to evaluate whether top targets localize to relevant tumor microenvironment regions.</figcaption>
+        </figure>
+        <figure class="tab-panel" data-panel="prisma-structure">
+          <img src="assets/figures/prisma/structure-validation.png" alt="PrISMA structure validation figure.">
+          <figcaption>Structure-aware validation for translational plausibility and surface-accessible target reasoning.</figcaption>
+        </figure>
+        <figure class="tab-panel" data-panel="prisma-controls">
+          <img src="assets/figures/prisma/negative-controls.png" alt="PrISMA baseline and negative control results.">
+          <figcaption>Baseline and negative-control analysis to test whether the scoring framework avoids obvious false positives.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section-block compact">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Public manuscript status</p>
+        <h2>Draft available by request, not publicly posted yet.</h2>
+        <p>
+          Because PrISMA-RSC is being prepared for conference submission, I am
+          keeping the full manuscript off the public site until acceptance or a
+          formal preprint. The public page shows the project, figures, and contact
+          path without exposing a draft Google Drive link.
+        </p>
+      </div>
+      <a class="button primary reveal" href="mailto:aarnav.bhat0@gmail.com?subject=PrISMA-RSC%20manuscript%20request">Request PrISMA-RSC draft</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="index.html">Home</a>
+    <span>PrISMA-RSC project page</span>
+  </footer>
+
+  <script src="assets/site.js"></script>
+</body>
+</html>

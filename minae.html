@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MiNAE project page - cfDNA fragmentomics and machine learning for hepatocellular carcinoma detection.">
+  <title>MiNAE | Aarnav Bhat</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Aarnav Bhat home">
+      <span class="brand-mark">AB</span>
+      <span>Aarnav Bhat</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="minae.html" aria-current="page">MiNAE</a>
+      <a href="prisma.html">PrISMA</a>
+      <a href="index.html#writing">Writing</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project-hero minae-hero">
+      <div class="reveal">
+        <p class="eyebrow">MiNAE</p>
+        <h1>Mutation-independent Nucleosome Architecture Evaluation</h1>
+        <p class="lead">
+          MiNAE is a cfDNA fragmentomics framework for hepatocellular carcinoma
+          detection. Instead of searching for tumor mutations, it studies the
+          physical size patterns of cell-free DNA fragments and asks whether those
+          patterns distinguish liver cancer from chronic liver disease controls.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#figures">View figures</a>
+          <a class="button" href="mailto:aarnav.bhat0@gmail.com?subject=MiNAE%20manuscript%20request">Request draft</a>
+        </div>
+      </div>
+      <div class="project-scoreboard reveal" aria-label="MiNAE metrics">
+        <article>
+          <span class="metric-value">0.900</span>
+          <span class="metric-label">held-out ROC-AUC</span>
+        </article>
+        <article>
+          <span class="metric-value">0.873</span>
+          <span class="metric-label">held-out PR-AUC</span>
+        </article>
+        <article>
+          <span class="metric-value">100x</span>
+          <span class="metric-label">repeated validation</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-block compact">
+      <div class="section-heading reveal">
+        <p class="eyebrow">What it does</p>
+        <h2>From compressed fragment coordinates to patient-level predictions.</h2>
+      </div>
+      <div class="method-grid">
+        <article class="method-card reveal">
+          <span>01</span>
+          <h3>Ingest fragment-coordinate data</h3>
+          <p>Reads public cfDNA fragment files and separates cancer samples from cirrhosis and hepatitis B controls.</p>
+        </article>
+        <article class="method-card reveal">
+          <span>02</span>
+          <h3>Calculate fragment lengths</h3>
+          <p>Computes the physical DNA fragment length as genomic end minus genomic start, then filters likely artifacts.</p>
+        </article>
+        <article class="method-card reveal">
+          <span>03</span>
+          <h3>Build size-profile features</h3>
+          <p>Turns millions of raw rows into patient-level normalized fragment-size fingerprints.</p>
+        </article>
+        <article class="method-card reveal">
+          <span>04</span>
+          <h3>Validate with clinical controls</h3>
+          <p>Tests whether the model separates HCC from chronic liver disease rather than from perfectly healthy samples.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Validation logic</p>
+        <h2>The project became stronger when it stopped chasing one lucky score.</h2>
+        <p>
+          The most important improvement was moving beyond a single train-test
+          split. MiNAE now includes ablation studies, repeated validation, PR-AUC,
+          confusion matrices, SHAP interpretation, external replication audits,
+          and explicit technical-confounder checks.
+        </p>
+      </div>
+      <div class="evidence-grid">
+        <article class="evidence-card reveal">
+          <h3>Clinical comparator</h3>
+          <p>Controls include cirrhosis and hepatitis B, which are harder and more clinically relevant than healthy-only controls.</p>
+        </article>
+        <article class="evidence-card reveal">
+          <h3>Ablation study</h3>
+          <p>Compares hg38 global, hg19 global, dual-reference fusion, chromosome-focused features, and combined strategies.</p>
+        </article>
+        <article class="evidence-card reveal">
+          <h3>Interpretability</h3>
+          <p>SHAP and selected-feature heatmaps help show which fragment-size features drive the classifier.</p>
+        </article>
+        <article class="evidence-card reveal">
+          <h3>Honest limitation</h3>
+          <p>External datasets were useful for fragmentomics replication and auditing, but not a perfect HCC reproduction cohort.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="figures" class="section-block">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Figures</p>
+        <h2>Selected visual evidence from the MiNAE analysis.</h2>
+      </div>
+      <div class="figure-tabs reveal" data-tabs>
+        <div class="tab-buttons" role="tablist" aria-label="MiNAE figure selector">
+          <button type="button" class="active" data-tab="minae-workflow">Workflow</button>
+          <button type="button" data-tab="minae-roc">ROC/PR</button>
+          <button type="button" data-tab="minae-repeat">Repeated validation</button>
+          <button type="button" data-tab="minae-ablation">Ablation</button>
+          <button type="button" data-tab="minae-shap">SHAP</button>
+          <button type="button" data-tab="minae-confusion">Confusion</button>
+        </div>
+        <figure class="tab-panel active" data-panel="minae-workflow">
+          <img src="assets/figures/minae/workflow.png" alt="MiNAE workflow from fragment coordinates to patient-level validation.">
+          <figcaption>MiNAE workflow: fragment-coordinate ingestion, size feature extraction, validation, and audit outputs.</figcaption>
+        </figure>
+        <figure class="tab-panel" data-panel="minae-roc">
+          <img src="assets/figures/minae/roc-pr.png" alt="MiNAE final validation ROC and precision-recall curves.">
+          <figcaption>Final held-out ROC and precision-recall curves. PR-AUC is included because clinical datasets can become skewed.</figcaption>
+        </figure>
+        <figure class="tab-panel" data-panel="minae-repeat">
+          <img src="assets/figures/minae/repeated-validation.png" alt="MiNAE repeated validation boxplots.">
+          <figcaption>Repeated validation across randomized splits to estimate how stable the model is beyond one split.</figcaption>
+        </figure>
+        <figure class="tab-panel" data-panel="minae-ablation">
+          <img src="assets/figures/minae/ablation-heatmap.png" alt="MiNAE ablation metric heatmap.">
+          <figcaption>Ablation heatmap comparing global, dual-reference, chromosome-targeted, and combined feature strategies.</figcaption>
+        </figure>
+        <figure class="tab-panel" data-panel="minae-shap">
+          <img src="assets/figures/minae/shap-bar.png" alt="MiNAE SHAP feature importance bar plot.">
+          <figcaption>SHAP summary for feature-level interpretability and reviewer-facing biological interpretation.</figcaption>
+        </figure>
+        <figure class="tab-panel" data-panel="minae-confusion">
+          <img src="assets/figures/minae/confusion-matrix.png" alt="MiNAE final validation confusion matrix.">
+          <figcaption>Final validation confusion matrix showing correct and incorrect classifications at the selected threshold.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section-block compact">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Public manuscript status</p>
+        <h2>Draft available by request, not publicly posted yet.</h2>
+        <p>
+          Because MiNAE is being prepared for conference submission, I am not
+          publicly linking the full draft manuscript here. A project page with
+          methods, figures, and an email request link is safer until acceptance
+          or formal preprint posting.
+        </p>
+      </div>
+      <a class="button primary reveal" href="mailto:aarnav.bhat0@gmail.com?subject=MiNAE%20manuscript%20request">Request MiNAE draft</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="index.html">Home</a>
+    <span>MiNAE project page</span>
+  </footer>
+
+  <script src="assets/site.js"></script>
+</body>
+</html>
