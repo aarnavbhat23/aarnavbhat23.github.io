@@ -34,15 +34,6 @@ window.addEventListener("scroll", setScrollProgress, { passive: true });
 window.addEventListener("resize", setScrollProgress);
 
 if (!prefersReducedMotion && window.matchMedia("(pointer: fine)").matches) {
-  window.addEventListener("pointermove", (event) => {
-    document.body.classList.add("pointer-active");
-    document.documentElement.style.setProperty("--cursor-x", `${event.clientX}px`);
-    document.documentElement.style.setProperty("--cursor-y", `${event.clientY}px`);
-  });
-
-  window.addEventListener("pointerdown", () => document.body.classList.add("pointer-pressed"));
-  window.addEventListener("pointerup", () => document.body.classList.remove("pointer-pressed"));
-
   document.querySelectorAll(".project-feature, .link-card, .method-card, .evidence-card, .signal-strip article, .project-scoreboard article, .portrait-card").forEach((card) => {
     card.addEventListener("pointermove", (event) => {
       const rect = card.getBoundingClientRect();
@@ -109,120 +100,142 @@ window.addEventListener("pointermove", (event) => {
 
 document.querySelectorAll("[data-fragment-canvas]").forEach((canvas) => {
   const context = canvas.getContext("2d");
+  const molecules = [];
+  const palette = ["#ffffff", "#ffffff", "#ffffff", "#f4b36a", "#aab7ff"];
   let width = 0;
   let height = 0;
   let animationFrame = 0;
-  let phase = 0;
-  let targetTilt = 0;
-  let targetLift = 0;
-  let currentTilt = 0;
-  let currentLift = 0;
 
   const resize = () => {
-    const rect = canvas.getBoundingClientRect();
     const ratio = Math.min(window.devicePixelRatio || 1, 2);
-    width = Math.max(1, rect.width);
-    height = Math.max(1, rect.height);
+    width = Math.max(1, window.innerWidth);
+    height = Math.max(1, window.innerHeight);
     canvas.width = Math.floor(width * ratio);
     canvas.height = Math.floor(height * ratio);
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
+    molecules.length = 0;
+
+    const count = width < 700 ? 42 : 88;
+    for (let index = 0; index < count; index += 1) {
+      molecules.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.18,
+        vy: (Math.random() - 0.5) * 0.18,
+        angle: Math.random() * Math.PI * 2,
+        spin: (Math.random() - 0.5) * 0.003,
+        size: 0.72 + Math.random() * 0.62,
+        phase: Math.random() * Math.PI * 2,
+        color: palette[index % palette.length],
+      });
+    }
   };
 
-  const transformPoint = (x, y, angle, lift) => {
-    const centerX = width * 0.58;
-    const centerY = height * 0.5 + lift;
-    const dx = x - centerX;
-    const dy = y - centerY;
-    const cos = Math.cos(angle);
-    const sin = Math.sin(angle);
-    return {
-      x: centerX + dx * cos - dy * sin,
-      y: centerY + dx * sin + dy * cos,
-    };
-  };
+  const drawMiniDna = (molecule, drawX, drawY, influence) => {
+    const length = 24 * molecule.size * (1 + influence * 0.35);
+    const amplitude = 4.5 * molecule.size;
+    const steps = 8;
 
-  const drawPath = (points, alpha, lineWidth) => {
-    context.globalAlpha = alpha;
-    context.lineWidth = lineWidth;
-    context.strokeStyle = "#fff";
+    context.save();
+    context.translate(drawX, drawY);
+    context.rotate(molecule.angle + influence * 0.45);
+    context.strokeStyle = molecule.color;
+    context.fillStyle = molecule.color;
+    context.lineCap = "round";
+    context.lineWidth = 0.85 + influence * 0.45;
+    context.globalAlpha = 0.24 + influence * 0.62;
+
     context.beginPath();
-    points.forEach((point, index) => {
-      if (index === 0) {
-        context.moveTo(point.x, point.y);
+    for (let step = 0; step <= steps; step += 1) {
+      const t = step / steps;
+      const x = (t - 0.5) * length;
+      const y = Math.sin(t * Math.PI * 2 + molecule.phase) * amplitude;
+      if (step === 0) {
+        context.moveTo(x, y);
       } else {
-        context.lineTo(point.x, point.y);
+        context.lineTo(x, y);
       }
-    });
+    }
     context.stroke();
+
+    context.beginPath();
+    for (let step = 0; step <= steps; step += 1) {
+      const t = step / steps;
+      const x = (t - 0.5) * length;
+      const y = -Math.sin(t * Math.PI * 2 + molecule.phase) * amplitude;
+      if (step === 0) {
+        context.moveTo(x, y);
+      } else {
+        context.lineTo(x, y);
+      }
+    }
+    context.stroke();
+
+    for (let step = 1; step < steps; step += 2) {
+      const t = step / steps;
+      const x = (t - 0.5) * length;
+      const y = Math.sin(t * Math.PI * 2 + molecule.phase) * amplitude;
+      context.globalAlpha = 0.12 + influence * 0.42;
+      context.beginPath();
+      context.moveTo(x, y);
+      context.lineTo(x, -y);
+      context.stroke();
+    }
+
+    context.globalAlpha = 0.45 + influence * 0.55;
+    context.fillRect(-length / 2 - 1.2, -1.2, 2.4, 2.4);
+    context.fillRect(length / 2 - 1.2, -1.2, 2.4, 2.4);
+    context.restore();
   };
 
   const draw = () => {
+    context.globalAlpha = 1;
     context.clearRect(0, 0, width, height);
-    const rect = canvas.getBoundingClientRect();
-    const localPointerX = pointer.x - rect.left;
-    const localPointerY = pointer.y - rect.top;
-    const pointerInside = localPointerX >= 0 && localPointerX <= width && localPointerY >= 0 && localPointerY <= height;
 
-    targetTilt = pointerInside ? ((localPointerX / width) - 0.5) * 0.26 : -0.08;
-    targetLift = pointerInside ? ((localPointerY / height) - 0.5) * 52 : 0;
-    currentTilt += (targetTilt - currentTilt) * 0.055;
-    currentLift += (targetLift - currentLift) * 0.055;
+    molecules.forEach((molecule) => {
+      if (!prefersReducedMotion) {
+        molecule.x += molecule.vx;
+        molecule.y += molecule.vy;
+        molecule.angle += molecule.spin;
+        molecule.phase += 0.006;
+      }
 
-    if (!prefersReducedMotion) {
-      phase += 0.012;
-    }
+      if (molecule.x < -40) molecule.x = width + 40;
+      if (molecule.x > width + 40) molecule.x = -40;
+      if (molecule.y < -40) molecule.y = height + 40;
+      if (molecule.y > height + 40) molecule.y = -40;
 
-    const baseY = height * 0.58 + currentLift;
-    const amplitude = Math.min(86, Math.max(42, width * 0.06));
-    const startX = -width * 0.06;
-    const endX = width * 1.08;
-    const step = width < 700 ? 22 : 28;
-    const turns = width < 700 ? 2.3 : 3.1;
-    const topStrand = [];
-    const bottomStrand = [];
+      const dx = molecule.x - pointer.x;
+      const dy = molecule.y - pointer.y;
+      const distance = Math.hypot(dx, dy);
+      const influence = Math.max(0, 1 - distance / 170);
+      const force = influence * influence * 34;
+      const angle = Math.atan2(dy, dx);
+      const drawX = molecule.x + Math.cos(angle) * force;
+      const drawY = molecule.y + Math.sin(angle) * force;
 
-    for (let x = startX; x <= endX; x += 7) {
-      const progress = (x - startX) / (endX - startX);
-      const wave = Math.sin(progress * Math.PI * 2 * turns + phase);
-      const taper = 0.72 + 0.28 * Math.sin(progress * Math.PI);
-      topStrand.push(transformPoint(x, baseY + wave * amplitude * taper, currentTilt, 0));
-      bottomStrand.push(transformPoint(x, baseY - wave * amplitude * taper, currentTilt, 0));
-    }
+      if (influence > 0.04) {
+        const glow = context.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, 130);
+        glow.addColorStop(0, "rgba(255, 255, 255, 0.1)");
+        glow.addColorStop(1, "rgba(255, 255, 255, 0)");
+        context.globalAlpha = influence * 0.26;
+        context.fillStyle = glow;
+        context.beginPath();
+        context.arc(pointer.x, pointer.y, 130, 0, Math.PI * 2);
+        context.fill();
 
-    drawPath(topStrand, 0.62, 1.4);
-    drawPath(bottomStrand, 0.62, 1.4);
+        context.globalAlpha = influence * 0.18;
+        context.strokeStyle = molecule.color;
+        context.lineWidth = 0.7;
+        context.beginPath();
+        context.moveTo(drawX, drawY);
+        context.lineTo(pointer.x, pointer.y);
+        context.stroke();
+      }
 
-    for (let x = startX; x <= endX; x += step) {
-      const progress = (x - startX) / (endX - startX);
-      const wave = Math.sin(progress * Math.PI * 2 * turns + phase);
-      const taper = 0.72 + 0.28 * Math.sin(progress * Math.PI);
-      const top = transformPoint(x, baseY + wave * amplitude * taper, currentTilt, 0);
-      const bottom = transformPoint(x, baseY - wave * amplitude * taper, currentTilt, 0);
-      const depth = 0.25 + 0.75 * Math.abs(Math.cos(progress * Math.PI * 2 * turns + phase));
-
-      context.globalAlpha = 0.18 + depth * 0.34;
-      context.lineWidth = 1;
-      context.strokeStyle = "#fff";
-      context.beginPath();
-      context.moveTo(top.x, top.y);
-      context.lineTo(bottom.x, bottom.y);
-      context.stroke();
-
-      context.globalAlpha = 0.72;
-      context.fillStyle = "#fff";
-      context.fillRect(top.x - 2, top.y - 2, 4, 4);
-      context.fillRect(bottom.x - 2, bottom.y - 2, 4, 4);
-    }
-
-    context.globalAlpha = 0.12;
-    context.lineWidth = 1;
-    context.strokeStyle = "#fff";
-    const axisStart = transformPoint(startX, baseY, currentTilt, 0);
-    const axisEnd = transformPoint(endX, baseY, currentTilt, 0);
-    context.beginPath();
-    context.moveTo(axisStart.x, axisStart.y);
-    context.lineTo(axisEnd.x, axisEnd.y);
-    context.stroke();
+      drawMiniDna(molecule, drawX, drawY, influence);
+      context.globalAlpha = 1;
+    });
 
     if (!prefersReducedMotion) {
       animationFrame = window.requestAnimationFrame(draw);
