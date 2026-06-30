@@ -101,7 +101,7 @@ window.addEventListener("pointermove", (event) => {
 document.querySelectorAll("[data-fragment-canvas]").forEach((canvas) => {
   const context = canvas.getContext("2d");
   const molecules = [];
-  const palette = ["#ffffff", "#ffffff", "#ffffff", "#f4b36a", "#aab7ff"];
+  const palette = ["#ffffff"];
   let width = 0;
   let height = 0;
   let animationFrame = 0;
@@ -115,16 +115,16 @@ document.querySelectorAll("[data-fragment-canvas]").forEach((canvas) => {
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
     molecules.length = 0;
 
-    const count = width < 700 ? 42 : 88;
+    const count = width < 700 ? 90 : 190;
     for (let index = 0; index < count; index += 1) {
       molecules.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.18,
-        vy: (Math.random() - 0.5) * 0.18,
+        vx: (Math.random() - 0.5) * 0.15,
+        vy: (Math.random() - 0.5) * 0.15,
         angle: Math.random() * Math.PI * 2,
         spin: (Math.random() - 0.5) * 0.003,
-        size: 0.72 + Math.random() * 0.62,
+        size: 0.55 + Math.random() * 0.56,
         phase: Math.random() * Math.PI * 2,
         color: palette[index % palette.length],
       });
@@ -143,7 +143,7 @@ document.querySelectorAll("[data-fragment-canvas]").forEach((canvas) => {
     context.fillStyle = molecule.color;
     context.lineCap = "round";
     context.lineWidth = 0.85 + influence * 0.45;
-    context.globalAlpha = 0.24 + influence * 0.62;
+    context.globalAlpha = 0.16 + influence * 0.44;
 
     context.beginPath();
     for (let step = 0; step <= steps; step += 1) {
@@ -175,14 +175,14 @@ document.querySelectorAll("[data-fragment-canvas]").forEach((canvas) => {
       const t = step / steps;
       const x = (t - 0.5) * length;
       const y = Math.sin(t * Math.PI * 2 + molecule.phase) * amplitude;
-      context.globalAlpha = 0.12 + influence * 0.42;
+      context.globalAlpha = 0.08 + influence * 0.3;
       context.beginPath();
       context.moveTo(x, y);
       context.lineTo(x, -y);
       context.stroke();
     }
 
-    context.globalAlpha = 0.45 + influence * 0.55;
+    context.globalAlpha = 0.3 + influence * 0.5;
     context.fillRect(-length / 2 - 1.2, -1.2, 2.4, 2.4);
     context.fillRect(length / 2 - 1.2, -1.2, 2.4, 2.4);
     context.restore();
@@ -216,15 +216,15 @@ document.querySelectorAll("[data-fragment-canvas]").forEach((canvas) => {
 
       if (influence > 0.04) {
         const glow = context.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, 130);
-        glow.addColorStop(0, "rgba(255, 255, 255, 0.1)");
+        glow.addColorStop(0, "rgba(255, 255, 255, 0.075)");
         glow.addColorStop(1, "rgba(255, 255, 255, 0)");
-        context.globalAlpha = influence * 0.26;
+        context.globalAlpha = influence * 0.18;
         context.fillStyle = glow;
         context.beginPath();
         context.arc(pointer.x, pointer.y, 130, 0, Math.PI * 2);
         context.fill();
 
-        context.globalAlpha = influence * 0.18;
+        context.globalAlpha = influence * 0.11;
         context.strokeStyle = molecule.color;
         context.lineWidth = 0.7;
         context.beginPath();

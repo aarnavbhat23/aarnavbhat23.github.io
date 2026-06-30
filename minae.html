@@ -18,7 +18,7 @@
 
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Aarnav Bhat home">
-      <span class="brand-mark">AB</span>
+      <span class="brand-mark"><img src="assets/favicon.svg" alt="" aria-hidden="true"></span>
       <span>Aarnav Bhat</span>
     </a>
     <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button>
@@ -26,6 +26,7 @@
       <a href="index.html">Home</a>
       <a href="minae.html" aria-current="page">MiNAE</a>
       <a href="prisma.html">PrISMA</a>
+      <a href="methylation.html">Methylation</a>
       <a href="index.html#writing">Writing</a>
       <a href="index.html#contact">Contact</a>
     </nav>
@@ -41,7 +42,13 @@
           MiNAE is a cfDNA fragmentomics framework for hepatocellular carcinoma
           detection. Instead of searching for tumor mutations, it studies the
           physical size patterns of cell-free DNA fragments and asks whether those
-          patterns distinguish liver cancer from chronic liver disease controls.
+          patterns distinguish liver cancer from chronic liver disease controls
+          such as cirrhosis and hepatitis B.
+        </p>
+        <p class="lead">
+          The project is intentionally framed as a technical audit as much as a
+          classifier: it reports ROC-AUC and PR-AUC, repeated validation, ablation
+          comparisons, feature interpretation, and known confounding risks.
         </p>
         <div class="hero-pills" aria-label="MiNAE validation features">
           <span>ROC/PR curves</span>

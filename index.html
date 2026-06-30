@@ -18,7 +18,7 @@
 
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Aarnav Bhat home">
-      <span class="brand-mark">AB</span>
+      <span class="brand-mark"><img src="assets/favicon.svg" alt="" aria-hidden="true"></span>
       <span>Aarnav Bhat</span>
     </a>
     <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button>
@@ -26,6 +26,7 @@
       <a href="index.html" aria-current="page">Home</a>
       <a href="minae.html">MiNAE</a>
       <a href="prisma.html">PrISMA</a>
+      <a href="methylation.html">Methylation</a>
       <a href="#writing">Writing</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -35,23 +36,30 @@
     <section class="hero-shell">
       <canvas class="fragment-canvas" data-fragment-canvas aria-hidden="true"></canvas>
       <div class="hero-copy reveal">
-        <p class="eyebrow">Computational biology + machine learning</p>
-        <h1>Building validated research tools for cancer genomics.</h1>
+        <p class="eyebrow">Computational biology + translational ML</p>
+        <h1>Aarnav Bhat</h1>
         <p class="lead">
-          I am a high school researcher working across cfDNA fragmentomics,
-          epigenetic biomarkers, target prioritization, and translational ML.
-          My focus is not just building models, but testing whether they survive
-          realistic controls, external checks, and reviewer-grade validation.
+          I build validation-first machine learning systems for cancer biology,
+          with projects spanning cfDNA fragmentomics, DNA methylation biomarkers,
+          and specificity-aware immunotherapy target prioritization.
+        </p>
+        <p class="lead">
+          My work is centered on a simple standard: a model is only interesting
+          if it survives realistic controls, held-out testing, ablation studies,
+          precision-recall analysis, and the technical-confounder checks that
+          make biomedical AI difficult in the real world.
         </p>
         <div class="hero-pills" aria-label="Research focus areas">
+          <span>patient-level validation</span>
           <span>cfDNA fragmentomics</span>
-          <span>specificity-aware ranking</span>
-          <span>clinical controls</span>
+          <span>epigenomic ML</span>
+          <span>target prioritization</span>
           <span>reproducibility</span>
         </div>
         <div class="hero-actions" aria-label="Primary profile links">
           <a class="button primary" href="minae.html">View MiNAE</a>
           <a class="button" href="prisma.html">View PrISMA</a>
+          <a class="button" href="methylation.html">View Methylation</a>
           <a class="button ghost" href="mailto:aarnav.bhat0@gmail.com">Email</a>
         </div>
       </div>
@@ -92,27 +100,27 @@
         <span class="metric-label">MiNAE held-out ROC-AUC</span>
       </article>
       <article>
-        <span class="metric-value">0.873</span>
-        <span class="metric-label">MiNAE held-out PR-AUC</span>
+        <span class="metric-value">0.983</span>
+        <span class="metric-label">methylation model ROC-AUC</span>
       </article>
       <article>
         <span class="metric-value">7,240</span>
         <span class="metric-label">Methylation samples analyzed</span>
       </article>
       <article>
-        <span class="metric-value">2</span>
-        <span class="metric-label">BIBM 2026 manuscripts prepared</span>
+        <span class="metric-value">3</span>
+        <span class="metric-label">cancer ML research systems</span>
       </article>
     </section>
 
     <section id="research" class="section-block">
       <div class="section-heading reveal">
         <p class="eyebrow">Featured work</p>
-        <h2>Projects with validation built into the story.</h2>
+        <h2>Projects designed around evidence, not just output scores.</h2>
         <p>
-          Each project is written as a research system: data source, biological
-          hypothesis, computational method, validation design, limitations, and
-          figures that make the model behavior inspectable.
+          Each project is framed as a complete research system: biological
+          hypothesis, data source, feature engineering, model choice, validation
+          design, interpretability, failure modes, and reviewer-facing limitations.
         </p>
       </div>
 
@@ -125,10 +133,14 @@
             <span class="status-pill">cfDNA fragmentomics</span>
             <h3>MiNAE: Mutation-independent Nucleosome Architecture Evaluation</h3>
             <p>
-              A liver cancer detection framework that uses cell-free DNA fragment
-              size profiles instead of tumor mutation sequencing, tested against
-              cirrhosis and hepatitis B controls.
+              A liver cancer fragmentomics framework that learns from physical
+              cfDNA fragment-size patterns instead of expensive tumor mutation
+              sequencing.
             </p>
+            <ul class="project-points">
+              <li>Tests HCC against cirrhosis and hepatitis B controls</li>
+              <li>Includes ROC/PR curves, SHAP, ablation, and repeated validation</li>
+            </ul>
             <span class="text-link">Open project page</span>
           </div>
         </a>
@@ -142,9 +154,31 @@
             <h3>PrISMA-RSC: Pancreatic immunotherapy target ranking</h3>
             <p>
               A specificity-aware consensus algorithm for prioritizing pancreatic
-              cancer stromal targets using expression, spatial, structural, and
-              robustness evidence.
+              cancer stromal targets while penalizing nonspecific candidates.
             </p>
+            <ul class="project-points">
+              <li>Integrates expression, spatial, structure, and control evidence</li>
+              <li>Stress-tests LRRC15 and comparator targets across scoring assumptions</li>
+            </ul>
+            <span class="text-link">Open project page</span>
+          </div>
+        </a>
+
+        <a class="project-feature reveal" href="methylation.html">
+          <div class="feature-image">
+            <img src="assets/figures/methylation/roc_combined_luad_lusc.png" alt="DNA methylation lung cancer ROC curve.">
+          </div>
+          <div class="feature-body">
+            <span class="status-pill">Epigenomic diagnostics</span>
+            <h3>DNA methylation biomarkers for lung cancer detection</h3>
+            <p>
+              An AI-driven biomarker study using EGFR, PD-L1, SHOX2, RASSF1A,
+              and PTGER4 methylation patterns across LUAD and LUSC cohorts.
+            </p>
+            <ul class="project-points">
+              <li>7,240 samples screened, 2,385 final processed samples</li>
+              <li>Gradient boosting model with 0.983 ROC-AUC and 98.2% recall</li>
+            </ul>
             <span class="text-link">Open project page</span>
           </div>
         </a>
@@ -160,15 +194,15 @@
         <div class="timeline-item reveal">
           <time>2026</time>
           <div>
-            <h3>Patient-level cancer genomics validation</h3>
-            <p>Built MiNAE and PrISMA-RSC, emphasizing external checks, ablation studies, PR-AUC, confusion matrices, and technical-confounder audits.</p>
+            <h3>Validation-first cancer ML systems</h3>
+            <p>Built MiNAE and PrISMA-RSC, emphasizing clinical controls, external checks, ablation studies, PR-AUC, confusion matrices, negative controls, and technical-confounder audits.</p>
           </div>
         </div>
         <div class="timeline-item reveal">
           <time>2025-2026</time>
           <div>
             <h3>AI-driven lung cancer methylation biomarkers</h3>
-            <p>Co-authored an accepted IEEE-credited conference study using 7,240 genomic samples and a gradient-boosting model for biomarker-based detection.</p>
+            <p>Co-authored an IEEE-credited conference study analyzing EGFR, PD-L1, SHOX2, RASSF1A, and PTGER4 methylation signatures across 7,240 samples with a gradient boosting model.</p>
           </div>
         </div>
         <div class="timeline-item reveal">
@@ -193,9 +227,10 @@
         <p class="eyebrow">Writing and manuscripts</p>
         <h2>Research communication without overclaiming.</h2>
         <p>
-          I keep public pages focused on accepted work, project summaries, and
-          selected figures. Full draft manuscripts for work under submission are
-          best shared by request until acceptance or formal preprint posting.
+          I keep public pages focused on accepted work, project summaries, selected
+          figures, and reproducible validation logic. Draft manuscripts under
+          submission are best shared by request until acceptance or formal preprint
+          posting.
         </p>
       </div>
 
@@ -213,7 +248,7 @@
         <a class="link-card reveal" href="mailto:aarnav.bhat0@gmail.com?subject=Manuscript%20request%20-%20Aarnav%20Bhat">
           <span>Manuscripts</span>
           <h3>Drafts available by request</h3>
-          <p>For MiNAE and PrISMA-RSC, request a current draft or figure packet by email.</p>
+          <p>For MiNAE, PrISMA-RSC, or methylation materials, request a current draft or figure packet by email.</p>
         </a>
       </div>
     </section>
