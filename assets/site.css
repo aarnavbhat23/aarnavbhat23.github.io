@@ -488,36 +488,48 @@ h3 {
   transform: scale(1.025);
 }
 
-.portrait-badge {
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  bottom: 45px;
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  align-items: center;
-  padding: 10px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.38);
-  border-radius: 2px;
-  background: rgba(0, 0, 0, 0.78);
-  color: #fff;
-  backdrop-filter: blur(12px);
-  font-size: 0.78rem;
-}
-
-.portrait-badge span {
-  color: rgba(255, 255, 255, 0.68);
-}
-
-.portrait-badge strong {
-  text-align: right;
-}
-
 .portrait-card figcaption {
   padding: 12px 14px 14px;
   color: var(--muted);
   font-size: 0.82rem;
+}
+
+.focus-strip {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: auto minmax(220px, 0.48fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 18px;
+  margin: -34px 0 30px;
+  padding: 15px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.78);
+  box-shadow: 0 0 58px rgba(0, 0, 0, 0.62);
+  color: #fff;
+  backdrop-filter: blur(12px);
+}
+
+.focus-strip span {
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.76rem;
+  font-weight: 790;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.focus-strip strong {
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-weight: 650;
+  line-height: 1.1;
+}
+
+.focus-strip p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 .signal-strip {
@@ -529,7 +541,7 @@ h3 {
 
 .motion-belt {
   width: 100%;
-  margin: -22px 0 34px;
+  margin: 0 0 34px;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 2px;
@@ -1199,18 +1211,23 @@ h3 {
     padding-top: 38px;
   }
 
-  .portrait-badge {
-    position: static;
-    margin: 12px;
-    background: var(--ink);
-  }
-
   .portrait-card img {
     height: 470px;
   }
 
+  .focus-strip {
+    grid-template-columns: 1fr;
+    gap: 9px;
+    margin: 0 0 24px;
+    padding: 14px;
+  }
+
+  .focus-strip strong {
+    font-size: 1.18rem;
+  }
+
   .motion-belt {
-    margin-top: -8px;
+    margin-top: 0;
   }
 
   .belt-track span {
