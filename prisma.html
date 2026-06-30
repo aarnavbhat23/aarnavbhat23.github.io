@@ -8,6 +8,14 @@
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="site-loader" aria-hidden="true">
+    <span>Loading target evidence</span>
+    <strong>PrISMA-RSC</strong>
+    <div class="loader-track"><i></i></div>
+  </div>
+
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Aarnav Bhat home">
       <span class="brand-mark">AB</span>
@@ -25,6 +33,7 @@
 
   <main>
     <section class="project-hero prisma-hero">
+      <canvas class="fragment-canvas" data-fragment-canvas aria-hidden="true"></canvas>
       <div class="reveal">
         <p class="eyebrow">PrISMA-RSC</p>
         <h1>Pancreatic immunotherapy target prioritization with specificity-aware consensus.</h1>
@@ -34,6 +43,12 @@
           computational framework for ranking stromal immunotherapy targets in
           pancreatic cancer while penalizing nonspecific or risky candidates.
         </p>
+        <div class="hero-pills" aria-label="PrISMA evidence features">
+          <span>specificity</span>
+          <span>spatial context</span>
+          <span>structure-aware checks</span>
+          <span>negative controls</span>
+        </div>
         <div class="hero-actions">
           <a class="button primary" href="#figures">View figures</a>
           <a class="button" href="mailto:aarnav.bhat0@gmail.com?subject=PrISMA-RSC%20manuscript%20request">Request draft</a>
@@ -52,6 +67,27 @@
           <span class="metric-value">100%</span>
           <span class="metric-label">noise-test top rank for LRRC15</span>
         </article>
+      </div>
+    </section>
+
+    <section class="motion-belt reveal" aria-label="PrISMA evidence ticker">
+      <div class="belt-track">
+        <span>LRRC15</span>
+        <span>target specificity</span>
+        <span>normal tissue penalty</span>
+        <span>spatial support</span>
+        <span>structure-aware triage</span>
+        <span>negative controls</span>
+        <span>rank stability</span>
+        <span>consensus scoring</span>
+        <span>LRRC15</span>
+        <span>target specificity</span>
+        <span>normal tissue penalty</span>
+        <span>spatial support</span>
+        <span>structure-aware triage</span>
+        <span>negative controls</span>
+        <span>rank stability</span>
+        <span>consensus scoring</span>
       </div>
     </section>
 

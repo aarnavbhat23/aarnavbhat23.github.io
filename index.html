@@ -8,6 +8,14 @@
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="site-loader" aria-hidden="true">
+    <span>Initializing research portfolio</span>
+    <strong>MiNAE / PrISMA-RSC</strong>
+    <div class="loader-track"><i></i></div>
+  </div>
+
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Aarnav Bhat home">
       <span class="brand-mark">AB</span>
@@ -25,6 +33,7 @@
 
   <main>
     <section class="hero-shell">
+      <canvas class="fragment-canvas" data-fragment-canvas aria-hidden="true"></canvas>
       <div class="hero-copy reveal">
         <p class="eyebrow">Computational biology + machine learning</p>
         <h1>Building validated research tools for cancer genomics.</h1>
@@ -34,6 +43,12 @@
           My focus is not just building models, but testing whether they survive
           realistic controls, external checks, and reviewer-grade validation.
         </p>
+        <div class="hero-pills" aria-label="Research focus areas">
+          <span>cfDNA fragmentomics</span>
+          <span>specificity-aware ranking</span>
+          <span>clinical controls</span>
+          <span>reproducibility</span>
+        </div>
         <div class="hero-actions" aria-label="Primary profile links">
           <a class="button primary" href="minae.html">View MiNAE</a>
           <a class="button" href="prisma.html">View PrISMA</a>
@@ -42,8 +57,33 @@
       </div>
       <figure class="portrait-card reveal">
         <img src="assets/images/aarnav-research-portrait.jpg" alt="Aarnav Bhat presenting research at a science fair poster session.">
+        <div class="portrait-badge">
+          <span>Current focus</span>
+          <strong>validated computational oncology</strong>
+        </div>
         <figcaption>Research presentation, computational biology and biomedical science.</figcaption>
       </figure>
+    </section>
+
+    <section class="motion-belt reveal" aria-label="Research focus ticker">
+      <div class="belt-track">
+        <span>fragmentomics</span>
+        <span>machine learning</span>
+        <span>clinical controls</span>
+        <span>PR-AUC</span>
+        <span>SHAP</span>
+        <span>ablation studies</span>
+        <span>external audit</span>
+        <span>target specificity</span>
+        <span>fragmentomics</span>
+        <span>machine learning</span>
+        <span>clinical controls</span>
+        <span>PR-AUC</span>
+        <span>SHAP</span>
+        <span>ablation studies</span>
+        <span>external audit</span>
+        <span>target specificity</span>
+      </div>
     </section>
 
     <section class="signal-strip reveal" aria-label="Selected research metrics">

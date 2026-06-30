@@ -8,6 +8,14 @@
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="site-loader" aria-hidden="true">
+    <span>Loading project evidence</span>
+    <strong>MiNAE</strong>
+    <div class="loader-track"><i></i></div>
+  </div>
+
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Aarnav Bhat home">
       <span class="brand-mark">AB</span>
@@ -25,6 +33,7 @@
 
   <main>
     <section class="project-hero minae-hero">
+      <canvas class="fragment-canvas" data-fragment-canvas aria-hidden="true"></canvas>
       <div class="reveal">
         <p class="eyebrow">MiNAE</p>
         <h1>Mutation-independent Nucleosome Architecture Evaluation</h1>
@@ -34,6 +43,12 @@
           physical size patterns of cell-free DNA fragments and asks whether those
           patterns distinguish liver cancer from chronic liver disease controls.
         </p>
+        <div class="hero-pills" aria-label="MiNAE validation features">
+          <span>ROC/PR curves</span>
+          <span>ablation study</span>
+          <span>SHAP</span>
+          <span>technical audit</span>
+        </div>
         <div class="hero-actions">
           <a class="button primary" href="#figures">View figures</a>
           <a class="button" href="mailto:aarnav.bhat0@gmail.com?subject=MiNAE%20manuscript%20request">Request draft</a>
@@ -52,6 +67,27 @@
           <span class="metric-value">100x</span>
           <span class="metric-label">repeated validation</span>
         </article>
+      </div>
+    </section>
+
+    <section class="motion-belt reveal" aria-label="MiNAE evidence ticker">
+      <div class="belt-track">
+        <span>fragment length</span>
+        <span>50-250 bp filtering</span>
+        <span>clinical controls</span>
+        <span>LOOCV</span>
+        <span>held-out validation</span>
+        <span>PR-AUC</span>
+        <span>SHAP</span>
+        <span>permutation testing</span>
+        <span>fragment length</span>
+        <span>50-250 bp filtering</span>
+        <span>clinical controls</span>
+        <span>LOOCV</span>
+        <span>held-out validation</span>
+        <span>PR-AUC</span>
+        <span>SHAP</span>
+        <span>permutation testing</span>
       </div>
     </section>
 
