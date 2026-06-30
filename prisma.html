@@ -51,11 +51,15 @@
           pancreatic cancer while penalizing nonspecific or risky candidates.
         </p>
         <p class="lead">
-          Rather than treating high expression as enough, PrISMA-RSC asks whether
-          a candidate remains plausible after normal-tissue risk, spatial context,
-          structural accessibility, negative controls, and robustness checks.
+          The core idea is that target discovery should not stop at high gene
+          expression. A useful target also needs tumor-stromal relevance, normal
+          tissue safety, spatial support, protein-level plausibility, structure
+          readiness, and off-target specificity checks before it becomes worth
+          experimental follow-up.
         </p>
         <div class="hero-pills" aria-label="PrISMA evidence features">
+          <span>PDAC stroma</span>
+          <span>LRRC15 benchmark</span>
           <span>specificity</span>
           <span>spatial context</span>
           <span>structure-aware checks</span>
@@ -85,8 +89,8 @@
     <section class="motion-belt reveal" aria-label="PrISMA evidence ticker">
       <div class="belt-track">
         <span>protein modeling</span>
-        <span>AlphaFold</span>
-        <span>Boltz</span>
+        <span class="logo-token"><span class="mini-logo logo-af">AF</span>AlphaFold</span>
+        <span class="logo-token"><span class="mini-logo logo-boltz">B</span>Boltz</span>
         <span>stromal immunotherapy</span>
         <span>target discovery</span>
         <span>target specificity</span>
@@ -95,8 +99,8 @@
         <span>translational biotech</span>
         <span>consensus ranking</span>
         <span>protein modeling</span>
-        <span>AlphaFold</span>
-        <span>Boltz</span>
+        <span class="logo-token"><span class="mini-logo logo-af">AF</span>AlphaFold</span>
+        <span class="logo-token"><span class="mini-logo logo-boltz">B</span>Boltz</span>
         <span>stromal immunotherapy</span>
         <span>target discovery</span>
         <span>target specificity</span>
@@ -116,7 +120,7 @@
         <article class="method-card reveal">
           <span>01</span>
           <h3>Score tumor-stromal relevance</h3>
-          <p>Starts from candidate pancreatic cancer stromal targets and measures whether they are enriched in the disease setting.</p>
+          <p>Starts from PDAC stromal candidates and asks whether a target is enriched in cancer-associated fibroblast-like populations.</p>
         </article>
         <article class="method-card reveal">
           <span>02</span>
@@ -132,6 +136,16 @@
           <span>04</span>
           <h3>Stress-test the ranking</h3>
           <p>Runs ablation, negative-control, and weight-perturbation checks so the ranking is not dependent on one fragile setting.</p>
+        </article>
+        <article class="method-card reveal">
+          <span>05</span>
+          <h3>Separate target discovery from binder claims</h3>
+          <p>Treats LRRC15 target prioritization and LRRC15 binder triage as different tasks with different evidence standards.</p>
+        </article>
+        <article class="method-card reveal">
+          <span>06</span>
+          <h3>Cross-screen off-target context</h3>
+          <p>Compares designed candidates against LRRC15 and off-target proteins such as ITGA11, MXRA8, and CTSK before calling anything promising.</p>
         </article>
       </div>
     </section>
@@ -150,11 +164,11 @@
       <div class="evidence-grid">
         <article class="evidence-card reveal">
           <h3>Integrated evidence</h3>
-          <p>Combines expression, normal-tissue risk, surface accessibility, spatial support, and structure-aware evidence.</p>
+          <p>Combines target discovery, normal safety, patient reproducibility, spatial CAF support, structure readiness, and actionability.</p>
         </article>
         <article class="evidence-card reveal">
           <h3>Benchmark recovery</h3>
-          <p>Checks whether the scoring logic recovers LRRC15 and receptor-like translational targets above comparators.</p>
+          <p>Checks whether the scoring logic recovers LRRC15 without pretending LRRC15 itself is a newly discovered biological target.</p>
         </article>
         <article class="evidence-card reveal">
           <h3>Robustness testing</h3>
@@ -163,6 +177,69 @@
         <article class="evidence-card reveal">
           <h3>Honest caveat</h3>
           <p>The ROC-style benchmark is a small target-ranking diagnostic, not a patient-level clinical model validation.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-heading reveal">
+        <p class="eyebrow">What it found</p>
+        <h2>LRRC15 became the benchmark lead because it survived multiple filters, not because one layer looked good.</h2>
+        <p>
+          The PrISMA-RSC paper frames LRRC15 as a known stromal target used to
+          test whether the pipeline can recover plausible biology while rejecting
+          weaker or riskier candidates. That distinction matters: the project is
+          most original as an auditable ranking and triage system, not as a claim
+          that LRRC15 was newly discovered.
+        </p>
+      </div>
+      <div class="evidence-grid">
+        <article class="evidence-card reveal">
+          <h3>Target signal</h3>
+          <p>LRRC15 showed 5.49 log2 fold-change in PDAC CAF-like cells versus human normal pancreas stroma, with low normal-organ risk.</p>
+        </article>
+        <article class="evidence-card reveal">
+          <h3>Spatial support</h3>
+          <p>The target was detected in 10 of 11 PDAC spatial slides, supporting relevance to tumor microenvironment regions.</p>
+        </article>
+        <article class="evidence-card reveal">
+          <h3>Consensus rank</h3>
+          <p>PrISMA-RSC ranked LRRC15 first with score 82.6, ahead of ITGA11 at 44.5 and CTSK at 44.2.</p>
+        </article>
+        <article class="evidence-card reveal">
+          <h3>Stress tests</h3>
+          <p>LRRC15 was top-ranked in 72.5% of 20,000 random layer-weight scenarios and stayed top-ranked under 10,000 layer-score noise trials.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Binder triage</p>
+        <h2>The binder stage is deliberately conservative.</h2>
+        <p>
+          PrISMA-RSC also explores computational binder screening, but the page
+          avoids overclaiming. Protein-structure and binding models are hypothesis
+          generators. A positive computational margin is a reason to design
+          experiments, not evidence of a working therapeutic.
+        </p>
+      </div>
+      <div class="evidence-grid">
+        <article class="evidence-card reveal">
+          <h3>Crop-level screen</h3>
+          <p>A 1,000-design crop-level campaign produced 44 high-confidence LRRC15 crop candidates, but the top candidates did not retain full-ECD specificity.</p>
+        </article>
+        <article class="evidence-card reveal">
+          <h3>Full-context follow-up</h3>
+          <p>A 450-design full-ECD exploration recovered four positive-margin candidates, with the best margin reported as 0.089 over the strongest off-target.</p>
+        </article>
+        <article class="evidence-card reveal">
+          <h3>Off-target logic</h3>
+          <p>Candidate binders were screened against comparator contexts including ITGA11, MXRA8, and CTSK to avoid single-target tunnel vision.</p>
+        </article>
+        <article class="evidence-card reveal">
+          <h3>Real-world boundary</h3>
+          <p>The result is a reproducible starting point for wet-lab testing, not a validated binder, drug, or clinical treatment.</p>
         </article>
       </div>
     </section>
@@ -200,6 +277,70 @@
           <img src="assets/figures/prisma/negative-controls.png" alt="PrISMA baseline and negative control results.">
           <figcaption>Baseline and negative-control analysis to test whether the scoring framework avoids obvious false positives.</figcaption>
         </figure>
+      </div>
+    </section>
+
+    <section class="section-block compact">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Tools and data resources</p>
+        <h2>The technical stack behind PrISMA-RSC.</h2>
+        <p>
+          PrISMA-RSC connects single-cell and spatial resources with structure
+          prediction, target scoring, off-target screening, and immunogenicity or
+          developability triage.
+        </p>
+      </div>
+      <div class="tool-grid reveal" aria-label="PrISMA-RSC tools and data resources">
+        <article class="tool-card">
+          <span class="tool-logo icon-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/python.svg" alt=""></span>
+          <strong>Python</strong>
+          <p>Pipeline scripting, scoring, ranking, and figure generation.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo text-logo">SC</span>
+          <strong>Scanpy</strong>
+          <p>Single-cell analysis workflow for expression and cell-state comparisons.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo text-logo">CZ</span>
+          <strong>CZ CELLxGENE / Biohub</strong>
+          <p>Single-cell ecosystem and Biohub-style cross-validation context.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo text-logo">GT</span>
+          <strong>GTEx</strong>
+          <p>Normal-tissue expression reference for specificity risk.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo text-logo">TS</span>
+          <strong>Tabula Sapiens</strong>
+          <p>Normal human cell atlas context for tissue and cell-type filtering.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo text-logo">CP</span>
+          <strong>CPTAC-PDAC</strong>
+          <p>Proteogenomic support for RNA, protein, and glycopeptide evidence.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo text-logo logo-af">AF</span>
+          <strong>AlphaFold</strong>
+          <p>Structure prediction and cross-model structural interpretation.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo text-logo logo-boltz">B</span>
+          <strong>Boltz</strong>
+          <p>Structure and binding-confidence checks for target/binder triage.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo text-logo">PDB</span>
+          <strong>RCSB PDB</strong>
+          <p>Known structural references and sanity checks for modeled proteins.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo text-logo">MHC</span>
+          <strong>MHCflurry</strong>
+          <p>HLA-I binding prediction used as an immunogenicity proxy.</p>
+        </article>
       </div>
     </section>
 

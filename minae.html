@@ -52,11 +52,15 @@
           such as cirrhosis and hepatitis B.
         </p>
         <p class="lead">
-          The project is intentionally framed as a technical audit as much as a
-          classifier: it reports ROC-AUC and PR-AUC, repeated validation, ablation
-          comparisons, feature interpretation, and known confounding risks.
+          The analysis uses public FinaleDB fragment-coordinate files and keeps
+          the claim deliberately bounded: MiNAE is not a clinical diagnostic. It
+          is a patient-level validation and auditing framework designed to show
+          what cfDNA fragment-size architecture can and cannot prove from public
+          coordinate-level data.
         </p>
         <div class="hero-pills" aria-label="MiNAE validation features">
+          <span>176 patients</span>
+          <span>HCC vs cirrhosis/HBV</span>
           <span>ROC/PR curves</span>
           <span>ablation study</span>
           <span>SHAP</span>
@@ -111,13 +115,13 @@
     <section class="section-block compact">
       <div class="section-heading reveal">
         <p class="eyebrow">What it does</p>
-        <h2>From compressed fragment coordinates to patient-level predictions.</h2>
+        <h2>From compressed fragment coordinates to leakage-aware patient predictions.</h2>
       </div>
       <div class="method-grid">
         <article class="method-card reveal">
           <span>01</span>
           <h3>Ingest fragment-coordinate data</h3>
-          <p>Reads public cfDNA fragment files and separates cancer samples from cirrhosis and hepatitis B controls.</p>
+          <p>Reads public FinaleDB cfDNA fragment-coordinate files from liver cancer, cirrhosis, and hepatitis B sample groups.</p>
         </article>
         <article class="method-card reveal">
           <span>02</span>
@@ -133,6 +137,16 @@
           <span>04</span>
           <h3>Validate with clinical controls</h3>
           <p>Tests whether the model separates HCC from chronic liver disease rather than from perfectly healthy samples.</p>
+        </article>
+        <article class="method-card reveal">
+          <span>05</span>
+          <h3>Prevent reference-build leakage</h3>
+          <p>Groups hg19 and hg38 versions of the same biological sample before splitting so one patient cannot appear in both training and validation.</p>
+        </article>
+        <article class="method-card reveal">
+          <span>06</span>
+          <h3>Audit the signal</h3>
+          <p>Compares feature strategies, repeated splits, permutation tests, external fragment-length replication, and technical negative controls.</p>
         </article>
       </div>
     </section>
@@ -151,7 +165,7 @@
       <div class="evidence-grid">
         <article class="evidence-card reveal">
           <h3>Clinical comparator</h3>
-          <p>Controls include cirrhosis and hepatitis B, which are harder and more clinically relevant than healthy-only controls.</p>
+          <p>The final cohort used 89 HCC cases and 87 chronic liver disease controls, including 66 cirrhosis and 21 hepatitis B samples.</p>
         </article>
         <article class="evidence-card reveal">
           <h3>Ablation study</h3>
@@ -164,6 +178,38 @@
         <article class="evidence-card reveal">
           <h3>Honest limitation</h3>
           <p>External datasets were useful for fragmentomics replication and auditing, but not a perfect HCC reproduction cohort.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Research value</p>
+        <h2>The useful part is not only the score. It is the validation discipline.</h2>
+        <p>
+          MiNAE is strongest when read as an example of how a public biomedical
+          dataset should be tested. The locked split showed strong HCC separation,
+          but the repeated validation told a more careful story: simpler hg38
+          global fragmentomics was the most stable strategy across randomized
+          patient-level splits.
+        </p>
+      </div>
+      <div class="evidence-grid">
+        <article class="evidence-card reveal">
+          <h3>What worked</h3>
+          <p>Dual-reference global fusion reached 0.900 ROC-AUC, 0.873 PR-AUC, 0.875 accuracy, 0.850 sensitivity, and 0.900 specificity on the locked final validation set.</p>
+        </article>
+        <article class="evidence-card reveal">
+          <h3>What generalized better</h3>
+          <p>Across 100 repeated validations, the simpler hg38 global model was more stable, with mean ROC-AUC 0.889 and mean PR-AUC 0.912.</p>
+        </article>
+        <article class="evidence-card reveal">
+          <h3>What reviewers would ask</h3>
+          <p>A technical negative-control model was also predictive, so the website and manuscript frame MiNAE as a retrospective audit, not a deployable clinical test.</p>
+        </article>
+        <article class="evidence-card reveal">
+          <h3>What it teaches</h3>
+          <p>Fragmentomics appears measurable in public data, but credible biomedical ML needs patient-level splitting, ablation, PR curves, external checks, and confounder analysis.</p>
         </article>
       </div>
     </section>
@@ -206,6 +252,60 @@
           <img src="assets/figures/minae/confusion-matrix.png" alt="MiNAE final validation confusion matrix.">
           <figcaption>Final validation confusion matrix showing correct and incorrect classifications at the selected threshold.</figcaption>
         </figure>
+      </div>
+    </section>
+
+    <section class="section-block compact">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Tools and data resources</p>
+        <h2>The technical stack behind MiNAE.</h2>
+        <p>
+          The project used public coordinate-level cfDNA data and standard
+          scientific Python tooling to build, validate, visualize, and audit the
+          fragmentomics pipeline.
+        </p>
+      </div>
+      <div class="tool-grid reveal" aria-label="MiNAE tools and data resources">
+        <article class="tool-card">
+          <span class="tool-logo text-logo">FD</span>
+          <strong>FinaleDB</strong>
+          <p>Public de-identified cfDNA fragment-coordinate files.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo icon-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/python.svg" alt=""></span>
+          <strong>Python</strong>
+          <p>Feature extraction, validation scripts, and analysis workflow.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo icon-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/pandas.svg" alt=""></span>
+          <strong>pandas</strong>
+          <p>Patient-level feature tables and matrix handling.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo icon-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/numpy.svg" alt=""></span>
+          <strong>NumPy</strong>
+          <p>Numerical feature normalization and array operations.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo icon-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/scikitlearn.svg" alt=""></span>
+          <strong>scikit-learn</strong>
+          <p>Linear SVM, feature selection, metrics, and repeated validation.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo text-logo">SH</span>
+          <strong>SHAP</strong>
+          <p>Feature-level interpretability for fragment-size signals.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo text-logo">MP</span>
+          <strong>Matplotlib / Seaborn</strong>
+          <p>ROC, PR, heatmap, confusion-matrix, and validation figures.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo icon-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/googlecolab.svg" alt=""></span>
+          <strong>Google Colab</strong>
+          <p>Notebook-style experimentation and portable model runs.</p>
+        </article>
       </div>
     </section>
 

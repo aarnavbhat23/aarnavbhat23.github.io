@@ -558,6 +558,7 @@ h3 {
 .belt-track span {
   display: inline-flex;
   align-items: center;
+  gap: 9px;
   min-height: 54px;
   padding: 0 26px;
   border-right: 1px solid rgba(255, 255, 255, 0.14);
@@ -566,6 +567,37 @@ h3 {
   font-weight: 780;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.logo-token {
+  color: #fff;
+}
+
+.mini-logo {
+  display: inline-grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.12);
+}
+
+.logo-boltz {
+  border-radius: 4px;
+}
+
+.logo-biohub,
+.logo-deeporigin {
+  width: 28px;
+  border-radius: 2px;
+  font-size: 0.58rem;
 }
 
 @keyframes beltMove {
@@ -839,7 +871,8 @@ h3 {
 
 .link-grid,
 .method-grid,
-.evidence-grid {
+.evidence-grid,
+.tool-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
@@ -868,6 +901,64 @@ h3 {
   font-size: 0.82rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+}
+
+.tool-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.tool-card {
+  display: grid;
+  gap: 10px;
+  min-height: 100%;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--paper);
+  box-shadow: 0 12px 40px rgba(23, 32, 38, 0.055);
+  transform: translate3d(0, 0, 0) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.tool-card:hover {
+  border-color: rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.tool-logo {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 2px;
+  background: #fff;
+  color: #000;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.text-logo {
+  font-size: 0.78rem;
+  letter-spacing: 0;
+}
+
+.icon-logo img {
+  width: 23px;
+  height: 23px;
+  filter: grayscale(1);
+}
+
+.tool-card strong {
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-size: 1.12rem;
+  font-weight: 650;
+}
+
+.tool-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .skill-cloud {
@@ -1075,6 +1166,7 @@ h3 {
   .button,
   .project-feature,
   .link-card,
+  .tool-card,
   .portrait-card,
   .signal-strip article,
   .project-scoreboard article,
@@ -1131,7 +1223,8 @@ h3 {
   .signal-strip,
   .project-feature-grid,
   .method-grid,
-  .evidence-grid {
+  .evidence-grid,
+  .tool-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1239,7 +1332,8 @@ h3 {
   .signal-strip,
   .project-feature-grid,
   .method-grid,
-  .evidence-grid {
+  .evidence-grid,
+  .tool-grid {
     grid-template-columns: 1fr;
   }
 
