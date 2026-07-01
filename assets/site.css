@@ -3,7 +3,7 @@
   --paper: rgba(7, 7, 7, 0.88);
   --paper-soft: rgba(12, 12, 12, 0.92);
   --ink: #fff;
-  --muted: rgba(255, 255, 255, 0.72);
+  --muted: rgba(255, 255, 255, 0.78);
   --line: rgba(255, 255, 255, 0.16);
   --teal: #ffffff;
   --blue: #d7d7cf;
@@ -319,7 +319,7 @@ main,
   z-index: 0;
   width: 100vw;
   height: 100vh;
-  opacity: 0.84;
+  opacity: 0.58;
   pointer-events: none;
 }
 
@@ -681,6 +681,7 @@ h3 {
   gap: 28px;
   align-items: start;
   margin-bottom: 26px;
+  text-shadow: 0 1px 22px rgba(0, 0, 0, 0.86);
 }
 
 .section-heading .eyebrow {

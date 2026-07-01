@@ -89,26 +89,26 @@
 
     <section class="motion-belt reveal" aria-label="MiNAE evidence ticker">
       <div class="belt-track">
-        <span>cfDNA fragmentomics</span>
-        <span>hepatocellular carcinoma</span>
-        <span>liquid biopsy ML</span>
-        <span>patient-level validation</span>
-        <span>clinical-confounder controls</span>
-        <span>fragment-size signatures</span>
-        <span>technical-confounder audits</span>
-        <span>external replication</span>
-        <span>diagnostic modeling</span>
-        <span>translational genomics</span>
-        <span>cfDNA fragmentomics</span>
-        <span>hepatocellular carcinoma</span>
-        <span>liquid biopsy ML</span>
-        <span>patient-level validation</span>
-        <span>clinical-confounder controls</span>
-        <span>fragment-size signatures</span>
-        <span>technical-confounder audits</span>
-        <span>external replication</span>
-        <span>diagnostic modeling</span>
-        <span>translational genomics</span>
+        <span class="logo-token"><img class="belt-logo" src="assets/logos/finaledb.png" alt="" aria-hidden="true">FinaleDB liver cfDNA</span>
+        <span>HCC cases</span>
+        <span>Cirrhosis controls</span>
+        <span>Hepatitis B controls</span>
+        <span>hg19 / hg38 split audit</span>
+        <span>fragment lengths 50-250 bp</span>
+        <span>ROC and PR curves</span>
+        <span class="logo-token"><img class="belt-logo" src="assets/logos/ega.png" alt="" aria-hidden="true">Foda / Annapragada reference</span>
+        <span class="logo-token"><img class="belt-logo" src="assets/logos/python.svg" alt="" aria-hidden="true">Python</span>
+        <span class="logo-token"><img class="belt-logo" src="assets/logos/scikitlearn.svg" alt="" aria-hidden="true">Linear SVM</span>
+        <span class="logo-token"><img class="belt-logo" src="assets/logos/finaledb.png" alt="" aria-hidden="true">FinaleDB liver cfDNA</span>
+        <span>HCC cases</span>
+        <span>Cirrhosis controls</span>
+        <span>Hepatitis B controls</span>
+        <span>hg19 / hg38 split audit</span>
+        <span>fragment lengths 50-250 bp</span>
+        <span>ROC and PR curves</span>
+        <span class="logo-token"><img class="belt-logo" src="assets/logos/ega.png" alt="" aria-hidden="true">Foda / Annapragada reference</span>
+        <span class="logo-token"><img class="belt-logo" src="assets/logos/python.svg" alt="" aria-hidden="true">Python</span>
+        <span class="logo-token"><img class="belt-logo" src="assets/logos/scikitlearn.svg" alt="" aria-hidden="true">Linear SVM</span>
       </div>
     </section>
 
@@ -257,19 +257,25 @@
 
     <section class="section-block compact">
       <div class="section-heading reveal">
-        <p class="eyebrow">Tools and data resources</p>
-        <h2>The technical stack behind MiNAE.</h2>
+        <p class="eyebrow">Data sources and tools</p>
+        <h2>Where the MiNAE data came from, and what processed it.</h2>
         <p>
-          The project used public coordinate-level cfDNA data and standard
-          scientific Python tooling to build, validate, visualize, and audit the
-          fragmentomics pipeline.
+          FinaleDB was the primary downloadable source for coordinate-level cfDNA
+          fragments. External HCC fragmentome studies were used as reference and
+          audit context, while the model itself stayed transparent: scientific
+          Python, patient-level splitting, interpretable metrics, and reviewer-facing figures.
         </p>
       </div>
       <div class="tool-grid reveal" aria-label="MiNAE tools and data resources">
         <article class="tool-card">
           <span class="tool-logo icon-logo"><img src="assets/logos/finaledb.png" alt=""></span>
           <strong>FinaleDB</strong>
-          <p>Public de-identified cfDNA fragment-coordinate files.</p>
+          <p>Primary source for public de-identified cfDNA fragment-coordinate files, including liver cancer and chronic liver disease groups.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo icon-logo"><img src="assets/logos/ega.png" alt=""></span>
+          <strong>Foda / Annapragada HCC fragmentomes</strong>
+          <p>External liver-cancer fragmentome reference used to ground the audit and related-work framing; raw controlled-access data should not be overstated as open.</p>
         </article>
         <article class="tool-card">
           <span class="tool-logo icon-logo"><img src="assets/logos/python.svg" alt=""></span>

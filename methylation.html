@@ -87,26 +87,26 @@
 
     <section class="motion-belt reveal" aria-label="Methylation evidence ticker">
       <div class="belt-track">
-        <span>epigenomic biomarkers</span>
-        <span>DNA methylation ML</span>
-        <span>lung cancer detection</span>
-        <span>translational diagnostics</span>
-        <span>biomarker panels</span>
-        <span>clinical screening</span>
-        <span>computational oncology</span>
-        <span>model interpretation</span>
-        <span>reproducible validation</span>
-        <span>patient-level prediction</span>
-        <span>epigenomic biomarkers</span>
-        <span>DNA methylation ML</span>
-        <span>lung cancer detection</span>
-        <span>translational diagnostics</span>
-        <span>biomarker panels</span>
-        <span>clinical screening</span>
-        <span>computational oncology</span>
-        <span>model interpretation</span>
-        <span>reproducible validation</span>
-        <span>patient-level prediction</span>
+        <span class="logo-token"><img class="belt-logo" src="assets/logos/tcga.png" alt="" aria-hidden="true">TCGA LUAD</span>
+        <span class="logo-token"><img class="belt-logo" src="assets/logos/tcga.png" alt="" aria-hidden="true">TCGA LUSC</span>
+        <span>EGFR methylation</span>
+        <span>PD-L1 methylation</span>
+        <span>SHOX2 methylation</span>
+        <span>RASSF1A methylation</span>
+        <span>PTGER4 methylation</span>
+        <span class="logo-token"><img class="belt-logo" src="assets/logos/scikitlearn.svg" alt="" aria-hidden="true">Gradient boosting</span>
+        <span class="logo-token"><img class="belt-logo" src="assets/logos/python.svg" alt="" aria-hidden="true">Python</span>
+        <span class="logo-token"><img class="belt-logo" src="assets/logos/matplotlib.png" alt="" aria-hidden="true">ROC and heatmaps</span>
+        <span class="logo-token"><img class="belt-logo" src="assets/logos/tcga.png" alt="" aria-hidden="true">TCGA LUAD</span>
+        <span class="logo-token"><img class="belt-logo" src="assets/logos/tcga.png" alt="" aria-hidden="true">TCGA LUSC</span>
+        <span>EGFR methylation</span>
+        <span>PD-L1 methylation</span>
+        <span>SHOX2 methylation</span>
+        <span>RASSF1A methylation</span>
+        <span>PTGER4 methylation</span>
+        <span class="logo-token"><img class="belt-logo" src="assets/logos/scikitlearn.svg" alt="" aria-hidden="true">Gradient boosting</span>
+        <span class="logo-token"><img class="belt-logo" src="assets/logos/python.svg" alt="" aria-hidden="true">Python</span>
+        <span class="logo-token"><img class="belt-logo" src="assets/logos/matplotlib.png" alt="" aria-hidden="true">ROC and heatmaps</span>
       </div>
     </section>
 
@@ -209,19 +209,24 @@
 
     <section class="section-block compact">
       <div class="section-heading reveal">
-        <p class="eyebrow">Tools and data resources</p>
-        <h2>The technical stack behind the methylation study.</h2>
+        <p class="eyebrow">Data sources and tools</p>
+        <h2>Where the methylation data came from, and how it was modeled.</h2>
         <p>
-          The project used public cancer molecular data and scientific Python
-          tooling to preprocess methylation features, train the classifier, and
-          generate validation figures.
+          The methylation project uses public lung cancer molecular cohorts and
+          keeps the method focused on reproducible preprocessing, compact
+          biomarker features, gradient boosting, and interpretable validation plots.
         </p>
       </div>
       <div class="tool-grid reveal" aria-label="DNA methylation tools and data resources">
         <article class="tool-card">
           <span class="tool-logo icon-logo"><img src="assets/logos/tcga.png" alt=""></span>
-          <strong>TCGA / cancer data portals</strong>
-          <p>Public lung cancer molecular datasets for LUAD and LUSC analysis.</p>
+          <strong>TCGA LUAD / LUSC</strong>
+          <p>Public lung adenocarcinoma and lung squamous cell carcinoma molecular datasets used for tumor-normal methylation analysis.</p>
+        </article>
+        <article class="tool-card">
+          <span class="tool-logo icon-logo"><img src="assets/logos/geo.png" alt=""></span>
+          <strong>Public cancer data portals</strong>
+          <p>Open molecular-data portals used for dataset discovery, cohort cross-checking, and clinical label context.</p>
         </article>
         <article class="tool-card">
           <span class="tool-logo icon-logo"><img src="assets/logos/python.svg" alt=""></span>
