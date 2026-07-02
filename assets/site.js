@@ -34,7 +34,7 @@ window.addEventListener("scroll", setScrollProgress, { passive: true });
 window.addEventListener("resize", setScrollProgress);
 
 if (!prefersReducedMotion && window.matchMedia("(pointer: fine)").matches) {
-  document.querySelectorAll(".project-feature, .link-card, .method-card, .evidence-card, .tool-card, .signal-strip article, .project-scoreboard article, .portrait-card").forEach((card) => {
+  document.querySelectorAll(".project-feature, .link-card, .method-card, .evidence-card, .tool-card, .identity-panel, .signal-strip article, .project-scoreboard article, .portrait-card").forEach((card) => {
     card.addEventListener("pointermove", (event) => {
       const rect = card.getBoundingClientRect();
       const x = (event.clientX - rect.left) / rect.width - 0.5;

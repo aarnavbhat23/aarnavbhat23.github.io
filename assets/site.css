@@ -306,7 +306,7 @@ main,
 .project-hero > .reveal:first-of-type::before {
   content: "";
   position: absolute;
-  inset: -22px -24px;
+  inset: -22px 0;
   z-index: -1;
   background: rgba(0, 0, 0, 0.72);
   box-shadow: 0 0 70px 34px rgba(0, 0, 0, 0.88);
@@ -696,6 +696,122 @@ h3 {
 .section-heading p:not(.eyebrow) {
   color: var(--muted);
   max-width: 760px;
+}
+
+.identity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.identity-panel {
+  min-height: 100%;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: rgba(6, 6, 6, 0.76);
+  box-shadow: 0 18px 54px rgba(0, 0, 0, 0.28);
+  transform: translate3d(0, 0, 0) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.identity-panel:hover {
+  border-color: rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.identity-panel span {
+  display: inline-flex;
+  margin-bottom: 34px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.78rem;
+  font-weight: 780;
+  letter-spacing: 0.16em;
+}
+
+.identity-panel h3 {
+  margin-bottom: 9px;
+}
+
+.identity-panel p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.performance-landscape {
+  display: grid;
+  grid-template-columns: minmax(270px, 0.34fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.performance-copy {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 1px 22px rgba(0, 0, 0, 0.82);
+}
+
+.performance-copy h3 {
+  margin-top: 16px;
+}
+
+.performance-copy p {
+  color: var(--muted);
+}
+
+.landscape-scene {
+  position: relative;
+  min-height: 560px;
+  height: min(68vh, 680px);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 52% 42%, rgba(255, 255, 255, 0.08), transparent 46%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 52%);
+}
+
+.performance-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.landscape-tooltip {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  max-width: min(300px, calc(100% - 36px));
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.72);
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.82rem;
+  line-height: 1.4;
+  pointer-events: none;
+  backdrop-filter: blur(14px);
+}
+
+.landscape-notes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.landscape-notes article {
+  padding: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.landscape-notes strong,
+.landscape-notes span {
+  display: block;
+}
+
+.landscape-notes span {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.88rem;
 }
 
 .project-feature-grid {
@@ -1184,6 +1300,7 @@ h3 {
   .hero-shell,
   .project-hero,
   .section-heading,
+  .performance-landscape,
   .contact-panel {
     grid-template-columns: 1fr;
   }
@@ -1200,6 +1317,8 @@ h3 {
   }
 
   .signal-strip,
+  .identity-grid,
+  .landscape-notes,
   .project-feature-grid,
   .method-grid,
   .evidence-grid,
@@ -1309,11 +1428,25 @@ h3 {
   }
 
   .signal-strip,
+  .identity-grid,
+  .landscape-notes,
   .project-feature-grid,
   .method-grid,
   .evidence-grid,
   .tool-grid {
     grid-template-columns: 1fr;
+  }
+
+  .landscape-scene {
+    min-height: 390px;
+    height: 58vh;
+  }
+
+  .landscape-tooltip {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    max-width: none;
   }
 
   .project-feature {

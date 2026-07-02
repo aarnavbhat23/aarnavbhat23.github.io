@@ -42,30 +42,31 @@
     <section class="hero-shell">
       <canvas class="fragment-canvas" data-fragment-canvas aria-hidden="true"></canvas>
       <div class="hero-copy reveal">
-        <p class="eyebrow">Computational biology + translational ML</p>
+        <p class="eyebrow">Student researcher + computational biology</p>
         <h1>Aarnav Bhat</h1>
         <p class="lead">
-          I build validation-first machine learning systems for cancer biology,
-          with projects spanning cfDNA fragmentomics, DNA methylation biomarkers,
-          and specificity-aware immunotherapy target prioritization.
+          I am a student researcher drawn to the places where biology becomes
+          measurable: fragments of DNA in blood, methylation changes across cancer
+          cohorts, cell states in tumors, and protein structures that can be tested
+          instead of just imagined.
         </p>
         <p class="lead">
-          My work is centered on a simple standard: a model is only interesting
-          if it survives realistic controls, held-out testing, ablation studies,
-          precision-recall analysis, and the technical-confounder checks that
-          make biomedical AI difficult in the real world.
+          The thread running through my work is validation. I like building models,
+          but I am more interested in whether they survive the uncomfortable parts:
+          clinical controls, held-out data, ablation studies, negative controls,
+          technical confounders, and clear limits on what the results can prove.
         </p>
         <div class="hero-pills" aria-label="Research focus areas">
-          <span>patient-level validation</span>
-          <span>cfDNA fragmentomics</span>
-          <span>epigenomic ML</span>
-          <span>target prioritization</span>
-          <span>reproducibility</span>
+          <span>computational oncology</span>
+          <span>machine learning</span>
+          <span>protein modeling</span>
+          <span>public datasets</span>
+          <span>scientific writing</span>
         </div>
         <div class="hero-actions" aria-label="Primary profile links">
-          <a class="button primary" href="minae.html">View MiNAE</a>
-          <a class="button" href="prisma.html">View PrISMA</a>
-          <a class="button" href="methylation.html">View Methylation</a>
+          <a class="button primary" href="#about">About me</a>
+          <a class="button" href="#validation-landscape">3D validation map</a>
+          <a class="button" href="#research">Research systems</a>
           <a class="button ghost" href="mailto:aarnav.bhat0@gmail.com">Email</a>
         </div>
       </div>
@@ -75,13 +76,56 @@
       </figure>
     </section>
 
-    <section class="focus-strip reveal" aria-label="Current research focus">
-      <span>Current focus</span>
-      <strong>Validated computational oncology</strong>
+    <section class="focus-strip reveal" aria-label="Current personal focus">
+      <span>Current direction</span>
+      <strong>Learning how credible biomedical AI is actually built</strong>
       <p>
-        Building cancer-genomics tools that treat biological signal, clinical controls,
-        validation design, and reproducibility as part of the same research question.
+        My goal is to become the kind of researcher who can connect biological
+        intuition, reproducible code, careful validation, and honest communication
+        without treating any one of those as optional.
       </p>
+    </section>
+
+    <section id="about" class="section-block about-landing">
+      <div class="section-heading reveal">
+        <p class="eyebrow">About me</p>
+        <h2>I like building things that force ideas to become testable.</h2>
+        <p>
+          I started from a curiosity about disease biology and kept getting pulled
+          toward the computational side because it lets a question become a pipeline:
+          find the data, clean it, decide what a fair test would be, run the model,
+          and then ask what could have fooled it.
+        </p>
+      </div>
+      <div class="identity-grid">
+        <article class="identity-panel reveal">
+          <span>01</span>
+          <h3>How I think</h3>
+          <p>
+            I am most comfortable in the middle ground between biology and
+            engineering. I care about the mechanism, but I also care about whether
+            the spreadsheet, split, figure, and code actually support the claim.
+          </p>
+        </article>
+        <article class="identity-panel reveal">
+          <span>02</span>
+          <h3>What I am training toward</h3>
+          <p>
+            I want to contribute to computational genomics, cancer diagnostics,
+            protein modeling, and translational research where models are useful
+            because they are tested against the messy parts of biology.
+          </p>
+        </article>
+        <article class="identity-panel reveal">
+          <span>03</span>
+          <h3>Outside the code</h3>
+          <p>
+            I also care about communication and discipline: public science writing,
+            Sanskrit teaching, competitive swimming, and learning how to make hard
+            ideas easier for other people to enter.
+          </p>
+        </article>
+      </div>
     </section>
 
     <section class="motion-belt reveal" aria-label="Research focus ticker">
@@ -132,14 +176,61 @@
       </article>
     </section>
 
+    <section id="validation-landscape" class="section-block performance-landscape-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Interactive evidence</p>
+        <h2>A 3D view of how MiNAE performance changes across validation layers.</h2>
+        <p>
+          This is a website visualization, not a manuscript figure. The bars use
+          recorded MiNAE metrics already reported on the project page: locked
+          final validation for the dual-reference model, plus repeated-validation
+          means for the simpler hg38 global model where those values were reported.
+        </p>
+      </div>
+      <div class="performance-landscape">
+        <div class="performance-copy reveal">
+          <span class="status-pill">MiNAE validation landscape</span>
+          <h3>Why this is more useful than a decorative 3D AUC plot</h3>
+          <p>
+            The point is not to make AUC look dramatic. It is to show that a model
+            score has context: the metric, the validation layer, and whether the
+            result came from one locked split or repeated patient-level testing.
+          </p>
+          <ul class="project-points">
+            <li>Drag or move across the scene to rotate the landscape.</li>
+            <li>Hover a bar to see the metric and reported score.</li>
+            <li>Use this on the website only; keep the paper figures 2D and reviewer-friendly.</li>
+          </ul>
+        </div>
+        <div class="landscape-scene reveal" data-performance-landscape aria-label="Interactive 3D MiNAE validation landscape">
+          <canvas class="performance-canvas" aria-hidden="true"></canvas>
+          <div class="landscape-tooltip" data-landscape-tooltip aria-live="polite">Hover a bar</div>
+        </div>
+      </div>
+      <div class="landscape-notes reveal" aria-label="MiNAE 3D landscape source values">
+        <article>
+          <strong>Locked final validation</strong>
+          <span>ROC-AUC 0.900, PR-AUC 0.873, accuracy 0.875, sensitivity 0.850, specificity 0.900.</span>
+        </article>
+        <article>
+          <strong>Repeated hg38 mean</strong>
+          <span>Mean ROC-AUC 0.889 and mean PR-AUC 0.912 across 100 repeated validations.</span>
+        </article>
+        <article>
+          <strong>Claim boundary</strong>
+          <span>The visualization communicates validation context; it does not replace ROC, PR, calibration, or ablation figures.</span>
+        </article>
+      </div>
+    </section>
+
     <section id="research" class="section-block">
       <div class="section-heading reveal">
-        <p class="eyebrow">Featured work</p>
-        <h2>Projects designed around evidence, not just output scores.</h2>
+        <p class="eyebrow">Selected research systems</p>
+        <h2>The projects are proof of how I work, not the whole landing page.</h2>
         <p>
-          Each project is framed as a complete research system: biological
-          hypothesis, data source, feature engineering, model choice, validation
-          design, interpretability, failure modes, and reviewer-facing limitations.
+          These are the main research systems behind the portfolio. Each one is
+          kept on its own page so the home page can stay focused on who I am, how
+          I think, and what kind of scientific work I am trying to grow into.
         </p>
       </div>
 
@@ -318,5 +409,6 @@
   </footer>
 
   <script src="assets/site.js"></script>
+  <script type="module" src="assets/performance-landscape.js"></script>
 </body>
 </html>
