@@ -68,6 +68,7 @@
         </div>
         <div class="hero-actions">
           <a class="button primary" href="#figures">View figures</a>
+          <a class="button" href="#interactive-evidence">3D evidence surface</a>
           <a class="button" href="mailto:aarnav.bhat0@gmail.com?subject=MiNAE%20manuscript%20request">Request draft</a>
         </div>
       </div>
@@ -214,6 +215,54 @@
       </div>
     </section>
 
+    <section id="interactive-evidence" class="section-block interactive-evidence-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Interactive evidence</p>
+        <h2>A 3D surface for the ablation and validation landscape.</h2>
+        <p>
+          This interactive surface is a website visualization inspired by classic
+          3D performance landscapes. It maps MiNAE feature strategies against
+          validation metrics so the result is seen as a shape across evidence
+          layers, not as a single isolated AUC number.
+        </p>
+      </div>
+      <div class="interactive-evidence">
+        <div class="scene-copy reveal">
+          <span class="status-pill minae-pill">MiNAE evidence surface</span>
+          <h3>What the surface is showing</h3>
+          <p>
+            The high ridge appears where dual-reference and chromosome-aware
+            strategies performed strongly on the locked split. The flatter region
+            shows why repeated validation mattered: more features did not always
+            make the model more stable.
+          </p>
+          <ul class="project-points">
+            <li>Drag the surface to rotate it.</li>
+            <li>Hover the surface to read the nearest strategy, metric, and score.</li>
+            <li>Use the 2D ROC, PR, ablation, and confusion figures for manuscript work.</li>
+          </ul>
+        </div>
+        <div class="scene-panel evidence-surface-panel reveal" data-minae-surface aria-label="Interactive 3D MiNAE ablation evidence surface">
+          <canvas class="evidence-canvas" aria-hidden="true"></canvas>
+          <div class="scene-tooltip" data-scene-tooltip aria-live="polite">Hover the surface</div>
+        </div>
+      </div>
+      <div class="scene-stat-grid reveal" aria-label="MiNAE surface source values">
+        <article>
+          <strong>Peak locked result</strong>
+          <span>Dual-reference fusion: ROC-AUC 0.900, PR-AUC 0.873, accuracy 0.875.</span>
+        </article>
+        <article>
+          <strong>Targeted track</strong>
+          <span>Chromosome fusion: ROC-AUC 0.890 with the same 0.875 accuracy in the final split.</span>
+        </article>
+        <article>
+          <strong>Stability lesson</strong>
+          <span>Across 100 repeats, hg38 global was the most stable mean strategy.</span>
+        </article>
+      </div>
+    </section>
+
     <section id="figures" class="section-block">
       <div class="section-heading reveal">
         <p class="eyebrow">Figures</p>
@@ -336,5 +385,6 @@
   </footer>
 
   <script src="assets/site.js"></script>
+  <script type="module" src="assets/evidence-scenes.js"></script>
 </body>
 </html>

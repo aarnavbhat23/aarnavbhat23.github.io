@@ -67,6 +67,7 @@
         </div>
         <div class="hero-actions">
           <a class="button primary" href="#figures">View figures</a>
+          <a class="button" href="#protein-evidence">3D LRRC15 evidence</a>
           <a class="button" href="mailto:aarnav.bhat0@gmail.com?subject=PrISMA-RSC%20manuscript%20request">Request draft</a>
         </div>
       </div>
@@ -213,6 +214,56 @@
         <article class="evidence-card reveal">
           <h3>Stress tests</h3>
           <p>LRRC15 was top-ranked in 72.5% of 20,000 random layer-weight scenarios and stayed top-ranked under 10,000 layer-score noise trials.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="protein-evidence" class="section-block interactive-evidence-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Interactive structure evidence</p>
+        <h2>LRRC15 as the structural anchor for PrISMA-RSC.</h2>
+        <p>
+          LRRC15 is the right protein to highlight because the project treats it
+          as the benchmark stromal lead: strong CAF enrichment, low normal-organ
+          signal, spatial support, and structure readiness. The viewer below uses
+          the AlphaFold LRRC15 backbone extracted from the local PrISMA structure
+          files and overlays the evidence gates that made LRRC15 the lead.
+        </p>
+      </div>
+      <div class="interactive-evidence protein-evidence">
+        <div class="scene-panel protein-scene-panel reveal" data-lrrc15-protein aria-label="Interactive 3D LRRC15 protein evidence viewer">
+          <canvas class="evidence-canvas" aria-hidden="true"></canvas>
+          <div class="scene-tooltip" data-scene-tooltip aria-live="polite">Hover the structure</div>
+        </div>
+        <div class="scene-copy reveal">
+          <span class="status-pill prisma-pill">LRRC15 evidence model</span>
+          <h3>Why this protein is shown</h3>
+          <p>
+            The 3D trace is not a wet-lab structure claim. It is a compact
+            structural context for the PrISMA evidence stack. The viewer emphasizes
+            the confidence-supported LRRC15 backbone and uses evidence nodes for
+            target discovery, normal-tissue specificity, spatial support, and
+            model readiness.
+          </p>
+          <ul class="project-points">
+            <li>Drag the structure to inspect the LRRC15 backbone.</li>
+            <li>Hover evidence nodes to see the metric behind each gate.</li>
+            <li>Comparator nodes show why off-target and secondary targets still matter.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="scene-stat-grid reveal" aria-label="PrISMA LRRC15 evidence source values">
+        <article>
+          <strong>Target signal</strong>
+          <span>LRRC15: 5.49 log2 fold-change in PDAC CAF-like cells versus normal pancreas stroma.</span>
+        </article>
+        <article>
+          <strong>Specificity gate</strong>
+          <span>Maximum normal-organ expression was 0.176%, categorized as minimal risk in the local matrix.</span>
+        </article>
+        <article>
+          <strong>Structure readiness</strong>
+          <span>AlphaFold mean pLDDT 84.41 and Boltz structure confidence 0.831.</span>
         </article>
       </div>
     </section>
@@ -384,5 +435,6 @@
   </footer>
 
   <script src="assets/site.js"></script>
+  <script type="module" src="assets/evidence-scenes.js"></script>
 </body>
 </html>

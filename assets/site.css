@@ -7,8 +7,8 @@
   --line: rgba(255, 255, 255, 0.16);
   --teal: #ffffff;
   --blue: #d7d7cf;
-  --minae: #fff;
-  --prisma: #fff;
+  --minae: #f4b56a;
+  --prisma: #b9a8ff;
   --plum: #fff;
   --rust: #e8e8df;
   --amber: #c8c8bd;
@@ -293,6 +293,7 @@ main,
   position: relative;
   z-index: 1;
   max-width: 820px;
+  padding-left: 10px;
   text-shadow: 0 1px 26px rgba(0, 0, 0, 0.64);
   isolation: isolate;
 }
@@ -738,80 +739,118 @@ h3 {
   color: var(--muted);
 }
 
-.performance-landscape {
+.interactive-evidence {
   display: grid;
-  grid-template-columns: minmax(270px, 0.34fr) minmax(0, 1fr);
-  gap: 28px;
+  grid-template-columns: minmax(270px, 0.32fr) minmax(0, 1fr);
+  gap: 30px;
   align-items: center;
 }
 
-.performance-copy {
+.interactive-evidence.protein-evidence {
+  grid-template-columns: minmax(0, 1fr) minmax(270px, 0.34fr);
+}
+
+.scene-copy {
   position: relative;
   z-index: 2;
   text-shadow: 0 1px 22px rgba(0, 0, 0, 0.82);
 }
 
-.performance-copy h3 {
+.scene-copy h3 {
   margin-top: 16px;
 }
 
-.performance-copy p {
+.scene-copy p {
   color: var(--muted);
 }
 
-.landscape-scene {
+.scene-panel {
   position: relative;
-  min-height: 560px;
-  height: min(68vh, 680px);
+  min-height: 610px;
+  height: min(72vh, 760px);
   overflow: hidden;
   background:
-    radial-gradient(circle at 52% 42%, rgba(255, 255, 255, 0.08), transparent 46%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 52%);
+    radial-gradient(circle at 52% 42%, rgba(255, 255, 255, 0.08), transparent 44%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 62%);
 }
 
-.performance-canvas {
+.evidence-surface-panel {
+  background:
+    radial-gradient(circle at 50% 38%, rgba(244, 181, 106, 0.12), transparent 44%),
+    radial-gradient(circle at 64% 56%, rgba(126, 230, 177, 0.08), transparent 36%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 62%);
+}
+
+.protein-scene-panel {
+  background:
+    radial-gradient(circle at 48% 42%, rgba(185, 168, 255, 0.14), transparent 44%),
+    radial-gradient(circle at 66% 58%, rgba(143, 215, 255, 0.08), transparent 38%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 60%);
+}
+
+.evidence-canvas {
   display: block;
   width: 100%;
   height: 100%;
+  cursor: grab;
+  touch-action: none;
 }
 
-.landscape-tooltip {
+.evidence-canvas:active {
+  cursor: grabbing;
+}
+
+.scene-tooltip {
   position: absolute;
   right: 18px;
   bottom: 18px;
-  max-width: min(300px, calc(100% - 36px));
+  max-width: min(330px, calc(100% - 36px));
   padding: 10px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(0, 0, 0, 0.72);
-  color: rgba(255, 255, 255, 0.86);
+  color: rgba(255, 255, 255, 0.88);
   font-size: 0.82rem;
   line-height: 1.4;
   pointer-events: none;
   backdrop-filter: blur(14px);
 }
 
-.landscape-notes {
+.scene-stat-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
   margin-top: 18px;
 }
 
-.landscape-notes article {
+.scene-stat-grid article {
   padding: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.035);
 }
 
-.landscape-notes strong,
-.landscape-notes span {
+.scene-stat-grid strong,
+.scene-stat-grid span {
   display: block;
 }
 
-.landscape-notes span {
+.scene-stat-grid span {
   margin-top: 6px;
   color: var(--muted);
   font-size: 0.88rem;
+}
+
+.minae-pill {
+  color: #000;
+  background: var(--minae);
+}
+
+.prisma-pill {
+  color: #000;
+  background: var(--prisma);
+}
+
+.personal-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .project-feature-grid {
@@ -1300,7 +1339,8 @@ h3 {
   .hero-shell,
   .project-hero,
   .section-heading,
-  .performance-landscape,
+  .interactive-evidence,
+  .interactive-evidence.protein-evidence,
   .contact-panel {
     grid-template-columns: 1fr;
   }
@@ -1318,7 +1358,7 @@ h3 {
 
   .signal-strip,
   .identity-grid,
-  .landscape-notes,
+  .scene-stat-grid,
   .project-feature-grid,
   .method-grid,
   .evidence-grid,
@@ -1429,7 +1469,6 @@ h3 {
 
   .signal-strip,
   .identity-grid,
-  .landscape-notes,
   .project-feature-grid,
   .method-grid,
   .evidence-grid,
@@ -1437,12 +1476,12 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .landscape-scene {
-    min-height: 390px;
-    height: 58vh;
+  .scene-panel {
+    min-height: 420px;
+    height: 62vh;
   }
 
-  .landscape-tooltip {
+  .scene-tooltip {
     left: 12px;
     right: 12px;
     bottom: 12px;
