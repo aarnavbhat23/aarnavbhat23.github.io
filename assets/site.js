@@ -10,6 +10,14 @@ if (menuButton && nav) {
     menuButton.setAttribute("aria-expanded", String(isOpen));
     menuButton.textContent = isOpen ? "Close" : "Menu";
   });
+
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.textContent = "Menu";
+    });
+  });
 }
 
 const finishLoading = () => {
@@ -101,7 +109,7 @@ window.addEventListener("pointermove", (event) => {
 document.querySelectorAll("[data-fragment-canvas]").forEach((canvas) => {
   const context = canvas.getContext("2d");
   const molecules = [];
-  const palette = ["#ffffff"];
+  const palette = ["#111212"];
   let width = 0;
   let height = 0;
   let animationFrame = 0;
@@ -115,7 +123,7 @@ document.querySelectorAll("[data-fragment-canvas]").forEach((canvas) => {
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
     molecules.length = 0;
 
-    const count = width < 700 ? 250 : 500;
+    const count = width < 700 ? 70 : 120;
     for (let index = 0; index < count; index += 1) {
       molecules.push({
         x: Math.random() * width,
@@ -216,8 +224,8 @@ document.querySelectorAll("[data-fragment-canvas]").forEach((canvas) => {
 
       if (influence > 0.04) {
         const glow = context.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, 130);
-        glow.addColorStop(0, "rgba(255, 255, 255, 0.052)");
-        glow.addColorStop(1, "rgba(255, 255, 255, 0)");
+        glow.addColorStop(0, "rgba(17, 18, 18, 0.045)");
+        glow.addColorStop(1, "rgba(17, 18, 18, 0)");
         context.globalAlpha = influence * 0.12;
         context.fillStyle = glow;
         context.beginPath();
