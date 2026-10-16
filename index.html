@@ -3,320 +3,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aarnav Bhat - computational biology, genomics, cancer diagnostics, and machine learning research portfolio.">
-  <title>Aarnav Bhat | Computational Biology Research</title>
-  <link rel="icon" href="assets/favicon.svg?v=ace-a" type="image/svg+xml" sizes="any">
-  <link rel="shortcut icon" href="assets/favicon.svg?v=ace-a" type="image/svg+xml">
+  <meta name="description" content="Aarnav Bhat is an aspiring computational biology researcher building validation-first projects in genomics, biomedical machine learning, and reproducible science.">
+  <meta name="theme-color" content="#fafaf7">
+  <meta property="og:title" content="Aarnav Bhat | Computational Biology Portfolio">
+  <meta property="og:description" content="Validation-first computational biology, genomics, and reproducible open-source work.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aarnavbhat23.github.io/">
+  <link rel="canonical" href="https://aarnavbhat23.github.io/">
+  <title>Aarnav Bhat | Computational Biology Portfolio</title>
+  <link rel="icon" href="assets/favicon.svg?v=portfolio-a" type="image/svg+xml" sizes="any">
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
   <div class="scroll-progress" aria-hidden="true"></div>
-  <div class="site-loader" aria-hidden="true">
-    <div class="loader-ace-card" aria-hidden="true">
-      <span class="loader-corner loader-corner-top">A</span>
-      <span class="loader-face">A</span>
-      <span class="loader-corner loader-corner-bottom">A</span>
-    </div>
-    <span>Initializing research portfolio</span>
-    <strong>Home</strong>
-    <div class="loader-track"><i></i></div>
-  </div>
+  <div class="site-loader" aria-hidden="true"><div class="loader-ace-card"><span>A</span></div><span>Loading portfolio</span></div>
 
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Aarnav Bhat home">
-      <span class="brand-mark"><img src="assets/favicon.svg?v=ace-a" alt="" aria-hidden="true"></span>
-      <span>Aarnav Bhat</span>
-    </a>
+    <a class="brand" href="index.html" aria-label="Aarnav Bhat home"><span class="brand-mark"><img src="assets/favicon.svg?v=portfolio-a" alt="" aria-hidden="true"></span><span>Aarnav Bhat</span></a>
     <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button>
     <nav class="site-nav" aria-label="Primary navigation">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="minae.html">MiNAE</a>
-      <a href="prisma.html">PrISMA</a>
-      <a href="methylation.html">Methylation</a>
-      <a href="#writing">Writing</a>
-      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#code">Open source</a>
+      <a href="#experience">Experience</a>
+      <a href="#connect">Connect</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero-shell">
+    <section class="hero-shell" aria-labelledby="hero-title">
       <canvas class="fragment-canvas" data-fragment-canvas aria-hidden="true"></canvas>
       <div class="hero-copy reveal">
-        <p class="eyebrow">Student researcher + computational biology</p>
-        <h1>Aarnav Bhat</h1>
-        <p class="lead">
-          I am a student researcher drawn to the places where biology becomes
-          measurable: fragments of DNA in blood, methylation changes across cancer
-          cohorts, cell states in tumors, and protein structures that can be tested
-          instead of just imagined.
-        </p>
-        <p class="lead">
-          The thread running through my work is validation. I like building models,
-          but I am more interested in whether they survive the uncomfortable parts:
-          clinical controls, held-out data, ablation studies, negative controls,
-          technical confounders, and clear limits on what the results can prove.
-        </p>
-        <div class="hero-pills" aria-label="Research focus areas">
-          <span>computational oncology</span>
-          <span>machine learning</span>
-          <span>protein modeling</span>
-          <span>public datasets</span>
-          <span>scientific writing</span>
-        </div>
-        <div class="hero-actions" aria-label="Primary profile links">
-          <a class="button primary" href="#about">About me</a>
-          <a class="button" href="#principles">How I work</a>
-          <a class="button" href="#toolkit">Toolkit</a>
-          <a class="button ghost" href="mailto:aarnav.bhat0@gmail.com">Email</a>
+        <p class="eyebrow">Aspiring researcher · computational biology</p>
+        <h1 id="hero-title">Biology becomes useful when it survives a fair test.</h1>
+        <p class="lead">I’m Aarnav Bhat, a student researcher building at the intersection of genomics, biomedical machine learning, and reproducible science. I care about questions that move from a biological hypothesis to a transparent, testable analysis.</p>
+        <p class="lead">My work focuses on validation: thoughtful controls, held-out data, ablations, technical-confounder checks, and clear boundaries around what the evidence can support.</p>
+        <div class="hero-pills" aria-label="Research focus areas"><span>computational biology</span><span>genomics</span><span>biomedical ML</span><span>reproducible evaluation</span></div>
+        <div class="hero-actions">
+          <a class="button primary" href="#research">Explore selected work</a>
+          <a class="button" href="https://github.com/aarnavbhat23" target="_blank" rel="noopener">View GitHub <span aria-hidden="true">↗</span></a>
+          <a class="button ghost" href="mailto:aarnav.bhat0@gmail.com">Email me</a>
         </div>
       </div>
       <figure class="portrait-card reveal">
-        <img src="assets/images/aarnav-research-portrait.jpg" alt="Aarnav Bhat presenting research at a science fair poster session.">
-        <figcaption>Research presentation, computational biology and biomedical science.</figcaption>
+        <img src="assets/images/aarnav-portrait-2026.png" alt="Studio portrait of Aarnav Bhat.">
+        <figcaption>Student researcher exploring genomics, oncology, and computational biology.</figcaption>
       </figure>
     </section>
 
-    <section class="focus-strip reveal" aria-label="Current personal focus">
-      <span>Current direction</span>
-      <strong>Learning how credible biomedical AI is actually built</strong>
-      <p>
-        My goal is to become the kind of researcher who can connect biological
-        intuition, reproducible code, careful validation, and honest communication
-        without treating any one of those as optional.
-      </p>
+    <section class="proof-ribbon reveal" aria-label="Research approach">
+      <p>Research principle</p>
+      <strong>Build the model. Try to break the result. State what remains.</strong>
+      <a href="#research">See the evidence <span aria-hidden="true">↓</span></a>
     </section>
 
     <section id="about" class="section-block about-landing">
       <div class="section-heading reveal">
-        <p class="eyebrow">About me</p>
-        <h2>I like building things that force ideas to become testable.</h2>
-        <p>
-          I started from a curiosity about disease biology and kept getting pulled
-          toward the computational side because it lets a question become a pipeline:
-          find the data, clean it, decide what a fair test would be, run the model,
-          and then ask what could have fooled it.
-        </p>
+        <p class="eyebrow">Profile</p>
+        <div><h2>From wet-lab questions to computational evidence.</h2><p>I work across genetics, biotechnology, bioinformatics, and oncology, connecting hands-on laboratory foundations with data-driven analysis. My current direction is computational biology that remains biologically grounded and honest about uncertainty.</p></div>
       </div>
       <div class="identity-grid">
-        <article class="identity-panel reveal">
-          <span>01</span>
-          <h3>How I think</h3>
-          <p>
-            I am most comfortable in the middle ground between biology and
-            engineering. I care about the mechanism, but I also care about whether
-            the spreadsheet, split, figure, and code actually support the claim.
-          </p>
-        </article>
-        <article class="identity-panel reveal">
-          <span>02</span>
-          <h3>What I am training toward</h3>
-          <p>
-            I want to contribute to computational genomics, cancer diagnostics,
-            protein modeling, and translational research where models are useful
-            because they are tested against the messy parts of biology.
-          </p>
-        </article>
-        <article class="identity-panel reveal">
-          <span>03</span>
-          <h3>Outside the code</h3>
-          <p>
-            I also care about communication and discipline: public science writing,
-            Sanskrit teaching, competitive swimming, and learning how to make hard
-            ideas easier for other people to enter.
-          </p>
-        </article>
+        <article class="identity-panel reveal"><span>01</span><h3>Biology first</h3><p>I start with a biological or clinical question, then ask what a dataset and a model can genuinely answer rather than optimizing a metric in isolation.</p></article>
+        <article class="identity-panel reveal"><span>02</span><h3>Validation as a habit</h3><p>I use patient- or group-level splits, repeated validation, negative controls, ablations, and transparent limitations to make findings more difficult to fool.</p></article>
+        <article class="identity-panel reveal"><span>03</span><h3>Science that can be read</h3><p>I value reproducible code and clear writing because an analysis is only useful when another person can inspect what was done and what was not proven.</p></article>
       </div>
     </section>
 
-    <section class="motion-belt reveal" aria-label="Interests and skill ticker">
-      <div class="belt-track">
-        <span>computational biology</span>
-        <span>cancer genomics</span>
-        <span>machine learning validation</span>
-        <span>protein modeling</span>
-        <span>scientific writing</span>
-        <span>reproducible research</span>
-        <span class="logo-token"><img class="belt-logo" src="assets/logos/alphafold.svg" alt="" aria-hidden="true">AlphaFold</span>
-        <span class="logo-token"><img class="belt-logo" src="assets/logos/boltz.svg" alt="" aria-hidden="true">Boltz</span>
-        <span class="logo-token"><img class="belt-logo" src="assets/logos/meta.svg" alt="" aria-hidden="true">ESM models</span>
-        <span class="logo-token"><img class="belt-logo" src="assets/logos/python.svg" alt="" aria-hidden="true">Python pipelines</span>
-        <span class="logo-token"><img class="belt-logo" src="assets/logos/scikitlearn.svg" alt="" aria-hidden="true">scikit-learn validation</span>
-        <span>computational biology</span>
-        <span>cancer genomics</span>
-        <span>machine learning validation</span>
-        <span>protein modeling</span>
-        <span>scientific writing</span>
-        <span>reproducible research</span>
-        <span class="logo-token"><img class="belt-logo" src="assets/logos/alphafold.svg" alt="" aria-hidden="true">AlphaFold</span>
-        <span class="logo-token"><img class="belt-logo" src="assets/logos/boltz.svg" alt="" aria-hidden="true">Boltz</span>
-        <span class="logo-token"><img class="belt-logo" src="assets/logos/meta.svg" alt="" aria-hidden="true">ESM models</span>
-        <span class="logo-token"><img class="belt-logo" src="assets/logos/python.svg" alt="" aria-hidden="true">Python pipelines</span>
-        <span class="logo-token"><img class="belt-logo" src="assets/logos/scikitlearn.svg" alt="" aria-hidden="true">scikit-learn validation</span>
+    <section id="research" class="section-block">
+      <div class="section-heading reveal"><p class="eyebrow">Research case studies</p><div><h2>Projects built to make claims testable.</h2><p>These project pages document the question, method, evidence, and limitations behind current computational biology work.</p></div></div>
+      <div class="case-study-grid">
+        <a class="case-study case-study-featured reveal" href="minae.html">
+          <span class="status-pill minae-pill">cfDNA fragmentomics</span>
+          <div><p class="case-index">01</p><h3>MiNAE</h3><p>Mutation-independent Nucleosome Architecture Evaluation: a patient-level framework for testing cfDNA fragment-size features in hepatocellular carcinoma against challenging chronic-liver-disease controls.</p></div>
+          <ul class="project-points"><li>176-patient cohort with HCC, cirrhosis, and HBV controls</li><li>Repeated validation, ablations, SHAP, and technical audits</li><li>Retrospective validation and audit—not a clinical diagnostic</li></ul>
+          <span class="case-link">Open case study <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="case-study reveal" href="prisma.html"><span class="status-pill prisma-pill">PDAC target ranking</span><div><p class="case-index">02</p><h3>PrISMA-RSC</h3><p>A specificity-aware consensus framework for prioritizing pancreatic-cancer stromal immunotherapy targets across expression, safety, spatial, and structure-aware evidence.</p></div><span class="case-link">Open case study <span aria-hidden="true">→</span></span></a>
+        <a class="case-study reveal" href="methylation.html"><span class="status-pill">Epigenomics</span><div><p class="case-index">03</p><h3>Methylation work</h3><p>An exploratory view into cancer methylation signals, cohort-scale analysis, and the discipline required to distinguish biological signal from technical shortcuts.</p></div><span class="case-link">Open case study <span aria-hidden="true">→</span></span></a>
       </div>
     </section>
 
-    <section class="signal-strip reveal" aria-label="Personal focus snapshot">
-      <article>
-        <span class="metric-value">2028</span>
-        <span class="metric-label">high school graduation year</span>
-      </article>
-      <article>
-        <span class="metric-value">4</span>
-        <span class="metric-label">core interests: genomics, ML, structure, writing</span>
-      </article>
-      <article>
-        <span class="metric-value">1</span>
-        <span class="metric-label">standard I keep returning to: validation</span>
-      </article>
-      <article>
-        <span class="metric-value">More</span>
-        <span class="metric-label">things left to learn</span>
-      </article>
-    </section>
-
-    <section id="principles" class="section-block">
-      <div class="section-heading reveal">
-        <p class="eyebrow">How I work</p>
-        <h2>The part I like most is turning a vague idea into a fair test.</h2>
-        <p>
-          My favorite problems sit at the point where biology, data, and
-          communication all matter at once. I am trying to train myself to be
-          curious without being careless, ambitious without overclaiming, and
-          technical without losing the biological question.
-        </p>
+    <section id="code" class="section-block code-section">
+      <div class="section-heading reveal"><p class="eyebrow">Open source</p><div><h2>Public work in models, benchmarks, and scientific audits.</h2><p>Selected repositories reflect a consistent interest in robust evaluation—testing whether models, datasets, and scientific claims hold up outside their easiest setting.</p></div></div>
+      <div class="github-overview reveal" aria-label="GitHub profile highlights">
+        <div><p class="eyebrow">GitHub at a glance</p><h3>Building in public, with methods and limits beside the code.</h3><a class="text-link" href="https://github.com/aarnavbhat23" target="_blank" rel="noopener">Explore all repositories <span aria-hidden="true">↗</span></a></div>
+        <dl class="github-stats"><div><dt data-github-repos>21</dt><dd>public repositories</dd></div><div><dt data-github-followers>Python</dt><dd>followers</dd></div><div><dt data-github-stars>Evaluation</dt><dd>stars across public repositories</dd></div><div><dt data-github-updated>Live</dt><dd>profile data status</dd></div></dl>
       </div>
-      <div class="evidence-grid personal-grid">
-        <article class="evidence-card reveal">
-          <h3>Biology first</h3>
-          <p>I try to start with a mechanism or clinical question before touching the model. A clean metric is less meaningful if the biological setup is weak.</p>
-        </article>
-        <article class="evidence-card reveal">
-          <h3>Validation as a habit</h3>
-          <p>I like held-out tests, repeated splits, negative controls, ablations, and clear limitations because they make the result harder to fool.</p>
-        </article>
-        <article class="evidence-card reveal">
-          <h3>Structure and sequence</h3>
-          <p>I am increasingly interested in how sequence models and protein-structure tools can connect molecular hypotheses to testable designs.</p>
-        </article>
-        <article class="evidence-card reveal">
-          <h3>Readable science</h3>
-          <p>I care about writing because a project is not really finished until another person can understand what was done and what was not proven.</p>
-        </article>
+      <div class="repo-grid">
+        <article class="repo-card reveal"><p class="repo-number">01</p><h3>Censor-aware peptide models</h3><p>Censored-assay likelihood with peptide and independent ChEMBL evaluations, interval tests, six IC50 heads, and strict document/molecule holdouts.</p><div class="tag-list"><span>Python</span><span>peptide ML</span><span>holdouts</span></div><a class="text-link" href="https://github.com/aarnavbhat23/censor-aware-peptide-models" target="_blank" rel="noopener">View repository <span aria-hidden="true">↗</span></a></article>
+        <article class="repo-card reveal"><p class="repo-number">02</p><h3>Perturbation composition lab</h3><p>Two independent perturbation experiments across 289 combinations, comparing matched neural, ridge, and additive models with 20 dependent holdouts.</p><div class="tag-list"><span>Python</span><span>perturbation</span><span>comparative models</span></div><a class="text-link" href="https://github.com/aarnavbhat23/perturbation-composition-lab" target="_blank" rel="noopener">View repository <span aria-hidden="true">↗</span></a></article>
+        <article class="repo-card reveal"><p class="repo-number">03</p><h3>Evidence retrieval bench</h3><p>Scientific retrieval and citation auditing with disjoint supervised groups, 300 verdicts, 1,128 paired stress cases, and a blinded review packet.</p><div class="tag-list"><span>Python</span><span>scientific retrieval</span><span>auditing</span></div><a class="text-link" href="https://github.com/aarnavbhat23/evidence-retrieval-bench" target="_blank" rel="noopener">View repository <span aria-hidden="true">↗</span></a></article>
+        <article class="repo-card reveal"><p class="repo-number">04</p><h3>AMP challenge</h3><p>A conditional peptide language model with a released checkpoint and reproducible 50,000-sequence library, including an external-ranker null result.</p><div class="tag-list"><span>Python</span><span>language models</span><span>reproducibility</span></div><a class="text-link" href="https://github.com/aarnavbhat23/amp-challenge-2027-encrypted-peptides" target="_blank" rel="noopener">View repository <span aria-hidden="true">↗</span></a></article>
+        <article class="repo-card reveal"><p class="repo-number">05</p><h3>Nature compute lab</h3><p>Small, reproducible proof-of-mechanism experiments on development, catalysis, symbiosis, repair, immune memory, stable regimes, and clocks.</p><div class="tag-list"><span>Python</span><span>controls</span><span>synthetic experiments</span></div><a class="text-link" href="https://github.com/aarnavbhat23/nature-compute-lab" target="_blank" rel="noopener">View repository <span aria-hidden="true">↗</span></a></article>
+        <article class="repo-card reveal"><p class="repo-number">06</p><h3>Bio evidence</h3><p>A growing set of biological-data and model-evaluation checks, including nine public-data applications and documented model-failure cases.</p><div class="tag-list"><span>Python</span><span>data quality</span><span>model evaluation</span></div><a class="text-link" href="https://github.com/aarnavbhat23/bio-evidence" target="_blank" rel="noopener">View repository <span aria-hidden="true">↗</span></a></article>
       </div>
     </section>
 
-    <section class="section-block compact">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Research timeline</p>
-        <h2>A focused path into computational oncology.</h2>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item reveal">
-          <time>2026</time>
-          <div>
-            <h3>Validation-first biomedical machine learning</h3>
-            <p>Deepened my work in cancer genomics, patient-level validation, external checks, ablation studies, PR-AUC, confusion matrices, negative controls, and technical-confounder audits.</p>
-          </div>
-        </div>
-        <div class="timeline-item reveal">
-          <time>2025-2026</time>
-          <div>
-            <h3>Epigenomics and cancer diagnostics</h3>
-            <p>Studied how methylation, expression, and cohort-scale signals can be translated into supervised learning problems without losing sight of clinical context.</p>
-          </div>
-        </div>
-        <div class="timeline-item reveal">
-          <time>2024-2025</time>
-          <div>
-            <h3>Wet-lab genetics foundation</h3>
-            <p>Studied DNA damage and repair concepts through micropipetting, DNA extraction, and gel electrophoresis, with formal public recognition for the project.</p>
-          </div>
-        </div>
-        <div class="timeline-item reveal">
-          <time>Ongoing</time>
-          <div>
-            <h3>Coursework and communication</h3>
-            <p>Continuing work in precision medicine, genetics, machine learning, public science writing, Sanskrit teaching, and competitive swimming.</p>
-          </div>
-        </div>
+    <section class="section-block skills-section">
+      <div class="section-heading reveal"><p class="eyebrow">Working toolkit</p><div><h2>Methods, tools, and domains I am growing into.</h2><p>A practical toolkit for moving from public data to transparent, reviewer-facing analysis.</p></div></div>
+      <div class="skill-columns">
+        <article class="skill-panel reveal"><h3>Analysis &amp; software</h3><div class="skill-cloud"><span>Python</span><span>pandas</span><span>NumPy</span><span>scikit-learn</span><span>Git/GitHub</span><span>LaTeX/Overleaf</span></div></article>
+        <article class="skill-panel reveal"><h3>Scientific machine learning</h3><div class="skill-cloud"><span>feature engineering</span><span>ROC/PR analysis</span><span>permutation testing</span><span>ablation studies</span><span>SHAP</span><span>reproducible evaluation</span></div></article>
+        <article class="skill-panel reveal"><h3>Biology &amp; research context</h3><div class="skill-cloud"><span>genomics</span><span>cfDNA</span><span>epigenomics</span><span>oncology</span><span>protein modeling</span><span>precision medicine</span></div></article>
       </div>
     </section>
 
     <section id="writing" class="section-block">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Writing and manuscripts</p>
-        <h2>Research communication without overclaiming.</h2>
-        <p>
-          I am learning that clear writing is part of the science. It forces me to
-          separate what the evidence supports from what I hope the next experiment
-          might show.
-        </p>
-      </div>
-
-      <div class="link-grid">
-        <a class="link-card reveal" href="https://siliconeer.com/current/coronavirus-has-history-repeated-itself/" target="_blank" rel="noopener">
-          <span>Article</span>
-          <h3>Coronavirus - Has History Repeated?</h3>
-          <p>Public science and health writing in Siliconeer.</p>
-        </a>
-        <a class="link-card reveal" href="https://medium.com/@itsaarnavbhat" target="_blank" rel="noopener">
-          <span>Essays</span>
-          <h3>Medium writing</h3>
-          <p>Selected essays on neuroscience, behavior, and health.</p>
-        </a>
-        <a class="link-card reveal" href="mailto:aarnav.bhat0@gmail.com?subject=Manuscript%20request%20-%20Aarnav%20Bhat">
-          <span>Contact</span>
-          <h3>Research materials by request</h3>
-          <p>For current drafts, figure packets, or collaboration context, email is the cleanest path.</p>
-        </a>
+      <div class="section-heading reveal"><p class="eyebrow">Writing</p><div><h2>Research communication belongs beside the analysis.</h2><p>Clear public writing is part of how I test whether an idea is ready to be understood.</p></div></div>
+      <div class="repo-grid">
+        <a class="repo-card reveal" href="https://siliconeer.com/current/coronavirus-has-history-repeated-itself/" target="_blank" rel="noopener"><p class="repo-number">ARTICLE</p><h3>Coronavirus — Has History Repeated?</h3><p>Public science and health writing in Siliconeer.</p><span class="text-link">Read article <span aria-hidden="true">↗</span></span></a>
+        <a class="repo-card reveal" href="https://medium.com/@itsaarnavbhat" target="_blank" rel="noopener"><p class="repo-number">ESSAYS</p><h3>Medium writing</h3><p>Selected essays on neuroscience, behavior, health, and scientific curiosity.</p><span class="text-link">Read essays <span aria-hidden="true">↗</span></span></a>
+        <a class="repo-card reveal" href="mailto:aarnav.bhat0@gmail.com?subject=Manuscript%20request%20-%20Aarnav%20Bhat"><p class="repo-number">MATERIALS</p><h3>Research materials by request</h3><p>For current drafts, figure packets, or collaboration context, email is the best starting point.</p><span class="text-link">Request materials <span aria-hidden="true">→</span></span></a>
       </div>
     </section>
 
-    <section id="toolkit" class="section-block">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Technical toolkit</p>
-        <h2>Tools I use to turn messy biomedical data into testable models.</h2>
-      </div>
-      <div class="skill-cloud reveal">
-        <span>Python</span>
-        <span>pandas</span>
-        <span>NumPy</span>
-        <span>scikit-learn</span>
-        <span>Feature engineering</span>
-        <span>ROC/PR analysis</span>
-        <span>Permutation testing</span>
-        <span>SHAP</span>
-        <span>LaTeX/Overleaf</span>
-        <span>Git/GitHub</span>
-        <span>cfDNA</span>
-        <span>Epigenomics</span>
-        <span>Spatial validation</span>
-        <span>Structure-aware screening</span>
+    <section id="experience" class="section-block">
+      <div class="section-heading reveal"><p class="eyebrow">Experience &amp; education</p><div><h2>A foundation across research, learning, and community.</h2><p>Public professional information is summarized here with the same care applied to technical claims: useful context, no inflated titles.</p></div></div>
+      <div class="timeline">
+        <article class="timeline-item reveal"><time>Ongoing</time><div><h3>Student researcher · computational biology</h3><p>Developing validation-first computational projects in genomics, oncology, peptide models, and scientific evidence evaluation.</p></div></article>
+        <article class="timeline-item reveal"><time>Credential</time><div><h3>Stanford: Data Science in Precision Medicine &amp; Cloud Computing</h3><p>Completed a fundamentals credential focused on cloud-native genomic workflows and precision-medicine analytics.</p></div></article>
+        <article class="timeline-item reveal"><time>Education</time><div><h3>Milpitas High School</h3><p>Student with academic interests spanning genetics, biotechnology, bioinformatics, and oncology.</p></div></article>
+        <article class="timeline-item reveal"><time>Community</time><div><h3>WaveQuest co-founder · Samskrita Bharati</h3><p>Supporting access to marine-conservation research and biotech education while maintaining a parallel interest in Sanskrit, classical scientific texts, and science communication.</p></div></article>
       </div>
     </section>
 
-    <section id="contact" class="contact-panel reveal">
-      <div>
-        <p class="eyebrow">Contact</p>
-        <h2>Open to remote computational research support.</h2>
-        <p>
-          Interested in genomics data analysis, literature review, reproducibility
-          checks, model validation, and manuscript support during the fall or winter.
-        </p>
-      </div>
-      <div class="contact-actions">
-        <a class="button primary" href="mailto:aarnav.bhat0@gmail.com">aarnav.bhat0@gmail.com</a>
-        <a class="button" href="https://www.linkedin.com/in/aarnavbhat" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="button" href="https://github.com/aarnavbhat23" target="_blank" rel="noopener">GitHub</a>
-      </div>
+    <section id="connect" class="contact-panel reveal">
+      <div><p class="eyebrow">Connect</p><h2>Open to research conversations and learning opportunities.</h2><p>I’m interested in computational research support, reproducibility checks, genomics data analysis, literature review, and thoughtful biomedical AI work.</p></div>
+      <div class="contact-actions"><a class="button primary" href="mailto:aarnav.bhat0@gmail.com">Email Aarnav</a><a class="button" href="https://www.linkedin.com/in/aarnavbhat" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a><a class="button" href="https://github.com/aarnavbhat23" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a></div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <span>Aarnav Bhat</span>
-    <span>Computational biology research portfolio</span>
-  </footer>
-
+  <footer class="site-footer"><span>Aarnav Bhat</span><span>Computational biology · genomics · reproducible research</span></footer>
+  <script src="assets/github-stats.js"></script>
   <script src="assets/site.js"></script>
 </body>
 </html>
