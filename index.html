@@ -134,6 +134,13 @@ section.band.tint { background: var(--paper-2); border-block: 1px solid var(--li
 .tool { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.6rem 1rem; border: 1px solid var(--line); border-radius: 100px; background: #fff; font-size: 0.93rem; color: var(--ink-soft); transition: border-color 0.2s var(--ease), color 0.2s var(--ease); }
 .tool:hover { border-color: var(--green); color: var(--green-deep); }
 .tool svg { width: 17px; height: 17px; color: var(--green); }
+/* more work */
+.grid { margin-top: 2.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; }
+.mini { display: flex; flex-direction: column; gap: 0.55rem; padding: 1.35rem; background: #fff; border: 1px solid var(--line); border-radius: 1rem; transition: border-color 0.3s var(--ease), transform 0.3s var(--ease); }
+.mini:hover { border-color: var(--green); transform: translateY(-2px); }
+.mini h3 { font-size: 1.12rem; }
+.mini p { font-size: 0.95rem; color: var(--ink-soft); }
+.mini .tagline { margin-top: auto; padding-top: 0.5rem; font-size: 0.85rem; font-weight: 500; color: var(--green-deep); }
 .sources { margin-top: 1.5rem; font-size: 0.93rem; color: var(--ink-faint); }
 
 /* footer */
@@ -160,6 +167,7 @@ footer p { margin-top: 0.8rem; color: var(--ink-soft); max-width: 28rem; }
     <nav aria-label="Primary"><ul>
       <li><a href="#work">Work</a></li>
       <li><a href="#bench">At the bench</a></li>
+      <li><a href="#more">More</a></li>
       <li><a href="#tools">Tools</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul></nav>
@@ -193,7 +201,7 @@ footer p { margin-top: 0.8rem; color: var(--ink-soft); max-width: 28rem; }
     <div class="wrap">
       <div class="head up">
         <p class="eyebrow">Selected work</p>
-        <h2>Three projects I'd want you to read.</h2>
+        <h2>The work I&#8217;d want you to read first.</h2>
         <p>Each one is a complete, reproducible experiment with its code, figures and released models in the open.</p>
       </div>
       <div class="work">
@@ -257,6 +265,48 @@ footer p { margin-top: 0.8rem; color: var(--ink-soft); max-width: 28rem; }
             <li><svg aria-hidden="true"><use href="#check"/></svg><span><b>A browser explorer</b> that validates your own sequences locally.</span></li>
           </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="more">
+    <div class="wrap">
+      <div class="head up">
+        <p class="eyebrow">Also published</p>
+        <h2>Other work in the open.</h2>
+        <p>Benchmarks, models and tooling built alongside the projects above.</p>
+      </div>
+      <div class="grid">
+        <a class="mini up" href="https://github.com/aarnavbhat23/perturbation-composition-lab" target="_blank" rel="noopener">
+          <h3>Perturbation Composition Lab</h3>
+          <p>Predicting what happens when two genes are perturbed together, from the single-gene responses. Across two independent experiments and 289 combinations, the learned model improves on simple additivity in every split.</p>
+          <span class="tagline">Released models and checkpoints &#8594;</span>
+        </a>
+        <a class="mini up" href="https://github.com/aarnavbhat23/censor-aware-peptide-models" target="_blank" rel="noopener">
+          <h3>Censor-Aware Models</h3>
+          <p>Assay tables are full of bounds rather than values. This trains on what a bound actually says, and the likelihood improves across every document-level split on 15,099 independent measurements.</p>
+          <span class="tagline">Six released prediction heads &#8594;</span>
+        </a>
+        <a class="mini up" href="https://github.com/aarnavbhat23/evidence-retrieval-bench" target="_blank" rel="noopener">
+          <h3>Evidence Retrieval Bench</h3>
+          <p>A citation auditor for scientific claims: it checks that a quotation really appears in the source it names, across 5,183 abstracts and 1,128 paired stress cases.</p>
+          <span class="tagline">Reusable audit tool &#8594;</span>
+        </a>
+        <a class="mini up" href="https://github.com/aarnavbhat23/peptide-leakage-lens" target="_blank" rel="noopener">
+          <h3>Peptide Leakage Lens</h3>
+          <p>A 49,172-record peptide benchmark with released prediction heads. Calibrating by peptide family rather than by row raises reliable coverage from 62% to 91%.</p>
+          <span class="tagline">Trained heads and dataset card &#8594;</span>
+        </a>
+        <a class="mini up" href="https://github.com/aarnavbhat23/bio-evidence" target="_blank" rel="noopener">
+          <h3>bio-evidence</h3>
+          <p>Nine small checks for biological data and model evaluation, each with a worked example on public data — from assay units to plate effects in imaging screens.</p>
+          <span class="tagline">Installable Python package &#8594;</span>
+        </a>
+        <a class="mini up" href="https://github.com/aarnavbhat23/toxicity-scaffold-lab" target="_blank" rel="noopener">
+          <h3>Toxicity Scaffold Lab</h3>
+          <p>Molecular property prediction across twelve assays, with uncertainty calibrated at the level of chemical scaffolds so the error bars mean something on new chemistry.</p>
+          <span class="tagline">Released checkpoints &#8594;</span>
+        </a>
       </div>
     </div>
   </section>
