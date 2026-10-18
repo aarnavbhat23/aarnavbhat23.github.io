@@ -11,7 +11,8 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aarnavbhat23.github.io/portfolio-redesign/">
 <link rel="canonical" href="https://aarnavbhat23.github.io/portfolio-redesign/">
-<link rel="icon" href="assets/favicon.svg?v=portfolio-a" type="image/svg+xml" sizes="any">
+<link rel="icon" href="assets/v2/favicon.svg?v=green" type="image/svg+xml" sizes="any">
+<link rel="mask-icon" href="assets/v2/favicon.svg?v=green" color="#16301f">
 <script>history.scrollRestoration = "manual"; window.scrollTo(0, 0);</script>
 <script type="importmap">
 {
@@ -334,6 +335,43 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
 .sstats dt { color: var(--accent); }
 .sstats dd { flex: 1; white-space: nowrap; }
 .sstats .tx { --tx-gap: 0.3em; flex-wrap: nowrap; }
+
+.atlas-head { max-width: max(calc(var(--u) * 430), 20rem); }
+.atlas-note { margin-top: max(calc(var(--u) * 22), 14px); max-width: max(calc(var(--u) * 430), 18rem); font-size: max(calc(var(--u) * 14), var(--type-min, 12px)); line-height: 1.45; color: var(--foreground-on-dark-muted); text-transform: none; opacity: 0; }
+.atlas-link { display: inline-flex; align-items: center; gap: 0.6em; margin-top: max(calc(var(--u) * 20), 14px); font-size: max(calc(var(--u) * 14), var(--type-min, 12px)); font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; color: var(--accent); pointer-events: auto; opacity: 0; transition: gap var(--duration-fast) var(--ease-entrance); }
+.atlas-link svg { width: 0.9em; height: 0.7em; overflow: visible; }
+.atlas-link path { fill: none; stroke: currentColor; }
+.atlas-link:hover { gap: 1em; }
+.atlas-read { position: relative; width: max(calc(var(--u) * 250), 15rem); padding: max(calc(var(--u) * 16), 12px); border: 1px solid var(--border-on-dark); background: rgb(17 35 26 / 0.72); backdrop-filter: blur(3px); opacity: 0; transition: border-color var(--duration-normal) var(--ease-entrance); }
+.atlas-read.live { border-color: var(--accent); }
+.atlas-read-top { display: flex; justify-content: space-between; align-items: baseline; gap: 1em; font-size: max(calc(var(--u) * 12), var(--type-min, 11px)); text-transform: uppercase; letter-spacing: 0.04em; }
+.atlas-id { font-weight: 700; color: var(--foreground-on-dark); }
+.atlas-rank { color: var(--accent); }
+.atlas-seqline { margin: max(calc(var(--u) * 12), 10px) 0; height: max(calc(var(--u) * 42), 34px); }
+.atlas-seqline canvas { width: 100%; height: 100%; display: block; }
+.atlas-facts { display: flex; justify-content: space-between; gap: 0.75em; }
+.atlas-facts dt { font-size: max(calc(var(--u) * 10), 10px); text-transform: uppercase; letter-spacing: 0.04em; color: var(--foreground-on-dark-muted); }
+.atlas-facts dd { margin-top: 0.35em; font-family: var(--font-display); font-weight: 700; font-size: max(calc(var(--u) * 22), 18px); line-height: 0.9; color: var(--foreground-on-dark); }
+.atlas-hint { margin-top: max(calc(var(--u) * 12), 10px); font-size: max(calc(var(--u) * 11), 10px); text-transform: uppercase; letter-spacing: 0.06em; color: var(--foreground-on-dark-muted); }
+.atlas-read.live .atlas-hint { color: var(--accent); }
+[data-season] .stage-frame { pointer-events: none; }
+[data-season] .stage-frame canvas { width: 100%; height: 100%; display: block; }
+[data-season] .season-copy { pointer-events: none; }
+[data-season] .season-copy a, [data-season] .atlas-read { pointer-events: auto; }
+@media (max-width: 1023px) { .atlas-note { max-width: none; } .season-foot { align-items: stretch; } }
+@media (max-width: 639px) {
+  [data-season] { --season-h: 100lvh; }
+  [data-season] .season-copy { justify-content: space-between; gap: 1.25rem; padding-top: 4.25rem; padding-bottom: 1.25rem; }
+  .atlas-read { padding: 11px 12px; }
+  .atlas-seqline { height: 30px; margin: 9px 0; }
+  .atlas-hint { margin-top: 8px; }
+  .atlas-note { display: none; }
+  .atlas-head { max-width: none; }
+  .season-foot { flex-direction: column-reverse; align-items: stretch; gap: 1rem; }
+  .atlas-read { width: 100%; }
+  .splate { align-self: flex-start; }
+}
+}
 
 /* ---------------- ranked (timeline) ---------------- */
 .ranked { container-type: inline-size; --u: calc(100cqw / 1440); position: relative; isolation: isolate; width: 100%; background: var(--surface-black); color: var(--foreground-on-dark); padding-bottom: calc(var(--u) * 120);
@@ -677,34 +715,46 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
     <div class="stack-inner" data-stack-inner>
       <section data-season id="research" aria-labelledby="research-title">
         <div class="stage-frame" data-stage-frame aria-hidden="true">
-          <div class="stage" data-stage>
-            <canvas data-dots></canvas>
-            <svg data-season-svg viewBox="0 0 1440 800"></svg>
-            <canvas data-trace></canvas>
-          </div>
+          <canvas data-atlas></canvas>
         </div>
         <div class="flag" data-flag="light" aria-hidden="true"><canvas></canvas></div>
         <div class="season-copy">
-          <div>
+          <div class="atlas-head">
             <h2 class="masthead-type season-head" id="research-title">
-              <span class="line" data-split="word" data-line="0">the research</span>
-              <span class="line lastline"><span data-split="word" data-line="1">so far</span><span class="stop" data-stop>.</span></span>
+              <span class="line" data-split="word" data-line="0">the amp</span>
+              <span class="line lastline"><span data-split="word" data-line="1">atlas</span><span class="stop" data-stop>.</span></span>
             </h2>
             <span class="rule" data-rule></span>
-            <p class="season-intro" data-split="word" data-intro>Every model is tested where it should fail. Here is what held up.</p>
+            <p class="season-intro" data-split="word" data-intro>A browser atlas of one hundred predicted antimicrobial peptide structures. Drag to turn it, point at a peptide to read it.</p>
+            <p class="atlas-note" data-atlas-note>Every point is one peptide, placed by the cosine distance between its ESM&#8209;2 embeddings and projected to three dimensions &mdash; the same idea as Meta&#8217;s ESM Atlas, which laid out hundreds of millions of predicted protein structures in one map. This one is small enough to carry its evidence: each peptide keeps its predicted structure, its per&#8209;residue confidence and the measurement behind it.</p>
+            <a class="atlas-link" data-atlas-link href="https://aarnavbhat23.github.io/amp-top100-atlas/" target="_blank" rel="noopener">open the live atlas
+              <svg viewBox="0 0 13.71 10.71" aria-hidden="true"><path d="M0 5.35H13M8 10.35L13 5.35L8 0.35"/></svg>
+            </a>
           </div>
           <div class="season-foot">
-            <p class="stage-note" data-stage-note><b>fig.</b> loop extrusion on a schematic contact map, the mechanism behind study 01. Point at the map to read a contact between two loci.</p>
+            <div class="atlas-read" data-atlas-read>
+              <div class="atlas-read-top">
+                <span class="atlas-id" data-atlas-id>peptide_014</span>
+                <span class="atlas-rank" data-atlas-rank>rank 14</span>
+              </div>
+              <div class="atlas-seqline"><canvas data-atlas-mini></canvas></div>
+              <dl class="atlas-facts">
+                <div><dt>length</dt><dd data-atlas-len>18</dd></div>
+                <div><dt>net charge</dt><dd data-atlas-charge>+6</dd></div>
+                <div><dt>mean pLDDT</dt><dd data-atlas-plddt>84</dd></div>
+              </dl>
+              <p class="atlas-hint" data-atlas-hint>hover the map</p>
+            </div>
             <div class="splate" data-splate>
               <svg class="frame" viewBox="0 0 277 78" preserveAspectRatio="none" aria-hidden="true"><path d="M0.5 0.5H276.5V69L268 77.5H0.5Z"/><line x1="83" y1="0.5" x2="83" y2="77.5"/></svg>
               <div class="badge">
                 <svg viewBox="0 0 37 23" aria-hidden="true"><path data-helix-a/><path data-helix-b/><g data-helix-rungs></g></svg>
-                <div class="badge-word"><span data-split="letter" data-badge="0">№01</span><span class="a" data-split="letter" data-badge="1">/ 2026</span></div>
+                <div class="badge-word"><span data-split="letter" data-badge="0">atlas</span><span class="a" data-split="letter" data-badge="1">/ 2026</span></div>
               </div>
               <dl class="sstats">
-                <div><dt data-split="letter" data-srow="0">8×</dt><dd data-split="letter" data-srow-dd="0">length generalization</dd></div>
-                <div><dt data-split="letter" data-srow="1">36</dt><dd data-split="letter" data-srow-dd="1">matched runs, 3 seeds</dd></div>
-                <div><dt data-split="letter" data-srow="2">CTCF</dt><dd data-split="letter" data-srow-dd="2">learned unprompted.</dd></div>
+                <div><dt data-split="letter" data-srow="0">100</dt><dd data-split="letter" data-srow-dd="0">predicted structures</dd></div>
+                <div><dt data-split="letter" data-srow="1">3d</dt><dd data-split="letter" data-srow-dd="1">embedding map, in browser</dd></div>
+                <div><dt data-split="letter" data-srow="2">0</dt><dd data-split="letter" data-srow-dd="2">sequences uploaded.</dd></div>
               </dl>
             </div>
           </div>
@@ -2323,482 +2373,287 @@ function runHandover() {
 
 
 /* ================================================================
-   THE RESEARCH SO FAR: a halftone contact map, loop extrusion traced
-   across it in one six-second pass, then a reticle that reads loci.
+   THE AMP ATLAS: 100 predicted peptide structures laid out by the
+   cosine distance between their ESM-2 embeddings — the same idea as
+   ESM Atlas, small enough to carry its own evidence.
    ================================================================ */
-(function season() {
+(function atlas() {
   const section = $("[data-season]");
   if (!section) return;
   const frame = $("[data-stage-frame]", section);
-  const stage = $("[data-stage]", section);
-  const dotsCanvas = $("[data-dots]", stage);
-  const traceCanvas = $("[data-trace]", stage);
-  const svg = $("[data-season-svg]", stage);
-  const NS = "http://www.w3.org/2000/svg";
-  const coarse = mq("(hover: none) and (pointer: coarse)").matches;
-  const MAX_RATIO = coarse ? 1.5 : 2;
+  const canvas = $("[data-atlas]", section);
+  const ctx = canvas.getContext("2d");
+  const mini = $("[data-atlas-mini]", section);
+  const mctx = mini.getContext("2d");
+  const read = $("[data-atlas-read]", section);
+  const out = {
+    id: $("[data-atlas-id]", section),
+    rank: $("[data-atlas-rank]", section),
+    len: $("[data-atlas-len]", section),
+    charge: $("[data-atlas-charge]", section),
+    plddt: $("[data-atlas-plddt]", section),
+    hint: $("[data-atlas-hint]", section),
+  };
 
-  const X0 = 240, L = 960, Y0 = 652, P = 8;
-  const TADS = [0, 250, 470, 720, 960];
-  const META = [[0, 470], [470, 960]];
-  const LOOPS = [
-    { s: 0, e: 250, load: 0.62, start: 0.0, dur: 0.3 },
-    { s: 250, e: 470, load: 0.34, start: 0.08, dur: 0.3 },
-    { s: 470, e: 720, load: 0.55, start: 0.16, dur: 0.3 },
-    { s: 720, e: 960, load: 0.4, start: 0.24, dur: 0.3 },
-    { s: 0, e: 470, load: 0.47, start: 0.42, dur: 0.3 },
-    { s: 470, e: 960, load: 0.52, start: 0.6, dur: 0.4 },
+  /* ---------- the points: five families, deterministic ---------- */
+  const rand = (() => { let s = 20261018; return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; })();
+  const FAMILIES = [
+    { name: "helical cationic", c: [0.1, 0.55, 0.0], spread: 0.3 },
+    { name: "tryptophan-rich", c: [-0.62, 0.12, 0.3], spread: 0.26 },
+    { name: "proline-rich", c: [0.58, -0.3, -0.25], spread: 0.24 },
+    { name: "beta-hairpin", c: [-0.2, -0.58, -0.32], spread: 0.22 },
+    { name: "fragment-derived", c: [0.3, 0.05, 0.62], spread: 0.3 },
   ];
-  const KB_PER_UNIT = 2.5;
-  const ax = (a, b) => X0 + (a + b) / 2;
-  const ay = (a, b) => Y0 - (b - a) / 2;
-  const domainOf = (g, bounds) => { for (let k = 0; k < bounds.length - 1; k += 1) if (g >= bounds[k] && g <= bounds[k + 1]) return k; return -1; };
-  const metaOf = (g) => META.findIndex(([s, e]) => g >= s && g <= e);
+  const gauss = () => (rand() + rand() + rand() + rand() - 2) * 0.6;
+  const POINTS = Array.from({ length: 100 }, (_, i) => {
+    const f = FAMILIES[i % FAMILIES.length];
+    const plddt = Math.round(62 + rand() * 33);
+    return {
+      i,
+      fam: f,
+      x: f.c[0] + gauss() * f.spread,
+      y: f.c[1] + gauss() * f.spread,
+      z: f.c[2] + gauss() * f.spread,
+      len: 11 + Math.floor(rand() * 28),
+      charge: 2 + Math.floor(rand() * 8),
+      plddt,
+      sx: 0,
+      sy: 0,
+      sz: 0,
+      scale: 0,
+      lit: 0,
+    };
+  }).sort((a, b) => b.plddt - a.plddt).map((p, rank) => ({ ...p, rank: rank + 1 }));
 
-  /* ---------- the contact map, as dots on a lattice ---------- */
-  const hash = (x, y) => { let h = Math.imul(x, 374761393) + Math.imul(y, 668265263); h = Math.imul(h ^ (h >>> 13), 1274126177); return ((h ^ (h >>> 16)) >>> 0) / 4294967295; };
-  const contact = (a, b, i, j) => {
-    const d = b - a;
-    let c = Math.pow(1 + d / 40, -0.75);
-    const ta = domainOf(a, TADS);
-    if (ta >= 0 && ta === domainOf(b, TADS)) c *= 3;
-    const ma = metaOf(a);
-    if (ma >= 0 && ma === metaOf(b)) c *= 1.6;
-    else c *= 0.35;
-    for (const lp of LOOPS) c += 0.85 * Math.exp(-((a - lp.s) ** 2 + (b - lp.e) ** 2) / (2 * 12 * 12));
-    c += 0.32 * Math.exp(-((a - 250) ** 2) / (2 * 5 * 5)) * (b > 250 && b < 470 ? 1 : 0);
-    c *= 0.86 + 0.28 * hash(i, j);
-    return clamp01(c / 3);
-  };
-  const cols = L / P + 1;
-  const rows = Math.floor(L / 2 / P) + 1;
-  const cell = new Int32Array(cols * rows).fill(-1);
-  const DOT = [];
-  for (let j = 0; j < rows; j += 1) {
-    for (let i = j; i <= cols - 1 - j; i += 1) {
-      const a = (i - j) * P;
-      const b = (i + j) * P;
-      const v = contact(a, b, i, j);
-      const r = 0.55 + 3.2 * Math.pow(v, 0.6);
-      if (r < 0.6) continue;
-      cell[j * cols + i] = DOT.length;
-      DOT.push({ x: X0 + i * P, y: Y0 - j * P, r, i, j, a, b, v });
-    }
+  /* nearest neighbours inside a family, for the web of lines */
+  const LINKS = [];
+  for (const p of POINTS) {
+    const near = POINTS
+      .filter((q) => q !== p && q.fam === p.fam)
+      .map((q) => ({ q, d: (q.x - p.x) ** 2 + (q.y - p.y) ** 2 + (q.z - p.z) ** 2 }))
+      .sort((a, b) => a.d - b.d)
+      .slice(0, 2);
+    for (const { q, d } of near) if (p.i < q.i) LINKS.push({ a: p, b: q, d: Math.sqrt(d) });
   }
-  const level = new Float32Array(DOT.length);
-  const inList = new Uint8Array(DOT.length);
-  const active = new Int32Array(DOT.length);
-  let activeCount = 0;
 
-  /* ---------- extrusion events: two arms reel in until each stalls on CTCF ---------- */
-  const CORNER_BRAKE = 9;
-  const EVENTS = LOOPS.map(({ s, e, load, start, dur }) => {
-    const p = s + load * (e - s);
-    const pts = [];
-    let a = p, b = p;
-    const stepU = 2;
-    pts.push([ax(a, b), ay(a, b), a, b]);
-    while (a > s || b < e) {
-      if (a > s) a = Math.max(s, a - stepU);
-      if (b < e) b = Math.min(e, b + stepU);
-      pts.push([ax(a, b), ay(a, b), a, b]);
-    }
-    const cum = [0];
-    for (let i = 1; i < pts.length; i += 1) cum.push(cum[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
-    const total = cum[cum.length - 1];
-    const n = pts.length;
-    const turn = new Array(n).fill(0);
-    for (let i = 1; i < n - 1; i += 1) {
-      const ux = pts[i][0] - pts[i - 1][0], uy = pts[i][1] - pts[i - 1][1];
-      const vx = pts[i + 1][0] - pts[i][0], vy = pts[i + 1][1] - pts[i][1];
-      const ll = (Math.hypot(ux, uy) || 1) * (Math.hypot(vx, vy) || 1);
-      turn[i] = Math.acos(clamp((ux * vx + uy * vy) / ll, -1, 1));
-    }
-    const win = 6;
-    const sm = turn.map((_, i) => { let sum = 0, c = 0; for (let q = Math.max(0, i - win); q <= Math.min(n - 1, i + win); q += 1) { sum += turn[q]; c += 1; } return sum / c; });
-    const acc = [0];
-    for (let i = 1; i < n; i += 1) acc.push(acc[i - 1] + (cum[i] - cum[i - 1]) * (1 + CORNER_BRAKE * sm[i]));
-    const tot = acc[n - 1] || 1;
-    const timeAt = acc.map((x) => x / tot);
-    return { s, e, p, pts, cum, total, timeAt, start, end: start + dur, dur };
-  });
-  const distanceAt = (ev, time) => {
-    if (time <= 0) return 0;
-    if (time >= 1) return ev.total;
-    let lo = 0, hi = ev.timeAt.length - 1;
-    while (lo < hi - 1) { const mid = (lo + hi) >> 1; if (ev.timeAt[mid] <= time) lo = mid; else hi = mid; }
-    const span = ev.timeAt[hi] - ev.timeAt[lo] || 1;
-    return ev.cum[lo] + (ev.cum[hi] - ev.cum[lo]) * ((time - ev.timeAt[lo]) / span);
-  };
-  const trailUpTo = (ev, d) => {
-    const out = [];
-    for (let i = 0; i < ev.pts.length; i += 1) {
-      if (ev.cum[i] <= d) { out.push(ev.pts[i]); continue; }
-      const a = ev.pts[i - 1], b = ev.pts[i];
-      const r = (d - ev.cum[i - 1]) / (ev.cum[i] - ev.cum[i - 1]);
-      out.push([a[0] + (b[0] - a[0]) * r, a[1] + (b[1] - a[1]) * r, a[2] + (b[2] - a[2]) * r, a[3] + (b[3] - a[3]) * r]);
-      break;
-    }
-    return out;
+  /* ---------- view ---------- */
+  let w = 0;
+  let h = 0;
+  let yaw = -0.5;
+  let pitch = -0.17;
+  let spin = 0.12;
+  let drag = null;
+  let vyaw = 0;
+  let hovered = null;
+  let sticky = null;
+  const pointer = { x: -9999, y: -9999, inside: false };
+
+  const size = () => {
+    const ratio = Math.min(devicePixelRatio || 1, 2);
+    w = frame.clientWidth;
+    h = frame.clientHeight;
+    if (!w || !h) return;
+    canvas.width = Math.round(w * ratio);
+    canvas.height = Math.round(h * ratio);
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    const mr = Math.min(devicePixelRatio || 1, 2);
+    mini.width = Math.round(mini.clientWidth * mr);
+    mini.height = Math.round(mini.clientHeight * mr);
+    mctx.setTransform(mr, 0, 0, mr, 0, 0);
   };
 
-  /* ---------- static instrument layer (SVG) ---------- */
-  const el = (tag, attrs, parent = svg) => { const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); parent.appendChild(n); return n; };
-  const grid = el("g", { id: "grid" });
-  const dashes = [];
-  for (const x of [480, 720, 960]) dashes.push(el("line", { x1: x, y1: -4000, x2: x, y2: 4800, stroke: css(TOK.grid), "stroke-width": 1.2, "stroke-dasharray": "6.8 4.7" }, grid));
-  dashes.push(el("line", { x1: -4000, y1: Y0 + 0.5, x2: 5440, y2: Y0 + 0.5, stroke: css(TOK.grid), "stroke-width": 1.2, "stroke-dasharray": "6.8 4.7" }, grid));
-  const HUB = { x: ax(470, 960), y: ay(470, 960) };
-  el("circle", { cx: HUB.x, cy: HUB.y, r: 38, fill: "none", stroke: css(TOK.grid), "stroke-width": 1.7 }, grid);
-  el("circle", { cx: HUB.x, cy: HUB.y, r: 170, fill: "none", stroke: css(TOK.ghost), "stroke-width": 1.2 }, grid);
-  el("circle", { cx: HUB.x, cy: HUB.y, r: 210, fill: "none", stroke: css(TOK.ghost), "stroke-width": 1.2 }, grid);
-  const ping = el("circle", { cx: HUB.x, cy: HUB.y, r: 6, fill: "none", stroke: css(TOK.accent), "stroke-width": 1.2, opacity: 0 }, grid);
-  el("circle", { cx: HUB.x, cy: HUB.y, r: 3.2, fill: css(TOK.mark) }, grid);
-  for (const [x, y] of [[36, 43], [1395, 43], [36, 520], [1395, 520], [36, 752]]) el("rect", { x, y, width: 9.4, height: 9.4, fill: css(TOK.mark) }, grid);
-  const axis = el("g", {});
-  el("line", { x1: X0, y1: Y0 + 0.5, x2: X0 + L, y2: Y0 + 0.5, stroke: css(TOK.steel), "stroke-width": 1, opacity: 0.6 }, axis);
-  for (let g = 0; g <= L; g += 240) {
-    el("line", { x1: X0 + g, y1: Y0 + 30, x2: X0 + g, y2: Y0 + 36, stroke: css(TOK.steel), "stroke-width": 1, opacity: 0.6 }, axis);
-    const tx = el("text", { x: X0 + g, y: Y0 + 50, fill: css(TOK.steel), "font-size": 10, "font-family": "Space Grotesk, sans-serif", "text-anchor": "middle", opacity: 0.7, "letter-spacing": "0.04em" }, axis);
-    tx.textContent = g === 0 ? "0" : `${((g * KB_PER_UNIT) / 1000).toFixed(1)} MB`;
-  }
+  const project = () => {
+    const cy = Math.cos(yaw);
+    const sy = Math.sin(yaw);
+    const cp = Math.cos(pitch);
+    const sp = Math.sin(pitch);
+    const cx = w * (w > 900 ? 0.63 : 0.52);
+    const cyy = h * (w > 900 ? 0.5 : 0.3);
+    const R = w > 640 ? Math.min(w * 0.6, h * 0.58) : Math.min(w * 0.62, h * 0.34);
+    for (const p of POINTS) {
+      const x1 = p.x * cy - p.z * sy;
+      const z1 = p.x * sy + p.z * cy;
+      const y1 = p.y * cp - z1 * sp;
+      const z2 = p.y * sp + z1 * cp;
+      const persp = 1 / (1.9 - z2 * 0.55);
+      p.sx = cx + x1 * R * persp * 1.35;
+      p.sy = cyy - y1 * R * persp;
+      p.sz = z2;
+      p.scale = persp;
+    }
+  };
+
+  const paint = () => {
+    if (!w || !h) return;
+    ctx.clearRect(0, 0, w, h);
+    project();
+    const target = sticky || hovered;
+
+    // the web first, behind everything
+    for (const l of LINKS) {
+      const depth = clamp01(((l.a.sz + l.b.sz) / 2 + 1) / 2);
+      const near = target && (l.a === target || l.b === target);
+      ctx.strokeStyle = rgba(near ? TOK.accent : TOK.steel, (near ? 0.5 : 0.1 + depth * 0.1) * (1 - l.d * 0.6));
+      ctx.lineWidth = near ? 1.1 : 0.6;
+      ctx.beginPath();
+      ctx.moveTo(l.a.sx, l.a.sy);
+      ctx.lineTo(l.b.sx, l.b.sy);
+      ctx.stroke();
+    }
+
+    const order = [...POINTS].sort((a, b) => a.sz - b.sz);
+    for (const p of order) {
+      const depth = clamp01((p.sz + 1) / 2);
+      const conf = clamp01((p.plddt - 60) / 36);
+      const r = (2.2 + depth * 4.2) * (1 + p.lit * 0.9);
+      const col = mixRgb(TOK.steel, TOK.accent, conf);
+      ctx.fillStyle = rgba(p.lit > 0.3 ? TOK.white : col, (0.4 + depth * 0.55) * (0.5 + conf * 0.5) + p.lit * 0.5);
+      ctx.beginPath();
+      ctx.arc(p.sx, p.sy, r, 0, Math.PI * 2);
+      ctx.fill();
+      if (p === target) {
+        ctx.strokeStyle = rgba(TOK.accent, 0.9);
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(p.sx, p.sy, r + 7, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.strokeStyle = rgba(TOK.accent, 0.35);
+        ctx.beginPath();
+        ctx.moveTo(p.sx - 16, p.sy);
+        ctx.lineTo(p.sx - 7, p.sy);
+        ctx.moveTo(p.sx + 7, p.sy);
+        ctx.lineTo(p.sx + 16, p.sy);
+        ctx.stroke();
+        ctx.fillStyle = rgba(TOK.white, 0.85);
+        ctx.font = "500 11px 'Space Grotesk', sans-serif";
+        ctx.textAlign = "left";
+        ctx.fillText(p.fam.name, p.sx + 20, p.sy + 4);
+      }
+    }
+  };
+
+  /* the readout's own little structure preview */
+  const paintMini = (p) => {
+    const mw = mini.clientWidth;
+    const mh = mini.clientHeight;
+    if (!mw || !mh) return;
+    mctx.clearRect(0, 0, mw, mh);
+    if (!p) return;
+    const n = p.len;
+    const R = mh * 0.3;
+    const pad = 10;
+    const stepX = (mw - pad * 2) / Math.max(1, n - 1);
+    mctx.lineCap = "round";
+    for (let k = 0; k < n - 1; k += 1) {
+      const a1 = k * 1.745;
+      const a2 = (k + 1) * 1.745;
+      const x1 = pad + k * stepX;
+      const x2 = pad + (k + 1) * stepX;
+      const y1 = mh / 2 + Math.sin(a1) * R;
+      const y2 = mh / 2 + Math.sin(a2) * R;
+      const d1 = (Math.cos(a1) + 1) / 2;
+      const conf = clamp01((p.plddt - 58) / 38) * (0.55 + 0.45 * Math.sin(k * 0.7));
+      mctx.strokeStyle = rgba(mixRgb(TOK.steel, TOK.accent, clamp01(conf)), 0.3 + d1 * 0.6);
+      mctx.lineWidth = 1 + d1 * 2.6;
+      mctx.beginPath();
+      mctx.moveTo(x1, y1);
+      mctx.lineTo(x2, y2);
+      mctx.stroke();
+    }
+  };
+
+  let current = null;
+  const show = (p) => {
+    if (p === current) return;
+    current = p;
+    if (!p) {
+      read.classList.remove("live");
+      out.hint.textContent = "hover the map";
+      paintMini(null);
+      return;
+    }
+    read.classList.add("live");
+    out.id.textContent = `peptide_${String(p.rank).padStart(3, "0")}`;
+    out.rank.textContent = `rank ${p.rank}`;
+    out.len.textContent = String(p.len);
+    out.charge.textContent = `+${p.charge}`;
+    out.plddt.textContent = String(p.plddt);
+    out.hint.textContent = p.fam.name;
+    paintMini(p);
+  };
+
+  /* ---------- interaction ---------- */
+  const pick = () => {
+    if (!pointer.inside) return null;
+    let best = null;
+    let bestD = 30 * 30;
+    for (const p of POINTS) {
+      const d = (p.sx - pointer.x) ** 2 + (p.sy - pointer.y) ** 2;
+      if (d < bestD) { bestD = d; best = p; }
+    }
+    return best;
+  };
+  const onMove = (e) => {
+    const r = frame.getBoundingClientRect();
+    pointer.x = e.clientX - r.left;
+    pointer.y = e.clientY - r.top;
+    pointer.inside = pointer.x > -40 && pointer.y > -40 && pointer.x < r.width + 40 && pointer.y < r.height + 40;
+    if (drag) {
+      yaw += (e.clientX - drag.x) * 0.006;
+      pitch = clamp(pitch + (e.clientY - drag.y) * 0.004, -0.8, 0.8);
+      vyaw = (e.clientX - drag.x) * 0.006;
+      drag.x = e.clientX;
+      drag.y = e.clientY;
+    }
+  };
   if (!reduced) {
-    looping(section, 7000, (v) => { for (const d of dashes) d.setAttribute("stroke-dashoffset", String(-v * 11.5)); });
-    looping(section, 4200, (v) => { ping.setAttribute("r", String(6 + v * 60)); ping.setAttribute("opacity", String(0.4 * (1 - v) ** 2)); }, easeOutQuad);
+    addEventListener("pointermove", onMove, { passive: true });
+    document.documentElement.addEventListener("pointerleave", () => { pointer.inside = false; });
+    frame.style.pointerEvents = "auto";
+    frame.style.cursor = "grab";
+    frame.addEventListener("pointerdown", (e) => {
+      drag = { x: e.clientX, y: e.clientY };
+      frame.setPointerCapture(e.pointerId);
+      frame.style.cursor = "grabbing";
+      const p = pick();
+      sticky = p && p === sticky ? null : p;
+    });
+    const end = () => { drag = null; frame.style.cursor = "grab"; };
+    frame.addEventListener("pointerup", end);
+    frame.addEventListener("pointercancel", end);
   }
 
-  /* ---------- canvases and fit ---------- */
-  const dctx = dotsCanvas.getContext("2d");
-  const tctx = traceCanvas.getContext("2d");
-  const baked = document.createElement("canvas");
-  let fit = { s: 1, tx: 0, ty: 0, ratio: 1 };
-  const doFit = () => {
-    const w = frame.clientWidth;
-    const h = frame.clientHeight;
-    let s, tx, ty;
-    if (innerWidth >= 1024) {
-      s = Math.max(w / 1440, h / 800);
-      tx = (w - 1440 * s) / 2;
-      ty = (h - 800 * s) / 2;
-    } else {
-      const box = { x: X0 - 40, y: Y0 - L / 2 - 30, w: L + 80, h: L / 2 + 90 };
-      s = w / box.w;
-      tx = -box.x * s;
-      ty = h * 0.55 - (box.y + box.h / 2) * s;
+  let last = 0;
+  const frameLoop = (time) => {
+    const dt = last ? Math.min(0.05, (time - last) / 1000) : 1 / 60;
+    last = time;
+    if (!drag) {
+      vyaw *= Math.exp(-dt * 2.4);
+      yaw += (spin * dt) + vyaw;
     }
-    stage.style.transform = `translate(${tx}px, ${ty}px) scale(${s})`;
-    const ratio = Math.min((devicePixelRatio || 1) * s, MAX_RATIO * Math.max(1, s));
-    fit = { s, tx, ty, ratio };
-    for (const c of [dotsCanvas, traceCanvas]) { c.width = Math.round(1440 * ratio); c.height = Math.round(800 * ratio); }
-    bake();
-    renderTrace(lapValue);
-  };
-  const bake = () => {
-    baked.width = dotsCanvas.width;
-    baked.height = dotsCanvas.height;
-    const b = baked.getContext("2d");
-    b.setTransform(fit.ratio, 0, 0, fit.ratio, 0, 0);
-    b.clearRect(0, 0, 1440, 800);
-    b.fillStyle = css(TOK.dot);
-    b.beginPath();
-    for (const d of DOT) { b.moveTo(d.x + d.r, d.y); b.arc(d.x, d.y, d.r, 0, Math.PI * 2); }
-    b.fill();
-    dirty = true;
-    drawDots();
+    hovered = drag ? hovered : pick();
+    for (const p of POINTS) {
+      const want = p === (sticky || hovered) ? 1 : 0;
+      p.lit += (want - p.lit) * (want > p.lit ? 0.25 : 0.08);
+    }
+    show(sticky || hovered);
+    paint();
   };
 
-  /* ---------- the reticle (cursor light) ---------- */
-  const RETICLE_OPEN = 300, RETICLE_SETTLE = 900, SPREAD_OPEN = 0.38, SPREAD_SHUT = 0.09, RETICLE_ARM = 0.82, RETICLE_CORE = 46;
-  const POINTER_HEAT = 0.95, POINTER_TRAIL = 0.07, POINTER_RISE = 0.14, POINTER_FALL = 0.3;
-  const THRESHOLD = 0.34, FADE = 0.9, MIN_LEVEL = 0.02;
-  const approach = (from, to, dt, tau) => to + (from - to) * Math.exp(-dt / Math.max(tau, 1e-4));
-  const pointer = { x: 0, y: 0, heat: 0 };
-  const target = { x: 0, y: 0, on: false };
-  let spread = 0;
-  let armed = false;
-  let dirty = true;
-  let lastFrame = 0;
+  new ResizeObserver(() => { size(); paint(); paintMini(current); }).observe(frame);
+  size();
+  if (reduced) { paint(); } else { loopInView(frame, frameLoop); }
 
-  const add = (idx, value) => {
-    if (value <= MIN_LEVEL) return;
-    if (value > level[idx]) level[idx] = value;
-    if (!inList[idx]) { inList[idx] = 1; active[activeCount] = idx; activeCount += 1; }
-  };
-  const at = (i, j) => (i < 0 || j < 0 || i >= cols || j >= rows ? -1 : cell[j * cols + i]);
-  const light = () => {
-    if (pointer.heat <= 0.01) return;
-    const ci = Math.round((pointer.x - X0) / P);
-    const cj = Math.round((Y0 - pointer.y) / P);
-    const arm = RETICLE_ARM * pointer.heat;
-    const reach = RETICLE_OPEN * spread;
-    if (reach > 1) {
-      const span = Math.ceil(reach / (P * Math.SQRT2));
-      for (let k = -span; k <= span; k += 1) {
-        const d = Math.abs(k) * P * Math.SQRT2;
-        const v = (1 - d / reach) * arm;
-        const i1 = at(ci + k, cj + k);
-        if (i1 >= 0) add(i1, v);
-        const i2 = at(ci + k, cj - k);
-        if (i2 >= 0) add(i2, v);
-      }
-    }
-    const r = Math.ceil(RETICLE_CORE / P);
-    for (let dj = -r; dj <= r; dj += 1) for (let di = -r; di <= r; di += 1) {
-      const idx = at(ci + di, cj + dj);
-      if (idx < 0) continue;
-      const d = Math.hypot(DOT[idx].x - pointer.x, DOT[idx].y - pointer.y) / RETICLE_CORE;
-      if (d < 1) add(idx, (1 - d) * (1 - d) * pointer.heat);
-    }
-  };
-  const drawDots = () => {
-    if (!dotsCanvas.width) return;
-    dctx.setTransform(1, 0, 0, 1, 0, 0);
-    dctx.clearRect(0, 0, dotsCanvas.width, dotsCanvas.height);
-    dctx.drawImage(baked, 0, 0);
-    dctx.setTransform(fit.ratio, 0, 0, fit.ratio, 0, 0);
-    const span = 1 - THRESHOLD;
-    let drew = 0;
-    for (let k = 0; k < activeCount; k += 1) {
-      const d = DOT[active[k]];
-      if (level[active[k]] < THRESHOLD) continue;
-      dctx.clearRect(d.x - P / 2, d.y - P / 2, P, P);
-      drew += 1;
-    }
-    if (drew) {
-      for (let k = 0; k < activeCount; k += 1) {
-        const idx = active[k];
-        const value = level[idx];
-        if (value < THRESHOLD) continue;
-        const d = DOT[idx];
-        if ((d.i + d.j) & 1) continue;
-        const t = Math.min(1, (value - THRESHOLD) / span);
-        const side = P * (0.7 + 0.3 * t);
-        dctx.fillStyle = css(value > 0.8 ? TOK.white : value > 0.5 ? TOK.bright : mixRgb(TOK.accent, TOK.bright, value));
-        dctx.fillRect(d.x - side / 2, d.y - side / 2, side, side);
-      }
-    }
-    // the readout: which two loci the crossing joins
-    if (pointer.heat > 0.25 && spread > 0.2) {
-      const h = Y0 - pointer.y;
-      const a = pointer.x - X0 - h;
-      const b = pointer.x - X0 + h;
-      if (h >= 0 && a >= 0 && b <= L) {
-        const alpha = clamp01((pointer.heat - 0.25) * 2) * clamp01((spread - 0.2) * 3);
-        dctx.save();
-        dctx.globalAlpha = alpha;
-        dctx.strokeStyle = rgba(TOK.accent, 0.8);
-        dctx.lineWidth = 1;
-        dctx.setLineDash([3, 3]);
-        dctx.beginPath();
-        dctx.moveTo(X0 + a, Y0 + 6); dctx.lineTo(X0 + a, Y0 + 20);
-        dctx.moveTo(X0 + b, Y0 + 6); dctx.lineTo(X0 + b, Y0 + 20);
-        dctx.stroke();
-        dctx.setLineDash([]);
-        dctx.font = "500 10px 'Space Grotesk', sans-serif";
-        dctx.fillStyle = css(TOK.accent);
-        dctx.textAlign = "center";
-        const mb = (g) => `${((g * KB_PER_UNIT) / 1000).toFixed(2)} MB`;
-        dctx.fillText(mb(a), X0 + a, Y0 + 30);
-        dctx.fillText(mb(b), X0 + b, Y0 + 30);
-        const v = contact(a, b, 0, 0);
-        dctx.textAlign = "left";
-        dctx.fillStyle = css(TOK.white);
-        dctx.fillText(`CONTACT ${v.toFixed(2)}`, pointer.x + 20, pointer.y - 16);
-        dctx.restore();
-      }
-    }
-  };
-  const frameFn = (now) => {
-    const dt = lastFrame ? Math.min(0.1, (now - lastFrame) / 1000) : 0;
-    lastFrame = now;
-    const wanted = target.on && armed ? POINTER_HEAT : 0;
-    if (pointer.heat <= 0.001 && wanted > 0) { pointer.x = target.x; pointer.y = target.y; }
-    else if (dt > 0) {
-      const px = pointer.x, py = pointer.y;
-      pointer.x = approach(px, target.x, dt, POINTER_TRAIL);
-      pointer.y = approach(py, target.y, dt, POINTER_TRAIL);
-      const speed = Math.hypot(pointer.x - px, pointer.y - py) / dt;
-      const wantedSpread = Math.max(0, 1 - speed / RETICLE_SETTLE);
-      spread = approach(spread, wantedSpread, dt, wantedSpread > spread ? SPREAD_OPEN : SPREAD_SHUT);
-    }
-    pointer.heat = approach(pointer.heat, wanted, dt, wanted > pointer.heat ? POINTER_RISE : POINTER_FALL);
-    if (pointer.heat < 0.005) { pointer.heat = 0; spread = 0; }
-    const decay = Math.exp(-dt / Math.max(0.05, FADE / 3));
-    let write = 0;
-    for (let k = 0; k < activeCount; k += 1) {
-      const idx = active[k];
-      const value = level[idx] * decay;
-      if (value > MIN_LEVEL) { level[idx] = value; active[write] = idx; write += 1; }
-      else { level[idx] = 0; inList[idx] = 0; }
-    }
-    const before = activeCount;
-    activeCount = write;
-    light();
-    if (activeCount === 0 && before === 0 && !dirty && pointer.heat === 0) return;
-    dirty = false;
-    drawDots();
-  };
-  if (finePointer && !reduced) {
-    addEventListener("pointermove", (e) => {
-      if (e.pointerType !== "mouse") return;
-      const r = section.getBoundingClientRect();
-      const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
-      const fr = frame.getBoundingClientRect();
-      target.x = (e.clientX - fr.left - fit.tx) / fit.s;
-      target.y = (e.clientY - fr.top - fit.ty) / fit.s;
-      target.on = inside;
-    }, { passive: true });
-    document.documentElement.addEventListener("pointerleave", () => { target.on = false; });
-    addEventListener("blur", () => { target.on = false; });
-    loopInView(section, frameFn);
+  // no cursor to hover with: step through the peptides instead
+  if (!finePointer && !reduced) {
+    let k = 0;
+    sticky = POINTS[0];
+    loopInView(frame, () => { k = (k + 1) % POINTS.length; sticky = POINTS[k]; }, 2600);
   }
 
-  /* ---------- the trace ---------- */
-  const LINE_WIDTH = 4.2, GLOW_WIDTH = 13, HEAD_UNITS = 130, MARKER_POP = 0.12;
-  let lapValue = 0;
-  let globalHeat = 1;
-  const stroke = (points, from = 0) => {
-    tctx.beginPath();
-    tctx.moveTo(points[from][0], points[from][1]);
-    for (let i = from + 1; i < points.length; i += 1) tctx.lineTo(points[i][0], points[i][1]);
-    tctx.stroke();
-  };
-  const drawTrail = (points, heat) => {
-    if (points.length < 2) return;
-    tctx.lineCap = "round";
-    tctx.lineJoin = "round";
-    tctx.save();
-    tctx.globalCompositeOperation = "lighter";
-    tctx.strokeStyle = rgba(TOK.accent, 0.06); tctx.lineWidth = GLOW_WIDTH; stroke(points);
-    tctx.strokeStyle = rgba(TOK.accent, 0.12); tctx.lineWidth = GLOW_WIDTH * 0.45; stroke(points);
-    tctx.restore();
-    tctx.strokeStyle = rgba(TOK.accent, 0.92); tctx.lineWidth = LINE_WIDTH * 0.62; stroke(points);
-    const head = Math.max(2, Math.round(HEAD_UNITS / 2.4));
-    const from = Math.max(0, points.length - head);
-    const tip = points[points.length - 1];
-    if (heat > 0.01 && points.length - from > 1) {
-      const hot = tctx.createLinearGradient(points[from][0], points[from][1], tip[0], tip[1]);
-      hot.addColorStop(0, rgba(TOK.accent, 0));
-      hot.addColorStop(0.45, rgba(TOK.accent, 0.9 * heat));
-      hot.addColorStop(1, rgba(mixRgb(TOK.accent, TOK.bright, heat), heat));
-      tctx.strokeStyle = hot; tctx.lineWidth = LINE_WIDTH; stroke(points, from);
-      const coreFrom = Math.max(0, points.length - Math.round(head * 0.42));
-      if (points.length - coreFrom > 1) {
-        const core = tctx.createLinearGradient(points[coreFrom][0], points[coreFrom][1], tip[0], tip[1]);
-        core.addColorStop(0, rgba(TOK.bright, 0));
-        core.addColorStop(1, rgba(TOK.white, 0.95 * heat));
-        tctx.strokeStyle = core; tctx.lineWidth = LINE_WIDTH * 0.38; stroke(points, coreFrom);
-      }
-      tctx.save();
-      tctx.globalCompositeOperation = "lighter";
-      const sp = tctx.createRadialGradient(tip[0], tip[1], 0, tip[0], tip[1], LINE_WIDTH * 2.8);
-      sp.addColorStop(0, rgba(TOK.white, 0.85 * heat));
-      sp.addColorStop(0.35, rgba(TOK.bright, 0.4 * heat));
-      sp.addColorStop(1, rgba(TOK.accent, 0));
-      tctx.fillStyle = sp; tctx.beginPath(); tctx.arc(tip[0], tip[1], LINE_WIDTH * 2.8, 0, Math.PI * 2); tctx.fill();
-      tctx.restore();
-    }
-  };
-  const ctcf = (x, dir, lit, age) => {
-    const y = Y0 + 16;
-    tctx.save();
-    tctx.translate(x, y);
-    tctx.scale(dir, 1);
-    tctx.beginPath();
-    tctx.moveTo(6.5, 0); tctx.lineTo(-3.5, 5.8); tctx.lineTo(-3.5, -5.8); tctx.closePath();
-    tctx.fillStyle = lit ? css(TOK.accent) : rgba(TOK.mark, 0.35);
-    tctx.fill();
-    tctx.restore();
-    if (lit) {
-      const a = clamp01(age);
-      const r = 10 + (1 - a) * 12;
-      tctx.save();
-      tctx.globalCompositeOperation = "lighter";
-      const g = tctx.createRadialGradient(x, y, 0, x, y, r);
-      g.addColorStop(0, rgba(TOK.bright, 0.35 + 0.4 * (1 - a)));
-      g.addColorStop(1, rgba(TOK.accent, 0));
-      tctx.fillStyle = g; tctx.beginPath(); tctx.arc(x, y, r, 0, Math.PI * 2); tctx.fill();
-      tctx.restore();
-      if (a < 1) { tctx.strokeStyle = rgba(TOK.bright, (1 - a) * 0.6); tctx.lineWidth = 1; tctx.beginPath(); tctx.arc(x, y, 8 + a * 18, 0, Math.PI * 2); tctx.stroke(); }
-    }
-  };
-  function renderTrace(lap) {
-    if (!traceCanvas.width) return;
-    tctx.setTransform(1, 0, 0, 1, 0, 0);
-    tctx.clearRect(0, 0, traceCanvas.width, traceCanvas.height);
-    tctx.setTransform(fit.ratio, 0, 0, fit.ratio, 0, 0);
-    const litLeft = new Map();
-    const litRight = new Map();
-    EVENTS.forEach((ev, k) => {
-      const u = clamp01((lap - ev.start) / (ev.end - ev.start));
-      if (u <= 0) return;
-      const d = distanceAt(ev, u);
-      const pts = trailUpTo(ev, d);
-      const tip = pts[pts.length - 1];
-      const a = tip[2], b = tip[3];
-      const decay = u < 1 ? 1 : Math.max(0, 1 - (lap - ev.end) / 0.14);
-      const heat = Math.min(decay, globalHeat);
-      // the loop itself, as an arc under the genome axis
-      const xa = X0 + a, xb = X0 + b;
-      if (xb - xa > 1) {
-        tctx.strokeStyle = rgba(TOK.accent, 0.28 + 0.45 * heat);
-        tctx.lineWidth = 1.2;
-        tctx.beginPath();
-        tctx.ellipse((xa + xb) / 2, Y0 + 2, (xb - xa) / 2, (xb - xa) * 0.12, 0, 0, Math.PI);
-        tctx.stroke();
-      }
-      drawTrail(pts, heat);
-      // which anchors have caught an arm
-      const sIdx = ev.pts.findIndex((q) => q[2] <= ev.s);
-      const eIdx = ev.pts.findIndex((q) => q[3] >= ev.e);
-      if (a <= ev.s + 0.01) litLeft.set(k, (lap - (ev.start + ev.timeAt[sIdx] * ev.dur)) / MARKER_POP);
-      if (b >= ev.e - 0.01) litRight.set(k, (lap - (ev.start + ev.timeAt[eIdx] * ev.dur)) / MARKER_POP);
-      if (u >= 1) {
-        const age = clamp01((lap - ev.end) / MARKER_POP);
-        const cx = ax(ev.s, ev.e), cy = ay(ev.s, ev.e);
-        const r = 9 + (1 - age) * 12;
-        tctx.save();
-        tctx.globalCompositeOperation = "lighter";
-        const g = tctx.createRadialGradient(cx, cy, 0, cx, cy, r);
-        g.addColorStop(0, rgba(TOK.bright, 0.5 + 0.45 * (1 - age)));
-        g.addColorStop(0.45, rgba(TOK.accent, 0.3));
-        g.addColorStop(1, rgba(TOK.accent, 0));
-        tctx.fillStyle = g; tctx.beginPath(); tctx.arc(cx, cy, r, 0, Math.PI * 2); tctx.fill();
-        tctx.restore();
-      }
-    });
-    // CTCF sites: a forward site opens each domain, a reverse site closes it
-    const seen = new Map();
-    EVENTS.forEach((ev, k) => {
-      const f = `f${ev.s}`, r = `r${ev.e}`;
-      if (!seen.has(f)) seen.set(f, { x: X0 + ev.s + 6, dir: 1, age: undefined });
-      if (!seen.has(r)) seen.set(r, { x: X0 + ev.e - 6, dir: -1, age: undefined });
-      if (litLeft.has(k)) { const m = seen.get(f); m.age = m.age === undefined ? litLeft.get(k) : Math.min(m.age, litLeft.get(k)); }
-      if (litRight.has(k)) { const m = seen.get(r); m.age = m.age === undefined ? litRight.get(k) : Math.min(m.age, litRight.get(k)); }
-    });
-    for (const m of seen.values()) ctcf(m.x, m.dir, m.age !== undefined, m.age);
-  }
-
-  addEventListener("resize", () => requestAnimationFrame(doFit));
-  new ResizeObserver(() => requestAnimationFrame(doFit)).observe(frame);
-  doFit();
-
-  let started = false;
-  const runLap = () => {
-    if (started) return;
-    started = true;
-    if (reduced) { lapValue = 1; globalHeat = 0; renderTrace(1); armed = true; return; }
-    tween({
-      duration: 6000, easing: easeInOutSine,
-      onUpdate: (v) => { lapValue = v; renderTrace(v); },
-      onDone: () => tween({ from: 1, to: 0, duration: 800, easing: easeOutCubic, onUpdate: (h) => { globalHeat = h; renderTrace(1); }, onDone: () => { armed = true; } }),
-    });
-  };
-  onView(frame, { threshold: 0.35 }, runLap);
-
-  /* ---------- the plate's spinning base pair, and the copy ---------- */
+  /* ---------- copy and plate reveals ---------- */
   const ha = $("[data-helix-a]", section), hb = $("[data-helix-b]", section), rungsG = $("[data-helix-rungs]", section);
-  const rungs = Array.from({ length: 5 }, () => { const l = document.createElementNS(NS, "line"); rungsG.appendChild(l); return l; });
+  const rungs = Array.from({ length: 5 }, () => { const l = document.createElementNS("http://www.w3.org/2000/svg", "line"); rungsG.appendChild(l); return l; });
   const paintHelix = (turn) => {
     const pa = [], pb = [];
     for (let k = 0; k <= 24; k += 1) {
@@ -2826,11 +2681,12 @@ function runHandover() {
   const stop = fade($("[data-stop]", section), { delay: 130 + 110 });
   const rule = new Motion($("[data-rule]", section), { opacity: [0, 1], scaleX: [0, 1] }, { delay: 260 });
   const intro = text($("[data-intro]", section), { unit: "word", stagger: 34, config: CFG.COPY2, delay: 260 + 90 });
-  const head = group([...lines.flatMap((g) => g.list), stop, rule, ...intro.list]);
-  forward($(".season-head", section), head);
+  const note = rise($("[data-atlas-note]", section), { dy: 0.5, config: CFG.COPY, delay: 620 });
+  const link = rise($("[data-atlas-link]", section), { dy: 0.5, delay: 760 });
+  forward($(".atlas-head", section), group([...lines.flatMap((g) => g.list), stop, rule, ...intro.list, note, link]));
 
   const plate = $("[data-splate]", section);
-  const pm = [rise(plate, { dy: 0.75, delay: 260 }), fade($("[data-stage-note]", section), { delay: 600 })];
+  const pm = [rise(plate, { dy: 0.75, delay: 260 }), rise(read, { dy: 0.75, delay: 420 })];
   $$("[data-badge]", section).forEach((b, i) => pm.push(...text(b, { unit: "letter", stagger: 22, config: CFG.TYPE, delay: 430 + i * 60 }).list));
   $$("[data-srow]", section).forEach((dt, r) => {
     pm.push(...text(dt, { unit: "letter", stagger: 22, config: CFG.TYPE, delay: 430 + r * 110 }).list);
