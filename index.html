@@ -371,7 +371,31 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
   .atlas-read { width: 100%; }
   .splate { align-self: flex-start; }
 }
+
+.atlas-top { flex: 1; min-width: 0; max-width: max(calc(var(--u) * 640), 22rem); margin-left: auto; opacity: 0; }
+.atlas-top-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1em; padding-bottom: max(calc(var(--u) * 8), 7px); border-bottom: 1px solid var(--border-on-dark); font-size: max(calc(var(--u) * 11), 10px); text-transform: uppercase; letter-spacing: 0.08em; color: var(--foreground-on-dark-muted); }
+.atlas-top-note { color: var(--accent); }
+.atlas-top-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: max(calc(var(--u) * 22), 14px); }
+.atlas-row { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 0 max(calc(var(--u) * 10), 8px); padding: max(calc(var(--u) * 6), 5px) 0; border-bottom: 1px solid rgb(255 255 255 / 0.07); cursor: default; transition: border-color var(--duration-fast) var(--ease-entrance); }
+.atlas-row:hover, .atlas-row.on { border-color: var(--accent); }
+.atlas-row .rk { font-family: var(--font-display); font-weight: 700; font-size: max(calc(var(--u) * 13), 11px); line-height: 1; color: var(--foreground-on-dark-muted); width: 1.6em; }
+.atlas-row:hover .rk, .atlas-row.on .rk { color: var(--accent); }
+.atlas-row .sq { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: max(calc(var(--u) * 11.5), 10px); letter-spacing: 0.04em; line-height: 1.1; color: var(--foreground-on-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.atlas-row .sq i { font-style: normal; }
+.atlas-row .sq .k { color: var(--accent); }
+.atlas-row .sq .w { color: #cfe4d6; }
+.atlas-row .cf { font-size: max(calc(var(--u) * 11), 10px); color: var(--foreground-on-dark-muted); white-space: nowrap; }
+.atlas-row .bar { grid-column: 2 / 4; display: flex; gap: 1px; height: max(calc(var(--u) * 5), 4px); margin-top: 3px; }
+.atlas-row .bar i { flex: 1; background: var(--accent); opacity: 0.25; }
+@media (max-width: 1279px) { .atlas-row:nth-child(n+7) { display: none; } }
+@media (max-width: 1023px) {
+  .atlas-top-list { grid-template-columns: minmax(0, 1fr); }
+  .atlas-row:nth-child(n+5) { display: none; }
+  .atlas-read { display: none; }
+  .atlas-top { margin-left: 0; max-width: none; }
+  .atlas-note { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
 }
+@media (max-width: 639px) { .atlas-top { max-width: none; margin-left: 0; } .atlas-row:nth-child(n+4) { display: none; } .atlas-top-head { padding-bottom: 5px; } }
 
 /* ---------------- ranked (timeline) ---------------- */
 .ranked { container-type: inline-size; --u: calc(100cqw / 1440); position: relative; isolation: isolate; width: 100%; background: var(--surface-black); color: var(--foreground-on-dark); padding-bottom: calc(var(--u) * 120);
@@ -734,28 +758,23 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
           <div class="season-foot">
             <div class="atlas-read" data-atlas-read>
               <div class="atlas-read-top">
-                <span class="atlas-id" data-atlas-id>peptide_014</span>
-                <span class="atlas-rank" data-atlas-rank>rank 14</span>
+                <span class="atlas-id" data-atlas-id>PLRWKALIAIRLLSKLW</span>
+                <span class="atlas-rank" data-atlas-rank>rank 1</span>
               </div>
               <div class="atlas-seqline"><canvas data-atlas-mini></canvas></div>
               <dl class="atlas-facts">
-                <div><dt>length</dt><dd data-atlas-len>18</dd></div>
-                <div><dt>net charge</dt><dd data-atlas-charge>+6</dd></div>
-                <div><dt>mean pLDDT</dt><dd data-atlas-plddt>84</dd></div>
+                <div><dt>length</dt><dd data-atlas-len>17</dd></div>
+                <div><dt>net charge</dt><dd data-atlas-charge>+4.0</dd></div>
+                <div><dt>mean pLDDT</dt><dd data-atlas-plddt>94</dd></div>
               </dl>
-              <p class="atlas-hint" data-atlas-hint>hover the map</p>
+              <p class="atlas-hint" data-atlas-hint>in the published top 10</p>
             </div>
-            <div class="splate" data-splate>
-              <svg class="frame" viewBox="0 0 277 78" preserveAspectRatio="none" aria-hidden="true"><path d="M0.5 0.5H276.5V69L268 77.5H0.5Z"/><line x1="83" y1="0.5" x2="83" y2="77.5"/></svg>
-              <div class="badge">
-                <svg viewBox="0 0 37 23" aria-hidden="true"><path data-helix-a/><path data-helix-b/><g data-helix-rungs></g></svg>
-                <div class="badge-word"><span data-split="letter" data-badge="0">atlas</span><span class="a" data-split="letter" data-badge="1">/ 2026</span></div>
+            <div class="atlas-top" data-atlas-top>
+              <div class="atlas-top-head">
+                <span>top 10 by rank</span>
+                <span class="atlas-top-note">live from the atlas</span>
               </div>
-              <dl class="sstats">
-                <div><dt data-split="letter" data-srow="0">100</dt><dd data-split="letter" data-srow-dd="0">predicted structures</dd></div>
-                <div><dt data-split="letter" data-srow="1">3d</dt><dd data-split="letter" data-srow-dd="1">embedding map, in browser</dd></div>
-                <div><dt data-split="letter" data-srow="2">0</dt><dd data-split="letter" data-srow-dd="2">sequences uploaded.</dd></div>
-              </dl>
+              <ol class="atlas-top-list" data-atlas-list></ol>
             </div>
           </div>
         </div>
@@ -2395,45 +2414,40 @@ function runHandover() {
     hint: $("[data-atlas-hint]", section),
   };
 
-  /* ---------- the points: five families, deterministic ---------- */
-  const rand = (() => { let s = 20261018; return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; })();
-  const FAMILIES = [
-    { name: "helical cationic", c: [0.1, 0.55, 0.0], spread: 0.3 },
-    { name: "tryptophan-rich", c: [-0.62, 0.12, 0.3], spread: 0.26 },
-    { name: "proline-rich", c: [0.58, -0.3, -0.25], spread: 0.24 },
-    { name: "beta-hairpin", c: [-0.2, -0.58, -0.32], spread: 0.22 },
-    { name: "fragment-derived", c: [0.3, 0.05, 0.62], spread: 0.3 },
-  ];
-  const gauss = () => (rand() + rand() + rand() + rand() - 2) * 0.6;
-  const POINTS = Array.from({ length: 100 }, (_, i) => {
-    const f = FAMILIES[i % FAMILIES.length];
-    const plddt = Math.round(62 + rand() * 33);
-    return {
-      i,
-      fam: f,
-      x: f.c[0] + gauss() * f.spread,
-      y: f.c[1] + gauss() * f.spread,
-      z: f.c[2] + gauss() * f.spread,
-      len: 11 + Math.floor(rand() * 28),
-      charge: 2 + Math.floor(rand() * 8),
-      plddt,
-      sx: 0,
-      sy: 0,
-      sz: 0,
-      scale: 0,
-      lit: 0,
-    };
-  }).sort((a, b) => b.plddt - a.plddt).map((p, rank) => ({ ...p, rank: rank + 1 }));
+  /* ---------- the points: the published atlas, as released ---------- */
+  const ATLAS = {"pts":[{"r":1,"n":17,"c":4.0,"p":94.0,"h":0.647,"u":[0.201,0.494,0.406]},{"r":2,"n":14,"c":3.8,"p":96.5,"h":0.714,"u":[-0.174,0.41,0.377]},{"r":3,"n":19,"c":5.8,"p":93.3,"h":0.632,"u":[0.95,-0.8,-0.151]},{"r":4,"n":14,"c":4.8,"p":88.5,"h":0.571,"u":[0.632,0.228,0.203]},{"r":5,"n":13,"c":3.8,"p":89.5,"h":0.692,"u":[0.87,-0.294,-0.255]},{"r":6,"n":13,"c":4.8,"p":90.6,"h":0.615,"u":[0.763,-0.294,-0.452]},{"r":7,"n":21,"c":5.8,"p":94.2,"h":0.571,"u":[0.615,0.243,0.121]},{"r":8,"n":14,"c":4.8,"p":92.6,"h":0.571,"u":[0.404,0.571,-0.037]},{"r":9,"n":13,"c":4.8,"p":81.4,"h":0.615,"u":[0.726,-0.106,-0.404]},{"r":10,"n":19,"c":5.8,"p":91.1,"h":0.526,"u":[-0.276,0.623,0.43]},{"r":11,"n":21,"c":5.8,"p":96.0,"h":0.619,"u":[-0.869,0.465,0.133]},{"r":12,"n":18,"c":5.5,"p":90.0,"h":0.611,"u":[0.81,-0.761,-0.003]},{"r":13,"n":17,"c":5.8,"p":88.2,"h":0.529,"u":[0.558,-0.389,0.112]},{"r":14,"n":14,"c":3.8,"p":80.3,"h":0.643,"u":[0.395,0.635,0.021]},{"r":15,"n":19,"c":5.8,"p":92.6,"h":0.632,"u":[0.771,-0.855,-0.067]},{"r":16,"n":18,"c":5.8,"p":89.2,"h":0.5,"u":[-0.712,0.448,0.11]},{"r":17,"n":17,"c":4.8,"p":91.9,"h":0.647,"u":[-0.826,0.559,0.255]},{"r":18,"n":21,"c":5.8,"p":90.9,"h":0.571,"u":[-0.341,0.406,0.437]},{"r":19,"n":14,"c":4.8,"p":91.1,"h":0.571,"u":[0.738,-0.033,0.005]},{"r":20,"n":14,"c":3.5,"p":94.2,"h":0.643,"u":[0.811,0.107,0.369]},{"r":21,"n":17,"c":4.8,"p":89.3,"h":0.588,"u":[0.217,0.607,0.245]},{"r":22,"n":14,"c":4.8,"p":87.7,"h":0.571,"u":[0.484,0.156,0.15]},{"r":23,"n":17,"c":6.8,"p":91.4,"h":0.471,"u":[-0.142,0.048,0.175]},{"r":24,"n":18,"c":3.8,"p":88.1,"h":0.611,"u":[0.649,0.145,0.318]},{"r":25,"n":14,"c":5.5,"p":91.1,"h":0.571,"u":[0.87,-0.749,-0.33]},{"r":26,"n":13,"c":3.8,"p":94.7,"h":0.615,"u":[0.849,-0.554,-0.357]},{"r":27,"n":18,"c":4.8,"p":86.6,"h":0.444,"u":[-0.649,0.391,0.35]},{"r":28,"n":18,"c":5.8,"p":85.2,"h":0.5,"u":[0.857,-0.591,0.113]},{"r":29,"n":17,"c":2.8,"p":91.4,"h":0.588,"u":[0.047,0.522,0.275]},{"r":30,"n":18,"c":3.8,"p":77.4,"h":0.444,"u":[-0.244,0.755,0.309]},{"r":31,"n":17,"c":5.8,"p":92.4,"h":0.529,"u":[-0.577,0.488,0.056]},{"r":32,"n":18,"c":5.8,"p":89.6,"h":0.5,"u":[0.52,-0.276,0.227]},{"r":33,"n":18,"c":5.8,"p":92.6,"h":0.556,"u":[0.838,-0.438,0.23]},{"r":34,"n":14,"c":5.8,"p":92.3,"h":0.571,"u":[0.672,-0.609,-0.041]},{"r":35,"n":18,"c":4.8,"p":93.9,"h":0.556,"u":[0.724,0.019,0.207]},{"r":36,"n":21,"c":5.9,"p":90.3,"h":0.524,"u":[-0.337,0.896,0.23]},{"r":37,"n":13,"c":4.8,"p":88.6,"h":0.538,"u":[0.735,-0.007,-0.287]},{"r":38,"n":14,"c":4.5,"p":86.9,"h":0.571,"u":[0.818,-0.397,-0.306]},{"r":39,"n":18,"c":4.8,"p":92.5,"h":0.556,"u":[0.444,-0.121,0.381]},{"r":40,"n":14,"c":6.8,"p":95.8,"h":0.5,"u":[0.452,-0.621,0.171]},{"r":41,"n":17,"c":5.8,"p":93.1,"h":0.588,"u":[-0.848,0.42,0.262]},{"r":42,"n":14,"c":4.8,"p":93.3,"h":0.643,"u":[0.594,-0.447,0.367]},{"r":43,"n":19,"c":4.5,"p":95.5,"h":0.684,"u":[-0.22,0.507,0.405]},{"r":44,"n":18,"c":4.8,"p":92.3,"h":0.556,"u":[0.825,-0.147,0.285]},{"r":45,"n":17,"c":3.9,"p":87.0,"h":0.529,"u":[0.32,0.307,0.3]},{"r":46,"n":14,"c":4.9,"p":90.2,"h":0.5,"u":[0.516,-0.56,0.025]},{"r":47,"n":16,"c":3.8,"p":93.0,"h":0.5,"u":[-0.38,0.694,0.063]},{"r":48,"n":14,"c":3.8,"p":70.5,"h":0.643,"u":[0.153,0.631,-0.116]},{"r":49,"n":14,"c":4.5,"p":91.4,"h":0.643,"u":[0.789,-0.629,-0.125]},{"r":50,"n":18,"c":5.5,"p":93.0,"h":0.556,"u":[0.543,-0.275,0.335]},{"r":51,"n":14,"c":4.8,"p":93.0,"h":0.5,"u":[-0.95,0.509,0.207]},{"r":52,"n":21,"c":5.8,"p":91.3,"h":0.476,"u":[-0.574,0.537,0.125]},{"r":53,"n":14,"c":3.8,"p":95.1,"h":0.714,"u":[0.926,-0.553,0.292]},{"r":54,"n":17,"c":4.8,"p":96.2,"h":0.588,"u":[-0.258,0.219,0.428]},{"r":55,"n":21,"c":9.8,"p":91.4,"h":0.476,"u":[0.267,-0.528,0.264]},{"r":56,"n":14,"c":2.9,"p":93.9,"h":0.571,"u":[0.191,0.627,0.058]},{"r":57,"n":21,"c":6.8,"p":91.8,"h":0.524,"u":[0.737,-0.54,0.341]},{"r":58,"n":20,"c":4.8,"p":92.5,"h":0.5,"u":[-0.353,0.769,0.254]},{"r":59,"n":21,"c":4.9,"p":94.8,"h":0.476,"u":[-0.09,0.775,0.239]},{"r":60,"n":18,"c":5.7,"p":95.1,"h":0.556,"u":[-0.062,0.428,0.452]},{"r":61,"n":19,"c":6.8,"p":92.9,"h":0.474,"u":[-0.492,0.238,0.136]},{"r":62,"n":17,"c":5.8,"p":89.5,"h":0.529,"u":[-0.48,0.61,0.208]},{"r":63,"n":21,"c":7.0,"p":81.7,"h":0.429,"u":[-0.401,0.359,0.162]},{"r":64,"n":23,"c":7.8,"p":94.0,"h":0.478,"u":[-0.03,0.078,0.199]},{"r":65,"n":14,"c":6.8,"p":96.1,"h":0.5,"u":[-0.231,0.46,-0.099]},{"r":66,"n":19,"c":5.8,"p":90.1,"h":0.526,"u":[0.913,-0.81,-0.184]},{"r":67,"n":14,"c":3.8,"p":87.6,"h":0.714,"u":[0.855,0.04,0.434]},{"r":68,"n":16,"c":4.8,"p":95.2,"h":0.562,"u":[-0.595,0.486,0.29]},{"r":69,"n":14,"c":4.8,"p":92.6,"h":0.643,"u":[0.208,0.58,-0.169]},{"r":70,"n":17,"c":6.8,"p":94.6,"h":0.588,"u":[0.872,-0.742,-0.184]},{"r":71,"n":21,"c":5.8,"p":96.0,"h":0.571,"u":[0.441,-0.303,0.02]},{"r":72,"n":18,"c":4.8,"p":92.4,"h":0.611,"u":[-0.422,0.395,0.303]},{"r":73,"n":13,"c":4.5,"p":76.3,"h":0.615,"u":[0.701,0.096,-0.344]},{"r":74,"n":14,"c":5.8,"p":85.7,"h":0.5,"u":[-0.212,0.123,0.113]},{"r":75,"n":18,"c":3.8,"p":92.9,"h":0.611,"u":[-0.449,0.87,0.285]},{"r":76,"n":21,"c":5.8,"p":90.0,"h":0.571,"u":[-0.259,0.383,0.247]},{"r":77,"n":14,"c":6.8,"p":93.9,"h":0.5,"u":[0.46,-0.531,0.264]},{"r":78,"n":17,"c":3.8,"p":90.3,"h":0.647,"u":[-0.438,0.674,0.347]},{"r":79,"n":19,"c":7.8,"p":88.8,"h":0.421,"u":[-0.725,0.338,0.202]},{"r":80,"n":14,"c":4.8,"p":90.5,"h":0.5,"u":[-0.349,0.556,0.001]},{"r":81,"n":17,"c":3.6,"p":88.7,"h":0.588,"u":[0.091,0.206,0.263]},{"r":82,"n":14,"c":2.9,"p":91.8,"h":0.571,"u":[0.153,0.386,0.32]},{"r":83,"n":18,"c":4.8,"p":92.8,"h":0.5,"u":[-0.079,0.571,0.267]},{"r":84,"n":17,"c":4.8,"p":88.1,"h":0.529,"u":[0.884,-0.615,0.098]},{"r":85,"n":17,"c":4.8,"p":86.3,"h":0.588,"u":[-0.161,0.653,0.099]},{"r":86,"n":15,"c":3.8,"p":92.8,"h":0.6,"u":[0.229,0.684,-0.08]},{"r":87,"n":19,"c":3.8,"p":92.6,"h":0.632,"u":[0.736,-0.048,0.362]},{"r":88,"n":18,"c":5.8,"p":91.1,"h":0.5,"u":[-0.626,0.26,0.063]},{"r":89,"n":14,"c":2.5,"p":93.3,"h":0.571,"u":[0.501,0.299,0.339]},{"r":90,"n":14,"c":5.5,"p":90.4,"h":0.571,"u":[0.623,0.142,-0.075]},{"r":91,"n":14,"c":3.8,"p":95.5,"h":0.643,"u":[-0.61,0.762,0.302]},{"r":92,"n":13,"c":3.5,"p":85.4,"h":0.615,"u":[0.728,-0.159,-0.151]},{"r":93,"n":13,"c":4.5,"p":85.6,"h":0.538,"u":[0.622,0.178,-0.313]},{"r":94,"n":19,"c":7.5,"p":88.7,"h":0.526,"u":[0.691,-0.52,-0.265]},{"r":95,"n":14,"c":4.6,"p":73.3,"h":0.5,"u":[0.871,-0.658,-0.366]},{"r":96,"n":13,"c":4.8,"p":90.8,"h":0.615,"u":[0.519,0.325,-0.235]},{"r":97,"n":14,"c":4.8,"p":93.3,"h":0.5,"u":[0.361,0.669,0.153]},{"r":98,"n":14,"c":4.8,"p":86.3,"h":0.571,"u":[0.872,-0.008,0.2]},{"r":99,"n":19,"c":6.8,"p":92.0,"h":0.526,"u":[0.906,-0.896,-0.115]},{"r":100,"n":14,"c":4.5,"p":90.8,"h":0.643,"u":[0.692,-0.402,-0.287]}],"top":[{"r":1,"s":"PLRWKALIAIRLLSKLW","c":4.0,"p":94.0,"w":2078,"pl":[90,95,97,96,96,97,97,96,96,96,96,96,96,95,95,91,73]},{"r":2,"s":"ILRVAKIKWLALKL","c":3.8,"p":96.5,"w":1665,"pl":[91,97,98,98,97,97,97,97,97,97,98,97,97,94]},{"r":3,"s":"WRRITWRLRLLRAWVRWLA","c":5.8,"p":93.3,"w":2608,"pl":[84,88,95,93,94,94,95,94,95,95,94,95,96,95,95,95,95,92,87]},{"r":4,"s":"LKRWYLRAIRTRLW","c":4.8,"p":88.5,"w":1931,"pl":[76,85,92,90,90,91,90,91,91,92,90,88,90,83]},{"r":5,"s":"WMRFRIRLRLWFL","c":3.8,"p":89.5,"w":1893,"pl":[93,91,91,92,93,92,91,91,89,89,88,86,79]},{"r":6,"s":"RFRIRIRIRLWFW","c":4.8,"p":90.6,"w":1918,"pl":[84,87,90,92,93,91,93,93,92,92,92,94,85]},{"r":7,"s":"WLWIIRARLKRILRRWRQVLD","c":5.8,"p":94.2,"w":2847,"pl":[87,94,97,97,97,97,97,96,96,96,97,96,95,96,95,94,95,94,93,91,78]},{"r":8,"s":"KHWRRFLRRFIYLF","c":4.8,"p":92.6,"w":2038,"pl":[78,88,95,95,95,95,95,94,95,95,95,94,93,90]},{"r":9,"s":"RFRFRIRFKIWFW","c":4.8,"p":81.4,"w":1958,"pl":[76,78,81,80,87,83,83,85,83,82,82,82,77]},{"r":10,"s":"WRSKLAAIRLKGLNLKLRF","c":5.8,"p":91.1,"w":2284,"pl":[80,89,91,94,95,94,94,94,94,94,93,94,93,91,92,92,91,88,78]}]};
 
-  /* nearest neighbours inside a family, for the web of lines */
+  const PLDDT = ATLAS.pts.map((p) => p.p);
+  const PMIN = Math.min(...PLDDT);
+  const PMAX = Math.max(...PLDDT);
+  const POINTS = ATLAS.pts.map((p) => ({
+    rank: p.r,
+    len: p.n,
+    charge: p.c,
+    plddt: p.p,
+    hydro: p.h,
+    conf: clamp01((p.p - PMIN) / Math.max(1, PMAX - PMIN)),
+    x: p.u[0],
+    y: p.u[1],
+    z: p.u[2],
+    sx: 0,
+    sy: 0,
+    sz: 0,
+    scale: 0,
+    lit: 0,
+  }));
+  const BY_RANK = new Map(POINTS.map((p) => [p.rank, p]));
+  const TOP = ATLAS.top;
+
+  /* every peptide joined to its two nearest neighbours in the released layout */
   const LINKS = [];
   for (const p of POINTS) {
     const near = POINTS
-      .filter((q) => q !== p && q.fam === p.fam)
+      .filter((q) => q !== p)
       .map((q) => ({ q, d: (q.x - p.x) ** 2 + (q.y - p.y) ** 2 + (q.z - p.z) ** 2 }))
       .sort((a, b) => a.d - b.d)
       .slice(0, 2);
-    for (const { q, d } of near) if (p.i < q.i) LINKS.push({ a: p, b: q, d: Math.sqrt(d) });
+    for (const { q, d } of near) if (p.rank < q.rank) LINKS.push({ a: p, b: q, d: Math.sqrt(d) });
   }
 
   /* ---------- view ---------- */
@@ -2504,7 +2518,7 @@ function runHandover() {
     const order = [...POINTS].sort((a, b) => a.sz - b.sz);
     for (const p of order) {
       const depth = clamp01((p.sz + 1) / 2);
-      const conf = clamp01((p.plddt - 60) / 36);
+      const conf = p.conf;
       const r = (2.2 + depth * 4.2) * (1 + p.lit * 0.9);
       const col = mixRgb(TOK.steel, TOK.accent, conf);
       ctx.fillStyle = rgba(p.lit > 0.3 ? TOK.white : col, (0.4 + depth * 0.55) * (0.5 + conf * 0.5) + p.lit * 0.5);
@@ -2526,19 +2540,33 @@ function runHandover() {
         ctx.stroke();
         ctx.fillStyle = rgba(TOK.white, 0.85);
         ctx.font = "500 11px 'Space Grotesk', sans-serif";
-        ctx.textAlign = "left";
-        ctx.fillText(p.fam.name, p.sx + 20, p.sy + 4);
+        const flip = p.sx > w * 0.62;
+        ctx.textAlign = flip ? "right" : "left";
+        ctx.fillText(`rank ${p.rank} · ${p.plddt.toFixed(0)} pLDDT`, p.sx + (flip ? -20 : 20), p.sy + 4);
       }
     }
   };
 
-  /* the readout's own little structure preview */
+  /* the readout's own preview: per-residue confidence where it is published */
   const paintMini = (p) => {
     const mw = mini.clientWidth;
     const mh = mini.clientHeight;
     if (!mw || !mh) return;
     mctx.clearRect(0, 0, mw, mh);
     if (!p) return;
+    const entry = TOP.find((t) => t.r === p.rank);
+    const vals = entry ? entry.pl : null;
+    if (vals) {
+      const gap = 2;
+      const bw = (mw - gap * (vals.length - 1)) / vals.length;
+      vals.forEach((v, k) => {
+        const t = clamp01((v - 50) / 45);
+        const bh = Math.max(3, t * mh);
+        mctx.fillStyle = rgba(mixRgb(TOK.steel, TOK.accent, t), 0.35 + t * 0.6);
+        mctx.fillRect(k * (bw + gap), mh - bh, bw, bh);
+      });
+      return;
+    }
     const n = p.len;
     const R = mh * 0.3;
     const pad = 10;
@@ -2547,17 +2575,14 @@ function runHandover() {
     for (let k = 0; k < n - 1; k += 1) {
       const a1 = k * 1.745;
       const a2 = (k + 1) * 1.745;
-      const x1 = pad + k * stepX;
-      const x2 = pad + (k + 1) * stepX;
       const y1 = mh / 2 + Math.sin(a1) * R;
       const y2 = mh / 2 + Math.sin(a2) * R;
       const d1 = (Math.cos(a1) + 1) / 2;
-      const conf = clamp01((p.plddt - 58) / 38) * (0.55 + 0.45 * Math.sin(k * 0.7));
-      mctx.strokeStyle = rgba(mixRgb(TOK.steel, TOK.accent, clamp01(conf)), 0.3 + d1 * 0.6);
+      mctx.strokeStyle = rgba(mixRgb(TOK.steel, TOK.accent, p.conf), 0.3 + d1 * 0.6);
       mctx.lineWidth = 1 + d1 * 2.6;
       mctx.beginPath();
-      mctx.moveTo(x1, y1);
-      mctx.lineTo(x2, y2);
+      mctx.moveTo(pad + k * stepX, y1);
+      mctx.lineTo(pad + (k + 1) * stepX, y2);
       mctx.stroke();
     }
   };
@@ -2566,6 +2591,7 @@ function runHandover() {
   const show = (p) => {
     if (p === current) return;
     current = p;
+    for (const row of $$("[data-row-rank]", section)) row.classList.toggle("on", Boolean(p) && Number(row.dataset.rowRank) === p.rank);
     if (!p) {
       read.classList.remove("live");
       out.hint.textContent = "hover the map";
@@ -2573,13 +2599,15 @@ function runHandover() {
       return;
     }
     read.classList.add("live");
-    out.id.textContent = `peptide_${String(p.rank).padStart(3, "0")}`;
+    const entry = TOP.find((t) => t.r === p.rank);
+    out.id.textContent = entry ? entry.s : `peptide ${String(p.rank).padStart(3, "0")}`;
     out.rank.textContent = `rank ${p.rank}`;
     out.len.textContent = String(p.len);
-    out.charge.textContent = `+${p.charge}`;
-    out.plddt.textContent = String(p.plddt);
-    out.hint.textContent = p.fam.name;
+    out.charge.textContent = `+${p.charge.toFixed(1)}`;
+    out.plddt.textContent = p.plddt.toFixed(0);
+    out.hint.textContent = entry ? "in the published top 10" : "boltz-2 predicted structure";
     paintMini(p);
+    return;
   };
 
   /* ---------- interaction ---------- */
@@ -2642,40 +2670,33 @@ function runHandover() {
 
   new ResizeObserver(() => { size(); paint(); paintMini(current); }).observe(frame);
   size();
+  show(BY_RANK.get(1) || POINTS[0]);
+  current = null;
   if (reduced) { paint(); } else { loopInView(frame, frameLoop); }
 
   // no cursor to hover with: step through the peptides instead
   if (!finePointer && !reduced) {
+    const walk = TOP.map((t) => BY_RANK.get(t.r)).filter(Boolean);
     let k = 0;
-    sticky = POINTS[0];
-    loopInView(frame, () => { k = (k + 1) % POINTS.length; sticky = POINTS[k]; }, 2600);
+    sticky = walk[0];
+    loopInView(frame, () => { k = (k + 1) % walk.length; sticky = walk[k]; }, 2600);
   }
 
   /* ---------- copy and plate reveals ---------- */
-  const ha = $("[data-helix-a]", section), hb = $("[data-helix-b]", section), rungsG = $("[data-helix-rungs]", section);
-  const rungs = Array.from({ length: 5 }, () => { const l = document.createElementNS("http://www.w3.org/2000/svg", "line"); rungsG.appendChild(l); return l; });
-  const paintHelix = (turn) => {
-    const pa = [], pb = [];
-    for (let k = 0; k <= 24; k += 1) {
-      const x = 0.5 + (k / 24) * 36;
-      const ang = (k / 24) * Math.PI * 2 + turn;
-      pa.push(`${k ? "L" : "M"}${x.toFixed(2)} ${(11.5 + Math.sin(ang) * 10).toFixed(2)}`);
-      pb.push(`${k ? "L" : "M"}${x.toFixed(2)} ${(11.5 - Math.sin(ang) * 10).toFixed(2)}`);
+  /* the published top 10, under the map */
+  const list = $("[data-atlas-list]", section);
+  const residueClass = (ch) => ("KRH".includes(ch) ? "k" : "WFY".includes(ch) ? "w" : "");
+  list.innerHTML = TOP.map((t) => {
+    const seq = [...t.s].map((ch) => `<i class="${residueClass(ch)}">${ch}</i>`).join("");
+    const bars = t.pl.map((v) => `<i style="opacity:${(0.2 + clamp01((v - 50) / 45) * 0.8).toFixed(2)}"></i>`).join("");
+    return `<li class="atlas-row" data-row-rank="${t.r}"><span class="rk">${String(t.r).padStart(2, "0")}</span><span class="sq">${seq}</span><span class="cf">${t.p.toFixed(0)} pLDDT &middot; +${t.c.toFixed(1)}</span><span class="bar">${bars}</span></li>`;
+  }).join("");
+  if (finePointer && !reduced) {
+    for (const row of $$("[data-row-rank]", list)) {
+      row.addEventListener("pointerenter", () => { sticky = BY_RANK.get(Number(row.dataset.rowRank)) || null; });
+      row.addEventListener("pointerleave", () => { sticky = null; });
     }
-    ha.setAttribute("d", pa.join(""));
-    hb.setAttribute("d", pb.join(""));
-    rungs.forEach((l, i) => {
-      const k = 2.4 + i * 4.8;
-      const x = 0.5 + (k / 24) * 36;
-      const ang = (k / 24) * Math.PI * 2 + turn;
-      const dy = Math.sin(ang) * 10;
-      l.setAttribute("x1", x.toFixed(2)); l.setAttribute("x2", x.toFixed(2));
-      l.setAttribute("y1", (11.5 + dy).toFixed(2)); l.setAttribute("y2", (11.5 - dy).toFixed(2));
-      l.setAttribute("opacity", String(0.35 + 0.65 * Math.abs(Math.cos(ang))));
-    });
-  };
-  paintHelix(0);
-  looping(section, 10000, (v) => paintHelix(v * Math.PI * 2));
+  }
 
   const lines = $$("[data-line]", section).map((elx) => text(elx, { unit: "word", stagger: 110, delay: Number(elx.dataset.line) * 130 }));
   const stop = fade($("[data-stop]", section), { delay: 130 + 110 });
@@ -2685,14 +2706,9 @@ function runHandover() {
   const link = rise($("[data-atlas-link]", section), { dy: 0.5, delay: 760 });
   forward($(".atlas-head", section), group([...lines.flatMap((g) => g.list), stop, rule, ...intro.list, note, link]));
 
-  const plate = $("[data-splate]", section);
-  const pm = [rise(plate, { dy: 0.75, delay: 260 }), rise(read, { dy: 0.75, delay: 420 })];
-  $$("[data-badge]", section).forEach((b, i) => pm.push(...text(b, { unit: "letter", stagger: 22, config: CFG.TYPE, delay: 430 + i * 60 }).list));
-  $$("[data-srow]", section).forEach((dt, r) => {
-    pm.push(...text(dt, { unit: "letter", stagger: 22, config: CFG.TYPE, delay: 430 + r * 110 }).list);
-    pm.push(...text($(`[data-srow-dd="${r}"]`, section), { unit: "letter", stagger: 14, config: CFG.TYPE, delay: 430 + r * 110 + 70 }).list);
-  });
-  forward(plate, group(pm));
+  const strip = $("[data-atlas-top]", section);
+  const pm = [rise(strip, { dy: 0.75, delay: 260 }), rise(read, { dy: 0.75, delay: 420 })];
+  forward(strip, group(pm));
 })();
 
 /* ================================================================
@@ -2739,7 +2755,7 @@ function runHandover() {
     paintRail();
   };
   const paintRail = () => {
-    const r = railP * geo.rest;
+    const r = Math.max(0, railP * geo.rest);
     run.setAttribute("height", String(r));
     mark.setAttribute("transform", `translate(8 ${r.toFixed(2)}) rotate(${((r / (geo.rest || 1)) * 1800).toFixed(1)})`);
   };
