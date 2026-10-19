@@ -40,8 +40,8 @@
   --raw-color-slate-500: #73917c;
   --raw-color-slate-600: #466552;
   --raw-color-slate-900: #284231;
-  --raw-color-cyan-400: #5f9c77;
-  --raw-color-cyan-alpha-25: rgb(95 156 119 / 0.3);
+  --raw-color-cyan-400: #4e8a66;
+  --raw-color-cyan-alpha-25: rgb(78 138 102 / 0.3);
   --raw-color-stone-600: #4e6e58;
   --raw-color-white-alpha-10: rgb(255 255 255 / 0.1);
   --raw-color-white-alpha-20: rgb(255 255 255 / 0.2);
@@ -53,25 +53,25 @@
   --background: var(--raw-color-ice-50);
   --foreground: var(--raw-color-ink-950);
   --foreground-muted: var(--raw-color-ink-alpha-35);
-  --surface-dark: var(--raw-color-ink-900);
-  --surface-dark-raised: var(--raw-color-ink-800);
-  --surface-black: var(--raw-color-ink-950);
+  --surface-dark: var(--raw-color-ice-50);
+  --surface-dark-raised: var(--raw-color-ice-100);
+  --surface-black: var(--raw-color-ice-50);
   --surface-muted: var(--raw-color-ice-100);
   --surface-soft: var(--raw-color-ice-200);
-  --foreground-on-dark: var(--raw-color-white);
-  --foreground-on-dark-muted: var(--raw-color-steel-400);
-  --foreground-on-dark-faint: var(--raw-color-white-alpha-40);
+  --foreground-on-dark: var(--raw-color-ink-950);
+  --foreground-on-dark-muted: rgb(17 35 26 / 0.5);
+  --foreground-on-dark-faint: rgb(17 35 26 / 0.42);
   --border-muted: var(--raw-color-ice-200);
-  --border-on-dark: var(--raw-color-ink-700);
-  --map-dot: var(--raw-color-slate-500);
-  --map-grid: var(--raw-color-slate-600);
-  --map-grid-ghost: var(--raw-color-slate-900);
-  --map-mark: var(--raw-color-ice-50);
-  --timeline-outline: var(--raw-color-stone-600);
-  --timeline-fill: var(--raw-color-white-alpha-10);
-  --timeline-rail: var(--raw-color-white-alpha-20);
+  --border-on-dark: var(--raw-color-ice-200);
+  --map-dot: rgb(17 35 26 / 0.3);
+  --map-grid: rgb(17 35 26 / 0.25);
+  --map-grid-ghost: rgb(17 35 26 / 0.14);
+  --map-mark: var(--raw-color-ink-950);
+  --timeline-outline: #c2d5c7;
+  --timeline-fill: #f1f6f1;
+  --timeline-rail: rgb(17 35 26 / 0.16);
   --paddock-contour: var(--raw-color-ink-alpha-08);
-  --footer-contour: var(--raw-color-white-alpha-10);
+  --footer-contour: rgb(17 35 26 / 0.08);
   --accent: var(--raw-color-cyan-400);
   --accent-muted: var(--raw-color-cyan-alpha-25);
   --warning: var(--raw-color-orange-500);
@@ -104,8 +104,9 @@ html { font-size: 16px; }
     --type-body: calc(0.875rem * var(--season-base)); --type-eyebrow: calc(0.75rem * var(--season-base)); }
 }
 *, *::before, *::after { box-sizing: border-box; }
-.cta .label, .cta .arrow, .cta2 .lbl { color: #8cc5a1; }
-.cta:hover .label, .cta:hover .arrow, .cta2:hover .lbl { color: var(--surface-black); }
+.cta .label, .cta .arrow, .cta2.solid .lbl { color: #9ed2b2; }
+.cta2.hollow .lbl { color: var(--accent); }
+.cta:hover .label, .cta:hover .arrow, .cta2:hover .lbl { color: #ffffff; }
 body { margin: 0; min-height: 100lvh; background: var(--background); color: var(--foreground); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: none; }
@@ -156,7 +157,7 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
 .stack-layer[data-layer="1"] { z-index: 10; }
 .stack-last { position: relative; z-index: 20; }
 .stack-inner { position: relative; transform-origin: center; }
-.stack-shade { position: absolute; inset: 0; background: var(--surface-black); opacity: 0; pointer-events: none; z-index: 40; }
+.stack-shade { position: absolute; inset: 0; background: var(--background); opacity: 0; pointer-events: none; z-index: 40; }
 
 /* ---------------- hero ---------------- */
 [data-hero] { position: relative; isolation: isolate; min-height: 100lvh; overflow: hidden; background: var(--background); }
@@ -295,7 +296,7 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
 .masthead-type .tx { --tx-gap: 0.25em; }
 
 /* chequered dissolve */
-.flag { position: absolute; inset-inline: 0; top: 0; height: 34svh; pointer-events: none; z-index: 10; }
+.flag { display: none; position: absolute; inset-inline: 0; top: 0; height: 34svh; pointer-events: none; z-index: 10; }
 .flag canvas { width: 100%; height: 100%; display: block; }
 .flag--z30 { z-index: 30; }
 @media (max-width: 639px) { .flag { z-index: 0; } }
@@ -342,7 +343,7 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
 .atlas-link svg { width: 0.9em; height: 0.7em; overflow: visible; }
 .atlas-link path { fill: none; stroke: currentColor; }
 .atlas-link:hover { gap: 1em; }
-.atlas-read { position: relative; width: max(calc(var(--u) * 250), 15rem); padding: max(calc(var(--u) * 16), 12px); border: 1px solid var(--border-on-dark); background: rgb(17 35 26 / 0.72); backdrop-filter: blur(3px); opacity: 0; transition: border-color var(--duration-normal) var(--ease-entrance); }
+.atlas-read { position: relative; width: max(calc(var(--u) * 250), 15rem); padding: max(calc(var(--u) * 16), 12px); border: 1px solid var(--border-on-dark); background: rgb(251 253 251 / 0.82); backdrop-filter: blur(3px); opacity: 0; transition: border-color var(--duration-normal) var(--ease-entrance); }
 .atlas-read.live { border-color: var(--accent); }
 .atlas-read-top { display: flex; justify-content: space-between; align-items: baseline; gap: 1em; font-size: max(calc(var(--u) * 12), var(--type-min, 11px)); text-transform: uppercase; letter-spacing: 0.04em; }
 .atlas-id { font-weight: 700; color: var(--foreground-on-dark); }
@@ -376,14 +377,14 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
 .atlas-top-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1em; padding-bottom: max(calc(var(--u) * 8), 7px); border-bottom: 1px solid var(--border-on-dark); font-size: max(calc(var(--u) * 11), 10px); text-transform: uppercase; letter-spacing: 0.08em; color: var(--foreground-on-dark-muted); }
 .atlas-top-note { color: var(--accent); }
 .atlas-top-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: max(calc(var(--u) * 22), 14px); }
-.atlas-row { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 0 max(calc(var(--u) * 10), 8px); padding: max(calc(var(--u) * 6), 5px) 0; border-bottom: 1px solid rgb(255 255 255 / 0.07); cursor: default; transition: border-color var(--duration-fast) var(--ease-entrance); }
+.atlas-row { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 0 max(calc(var(--u) * 10), 8px); padding: max(calc(var(--u) * 6), 5px) 0; border-bottom: 1px solid rgb(17 35 26 / 0.1); cursor: default; transition: border-color var(--duration-fast) var(--ease-entrance); }
 .atlas-row:hover, .atlas-row.on { border-color: var(--accent); }
 .atlas-row .rk { font-family: var(--font-display); font-weight: 700; font-size: max(calc(var(--u) * 13), 11px); line-height: 1; color: var(--foreground-on-dark-muted); width: 1.6em; }
 .atlas-row:hover .rk, .atlas-row.on .rk { color: var(--accent); }
 .atlas-row .sq { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: max(calc(var(--u) * 11.5), 10px); letter-spacing: 0.04em; line-height: 1.1; color: var(--foreground-on-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .atlas-row .sq i { font-style: normal; }
 .atlas-row .sq .k { color: var(--accent); }
-.atlas-row .sq .w { color: #cfe4d6; }
+.atlas-row .sq .w { color: #3f7a57; }
 .atlas-row .cf { font-size: max(calc(var(--u) * 11), 10px); color: var(--foreground-on-dark-muted); white-space: nowrap; }
 .atlas-row .bar { grid-column: 2 / 4; display: flex; gap: 1px; height: max(calc(var(--u) * 5), 4px); margin-top: 3px; }
 .atlas-row .bar i { flex: 1; background: var(--accent); opacity: 0.25; }
@@ -396,6 +397,10 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
   .atlas-note { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
 }
 @media (max-width: 639px) { .atlas-top { max-width: none; margin-left: 0; } .atlas-row:nth-child(n+4) { display: none; } .atlas-top-head { padding-bottom: 5px; } }
+
+.bg-dna { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.bg-dna canvas { width: 100%; height: 100%; display: block; }
+.ranked-rows, .bench { position: relative; z-index: 1; }
 
 /* ---------------- ranked (timeline) ---------------- */
 .ranked { container-type: inline-size; --u: calc(100cqw / 1440); position: relative; isolation: isolate; width: 100%; background: var(--surface-black); color: var(--foreground-on-dark); padding-bottom: calc(var(--u) * 120);
@@ -413,7 +418,7 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
 @media (max-width: 1023px) { .rail { --rail-top: calc(var(--u) * 169 + var(--top-pad-extra, 0px)); } }
 .rail svg { width: 100%; height: 100%; overflow: visible; display: block; }
 .rail .track { stroke: var(--timeline-rail); stroke-width: 1; vector-effect: non-scaling-stroke; }
-.rail .run, .rail .mark { fill: var(--foreground-on-dark); }
+.rail .run, .rail .mark { fill: var(--accent); }
 .row { position: relative; width: 100%; transition: opacity 700ms var(--ease-plate); }
 .row--centre { height: calc(var(--u) * 462); }
 .row--side { height: calc(var(--u) * 217); }
@@ -428,8 +433,8 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
 .plate-fill { position: absolute; inset: 0; overflow: hidden; background: var(--timeline-fill); clip-path: url(#plate-clip); transition: inset 700ms var(--ease-plate); }
 .plate:hover .plate-fill { inset: 5%; }
 .plate-slot { position: absolute; inset-inline: 0; top: -10%; height: 100%; }
-.plate-slot img { position: absolute; left: 0; top: 0; width: 100%; height: 110%; object-fit: contain; object-position: center; padding: 6% 7%; filter: invert(1) hue-rotate(180deg) saturate(1.3) brightness(0.92); mix-blend-mode: screen; transition: filter 700ms var(--ease-plate); }
-.plate:hover .plate-slot img { filter: invert(1) hue-rotate(180deg) saturate(1.6) brightness(1.05); }
+.plate-slot img { position: absolute; left: 0; top: 0; width: 100%; height: 110%; object-fit: contain; object-position: center; padding: 6% 7%; transition: opacity 700ms var(--ease-plate); opacity: 0.94; }
+.plate:hover .plate-slot img { opacity: 1; }
 .plate-outline { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
 .plate-outline path { fill: none; stroke: var(--timeline-outline); stroke-width: 1; vector-effect: non-scaling-stroke; transition: stroke 700ms var(--ease-plate); }
 .plate:hover .plate-outline path { stroke: var(--accent); }
@@ -437,7 +442,7 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
 .peptides { position: absolute; left: 0; top: 0; width: 100%; height: 110%; padding: 7% 6% 12%; display: flex; flex-wrap: wrap; align-content: flex-start; gap: 0.35em 0.9em; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: max(calc(var(--u) * 13), 9px); line-height: 1.25; letter-spacing: 0.06em; color: var(--foreground-on-dark-faint); overflow: hidden; }
 .peptides span i { font-style: normal; }
 .peptides .c { color: var(--accent); }
-.peptides .h { color: #ffffff; }
+.peptides .h { color: var(--foreground); }
 .rank { position: absolute; top: 50%; z-index: 20; pointer-events: none; font-family: var(--font-display); font-weight: 700; text-transform: uppercase; line-height: 0.95; color: var(--accent); font-size: max(calc(var(--u) * 96), var(--year-min, 0px)); }
 .row--side .rank { left: 50%; transform: translate(-50%, -50%); font-size: max(calc(var(--u) * 56), var(--year-min, 0px)); }
 .row--centre .rank { left: calc(var(--u) * 190); transform: translate(-50%, -50%); }
@@ -531,12 +536,12 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
 .lab-contours { position: absolute; inset: 0; pointer-events: none; }
 .lab-contours canvas, .foot-contours canvas, .lab-dna canvas { width: 100%; height: 100%; display: block; }
 .lab-dna { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
-.lab-band { position: absolute; inset-inline: 0; bottom: 0; height: var(--band-h); background: var(--surface-black); }
+.lab-band { position: absolute; inset-inline: 0; bottom: 0; height: var(--band-h); background: var(--surface-muted); border-top: 1px solid var(--border-muted); }
 .lab-fig { position: absolute; inset: 0; z-index: 10; pointer-events: none; }
 .lab-fig .pin { position: relative; width: 100%; height: 100%; }
 .halftone { position: absolute; bottom: var(--fig-lift, 0px); left: var(--fig-x, 46%); transform: translateX(-50%); height: min(calc(86% * var(--fig-fit, 1)), var(--fig-cap, 100000px)); aspect-ratio: 900 / 1180; }
 .halftone canvas { width: 100%; height: 100%; display: block; }
-.lab-melt { position: absolute; inset-inline: 0; bottom: 0; z-index: 10; height: var(--band-h); background: linear-gradient(to bottom, rgb(17 35 26 / 0) 0%, var(--surface-black) var(--band-fade, 38.685%)); pointer-events: none; }
+.lab-melt { position: absolute; inset-inline: 0; bottom: 0; z-index: 10; height: var(--band-h); background: linear-gradient(to bottom, rgb(251 253 251 / 0) 0%, var(--surface-muted) var(--band-fade, 38.685%)); pointer-events: none; }
 .lab-head { position: absolute; z-index: 20; left: var(--head-left, calc(var(--u) * 32)); top: var(--head-top, calc(var(--u) * 32)); font-size: max(max(calc(var(--u) * 96), var(--type-min, 0px)), var(--head-min, 0px)); }
 .lab-head .stop { color: var(--accent); }
 .lab-intro { position: absolute; z-index: 20; left: var(--intro-left, calc(var(--u) * 32)); bottom: var(--intro-bottom, calc(var(--band-h) + var(--u) * 32)); width: max(calc(var(--u) * 338), var(--intro-min-w, 0px)); display: flex; flex-direction: column; align-items: flex-start; gap: var(--intro-gap, calc(var(--u) * 40)); }
@@ -545,7 +550,7 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
 .cta2 { --h: var(--cta-h, calc(var(--u) * 50)); position: relative; display: block; height: var(--h); width: calc(var(--h) * 4.34); color: var(--accent); }
 .cta2 svg.frame { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .cta2 .outline { stroke: var(--accent); stroke-width: 1; vector-effect: non-scaling-stroke; }
-.cta2.solid .outline { fill: var(--surface-black); }
+.cta2.solid .outline { fill: #16301f; }
 .cta2.hollow .outline { fill: none; }
 .cta2 .flood { fill: var(--accent); transform-origin: left; transform: scaleX(0); transition: transform var(--duration-normal) var(--ease-plate); }
 .cta2 .lbl { position: absolute; top: 0; bottom: 0; left: calc(var(--h) * 24 / 50); display: flex; align-items: center; gap: calc(var(--h) * 32 / 50); font-size: calc(var(--h) * 20 / 50); text-transform: uppercase; line-height: 0.9; white-space: nowrap; transition: color var(--duration-normal) var(--ease-plate); }
@@ -577,24 +582,24 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
 .cal-mark { position: absolute; top: calc(var(--u) * 126 + var(--cal-mark-drop, 0px)); transform: translateX(-50%); display: flex; align-items: center; justify-content: center; height: calc(var(--u) * 11); opacity: 0; }
 .cal-mark span { font-family: var(--font-display); font-weight: 700; font-size: max(calc(var(--u) * 12), var(--type-min, 0px)); text-transform: uppercase; line-height: 1; transform: translateY(-15%); }
 .cal-mark svg { width: calc(var(--u) * 11); height: calc(var(--u) * 11); overflow: visible; }
-.cal-mark .ring { fill: none; stroke: #fff; stroke-width: 1; vector-effect: non-scaling-stroke; }
+.cal-mark .ring { fill: none; stroke: var(--foreground-muted); stroke-width: 1; vector-effect: non-scaling-stroke; }
 .cal-mark .dot { fill: var(--accent); }
 .cal-mark .pulse { fill: none; stroke: var(--accent); stroke-width: 1; vector-effect: non-scaling-stroke; }
 .cal-brk { position: absolute; width: calc(var(--u) * 10); height: calc(var(--u) * 10); overflow: visible; color: var(--accent); pointer-events: none; opacity: 0; transition: left 700ms var(--ease-plate), top 700ms var(--ease-plate); }
 .cal-brk path { fill: none; stroke: currentColor; stroke-width: 1; vector-effect: non-scaling-stroke; }
 @media (max-width: 639px) {
-  .cal { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem 1.25rem; padding: 1.5rem 4%; align-content: center; border-top: 1px solid rgb(255 255 255 / 0.15); }
+  .cal { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem 1.25rem; padding: 1.5rem 4%; align-content: center; border-top: 1px solid var(--border-muted); }
   .cal-link, .cal-mark, .cal-brk, .cal-card.early { display: none; }
   .cal-card { position: relative; left: auto !important; top: auto; width: auto !important; }
   .cal-card .nm { white-space: normal; }
 }
 
 /* ---------------- footer ---------------- */
-.foot { container-type: inline-size; --u: calc(100cqw / 1440); position: relative; isolation: isolate; min-height: var(--foot-h, 100lvh); width: 100%; overflow: hidden; background: var(--accent); color: var(--foreground-on-dark); --G: var(--foot-gutter, calc(var(--u) * 32)); }
+.foot { container-type: inline-size; --u: calc(100cqw / 1440); position: relative; isolation: isolate; min-height: var(--foot-h, 100lvh); width: 100%; overflow: hidden; background: var(--accent); color: var(--foreground); --G: var(--foot-gutter, calc(var(--u) * 32)); }
 @media (max-width: 1023px) { .foot { --type-min: 13px; --foot-bottom-min: 5cqw; --head-min: 6.6667cqw; --head-w-min: 44cqw; --foot-head-min: 6.6667cqw; } }
 @media (min-width: 640px) and (max-width: 1023px) { .foot .foot-copy { max-width: 15rem; } .foot { --foot-h: 104cqw; --cta-bottom: calc(max(calc(var(--u) * 32), var(--foot-bottom-min, 0px)) + 74px); --fig-scale: 0.87; --fig-shift: 3%; --nav-size: 36px; --nav-gap: 12px; --nav-row: 34px; --cta-left: 50%; --cta-shift: -50%; --foot-copy-min: 200px; --cta-h: 50px; } }
 @media (max-width: 639px) { .foot { --foot-gutter: 24px; --foot-h: 700px; --nav-mid: 345px; --cta-bottom: 73px; --social-bottom: 151px; --social-left: 24px; --social-right: auto; --social-min-w: auto; --nav-size: 30px; --nav-gap: 18px; --nav-row: auto; --nav-w: calc(100cqw - 48px); --cta-left: 24px; --cta-w: calc(100cqw - 48px); --foot-head-left: 24px; --foot-head-right: auto; --foot-head-top: 78px; --cta-h: 50px; --foot-copy-min: 212px; --foot-head-min: 40px; --head-w-min: 240px; } }
-.foot-panel { position: absolute; inset: calc(var(--u) * 16); overflow: hidden; background: var(--surface-black); color: var(--foreground-on-dark); }
+.foot-panel { position: absolute; inset: calc(var(--u) * 16); overflow: hidden; background: var(--background); color: var(--foreground); }
 @media (max-width: 639px) { .foot-panel { inset: 10px; } }
 .foot-contours { position: absolute; inset: 0; pointer-events: none; }
 .foot-fig { position: absolute; inset: 0; z-index: 10; transform-origin: bottom; scale: var(--fig-scale, 1); translate: var(--fig-shift, 0); pointer-events: none; }
@@ -612,7 +617,7 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
 .foot-nav a { display: block; width: max-content; height: var(--nav-row, max(calc(var(--u) * 34), var(--type-min, 0px))); transition: color var(--duration-fast) var(--ease-entrance); }
 .foot-nav a:hover { color: var(--accent); }
 .foot-nav .tx { --tx-gap: 0.2em; flex-wrap: nowrap; }
-@media (max-width: 639px) { .foot-nav a { width: 100%; display: flex; justify-content: space-between; padding-bottom: 12px; border-bottom: 1px solid rgb(255 255 255 / 0.15); height: auto; } .foot-nav a::after { content: "→"; color: var(--accent); font-family: var(--font-sans); } }
+@media (max-width: 639px) { .foot-nav a { width: 100%; display: flex; justify-content: space-between; padding-bottom: 12px; border-bottom: 1px solid var(--border-muted); height: auto; } .foot-nav a::after { content: "→"; color: var(--accent); font-family: var(--font-sans); } }
 .foot-row { position: absolute; z-index: 20; bottom: max(calc(var(--u) * 32), var(--foot-bottom-min, 0px)); opacity: 0; }
 .foot-copy { left: var(--G); width: max(max(calc(var(--u) * 260), var(--type-min, 0px)), var(--foot-copy-min, 0px)); font-size: max(calc(var(--u) * 14), var(--type-min, 0px)); text-transform: uppercase; line-height: 1.1; color: var(--foreground-on-dark-faint); }
 .foot-cta { left: var(--cta-left, calc(var(--u) * 583)); bottom: var(--cta-bottom, max(calc(var(--u) * 32), var(--foot-bottom-min, 0px))); }
@@ -738,6 +743,7 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
   <div class="stack-layer" data-layer="1">
     <div class="stack-inner" data-stack-inner>
       <section data-season id="research" aria-labelledby="research-title">
+        <div class="bg-dna" aria-hidden="true"><canvas data-bg-dna="14"></canvas></div>
         <div class="stage-frame" data-stage-frame aria-hidden="true">
           <canvas data-atlas></canvas>
         </div>
@@ -787,6 +793,7 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
   <div class="stack-last">
     <section class="ranked" id="ranked" aria-labelledby="ranked-title">
       <div class="flag flag--z30" data-flag="light" aria-hidden="true"><canvas></canvas></div>
+      <div class="bg-dna" aria-hidden="true"><canvas data-bg-dna="30"></canvas></div>
       <div class="ranked-rows" data-rows>
         <div class="rail" data-rail aria-hidden="true"><svg data-rail-svg preserveAspectRatio="none"></svg></div>
         <h2 class="masthead-type ranked-head" id="ranked-title">
@@ -1008,6 +1015,7 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
 <section class="foot" id="contact" aria-labelledby="foot-title">
   <div class="foot-panel">
     <div class="foot-contours" aria-hidden="true"><canvas data-contours="footer"></canvas></div>
+    <div class="bg-dna" aria-hidden="true"><canvas data-bg-dna="18"></canvas></div>
   </div>
   <div class="foot-fig" aria-hidden="true"><div class="pin" data-par-foot><div class="helix" data-helix><canvas></canvas></div></div></div>
   <a class="foot-logo" href="#top" data-foot-logo aria-label="Back to top"><svg viewBox="0 0 20 24" aria-hidden="true"><use href="#helix-glyph"/></svg>Aarnav Bhat</a>
@@ -1415,7 +1423,7 @@ document.addEventListener("click", (e) => {
 (() => {
   if (!stackEl) return;
   const RECEDE_SCALE = 0.9;
-  const RECEDE_SHADE = 0.55;
+  const RECEDE_SHADE = 0.72;
   const phone = mq("(max-width: 639px)");
   const layers = $$(".stack-layer", stackEl);
   const pinned = layers.map((layer, i) => ({
@@ -2507,7 +2515,7 @@ function runHandover() {
     for (const l of LINKS) {
       const depth = clamp01(((l.a.sz + l.b.sz) / 2 + 1) / 2);
       const near = target && (l.a === target || l.b === target);
-      ctx.strokeStyle = rgba(near ? TOK.accent : TOK.steel, (near ? 0.5 : 0.1 + depth * 0.1) * (1 - l.d * 0.6));
+      ctx.strokeStyle = rgba(near ? TOK.accent : TOK.ink, (near ? 0.55 : 0.08 + depth * 0.09) * (1 - l.d * 0.6));
       ctx.lineWidth = near ? 1.1 : 0.6;
       ctx.beginPath();
       ctx.moveTo(l.a.sx, l.a.sy);
@@ -2520,8 +2528,8 @@ function runHandover() {
       const depth = clamp01((p.sz + 1) / 2);
       const conf = p.conf;
       const r = (2.2 + depth * 4.2) * (1 + p.lit * 0.9);
-      const col = mixRgb(TOK.steel, TOK.accent, conf);
-      ctx.fillStyle = rgba(p.lit > 0.3 ? TOK.white : col, (0.4 + depth * 0.55) * (0.5 + conf * 0.5) + p.lit * 0.5);
+      const col = mixRgb(TOK.ink, TOK.accent, conf);
+      ctx.fillStyle = rgba(p.lit > 0.3 ? TOK.ink : col, (0.4 + depth * 0.55) * (0.5 + conf * 0.5) + p.lit * 0.5);
       ctx.beginPath();
       ctx.arc(p.sx, p.sy, r, 0, Math.PI * 2);
       ctx.fill();
@@ -2538,7 +2546,7 @@ function runHandover() {
         ctx.moveTo(p.sx + 7, p.sy);
         ctx.lineTo(p.sx + 16, p.sy);
         ctx.stroke();
-        ctx.fillStyle = rgba(TOK.white, 0.85);
+        ctx.fillStyle = rgba(TOK.ink, 0.8);
         ctx.font = "500 11px 'Space Grotesk', sans-serif";
         const flip = p.sx > w * 0.62;
         ctx.textAlign = flip ? "right" : "left";
@@ -2562,7 +2570,7 @@ function runHandover() {
       vals.forEach((v, k) => {
         const t = clamp01((v - 50) / 45);
         const bh = Math.max(3, t * mh);
-        mctx.fillStyle = rgba(mixRgb(TOK.steel, TOK.accent, t), 0.35 + t * 0.6);
+        mctx.fillStyle = rgba(mixRgb(TOK.ink, TOK.accent, t), 0.3 + t * 0.55);
         mctx.fillRect(k * (bw + gap), mh - bh, bw, bh);
       });
       return;
@@ -2578,7 +2586,7 @@ function runHandover() {
       const y1 = mh / 2 + Math.sin(a1) * R;
       const y2 = mh / 2 + Math.sin(a2) * R;
       const d1 = (Math.cos(a1) + 1) / 2;
-      mctx.strokeStyle = rgba(mixRgb(TOK.steel, TOK.accent, p.conf), 0.3 + d1 * 0.6);
+      mctx.strokeStyle = rgba(mixRgb(TOK.ink, TOK.accent, p.conf), 0.3 + d1 * 0.6);
       mctx.lineWidth = 1 + d1 * 2.6;
       mctx.beginPath();
       mctx.moveTo(pad + k * stepX, y1);
@@ -3052,6 +3060,11 @@ function dnaField(canvas, { count = 28, radius = 150 } = {}) {
   if (reduced) frame(performance.now()); else loopInView(canvas, frame);
 }
 
+/* floating DNA behind every block that is not the hero */
+for (const canvas of $$("[data-bg-dna]")) {
+  dnaField(canvas, { count: Math.round(Number(canvas.dataset.bgDna) * (innerWidth < 640 ? 0.45 : 1)) });
+}
+
 /* ================================================================
    FROM THE BENCH: halftone portrait, panels, release strip
    ================================================================ */
@@ -3255,7 +3268,7 @@ function dnaField(canvas, { count = 28, radius = 150 } = {}) {
       const depth = (s.z + 1) / 2;
       const fadeTop = smoothstep(0, 0.06, s.a.f) * (1 - smoothstep(0.9, 1, s.a.f) * 0.3);
       if (s.kind === 0) {
-        ctx.strokeStyle = rgba(TOK.white, (0.12 + 0.88 * depth) * fadeTop);
+        ctx.strokeStyle = rgba(TOK.ink, (0.1 + 0.52 * depth) * fadeTop);
         ctx.lineWidth = 1 + depth * 4.2;
         ctx.beginPath(); ctx.moveTo(s.a.x, s.a.y); ctx.lineTo(s.b.x, s.b.y); ctx.stroke();
       } else {
@@ -3263,13 +3276,13 @@ function dnaField(canvas, { count = 28, radius = 150 } = {}) {
         const mx = (s.a.x + s.b.x) / 2, my = (s.a.y + s.b.y) / 2;
         const alpha = (0.08 + 0.6 * depth) * fadeTop;
         ctx.lineWidth = 0.8 + depth * 2.4;
-        ctx.strokeStyle = rgba(accent ? TOK.accent : TOK.white, alpha);
+        ctx.strokeStyle = rgba(accent ? TOK.accent : TOK.ink, alpha * 0.75);
         ctx.beginPath(); ctx.moveTo(s.a.x, s.a.y); ctx.lineTo(mx, my); ctx.stroke();
-        ctx.strokeStyle = rgba(TOK.white, alpha * 0.8);
+        ctx.strokeStyle = rgba(TOK.ink, alpha * 0.55);
         ctx.beginPath(); ctx.moveTo(mx, my); ctx.lineTo(s.b.x, s.b.y); ctx.stroke();
         if (depth > 0.62 && w > 260) {
           const pair = s.k % 2 === 0 ? "A·T" : "G·C";
-          ctx.fillStyle = rgba(accent ? TOK.accent : TOK.white, (depth - 0.62) * 1.6 * fadeTop);
+          ctx.fillStyle = rgba(accent ? TOK.accent : TOK.ink, (depth - 0.62) * 1.3 * fadeTop);
           ctx.font = `500 ${Math.max(10, w * 0.026).toFixed(1)}px 'Space Grotesk', sans-serif`;
           ctx.textAlign = "center";
           ctx.fillText(pair, mx, my - 7);
@@ -3281,7 +3294,7 @@ function dnaField(canvas, { count = 28, radius = 150 } = {}) {
         const p = P(k, side);
         const depth = (p.z + 1) / 2;
         if (depth < 0.55) continue;
-        ctx.fillStyle = rgba(BASES[Math.round(k / 7) % 4] === "A" ? TOK.accent : TOK.white, (depth - 0.4) * smoothstep(0, 0.06, p.f));
+        ctx.fillStyle = rgba(BASES[Math.round(k / 7) % 4] === "A" ? TOK.accent : TOK.ink, (depth - 0.4) * 0.8 * smoothstep(0, 0.06, p.f));
         ctx.beginPath(); ctx.arc(p.x, p.y, 1.6 + depth * 2.6, 0, Math.PI * 2); ctx.fill();
       }
     }
