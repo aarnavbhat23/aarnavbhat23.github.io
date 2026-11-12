@@ -54,7 +54,7 @@ h3 span { color: #497353; font-size: .58em; vertical-align: super; }
 .result .value { font-size: clamp(2.3rem, 4.4vw, 4rem); letter-spacing: -.075em; line-height: 1; }
 .result p:nth-child(2) { max-width: 34ch; font-size: .8rem; line-height: 1.45; color: var(--muted); }
 .result-track { background: #cbdacc; height: 5px; border-radius: 4px; overflow: hidden; }
-.result-track div { width: 64.4%; height: 100%; background: #557c59; }
+.result-track div { width: 99.25%; height: 100%; background: #557c59; }
 .more-work { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 24px; font-size: .87rem; font-weight: 620; }
 footer { background: var(--dark); color: #f5f8f1; padding: 52px 0; }
 .footer-inner { justify-content: space-between; align-items: end; }
