@@ -803,33 +803,32 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
 
         <article class="row row--centre" data-row data-frame="centre">
           <div class="player" data-par="20"><div class="pin">
-            <a class="plate" href="https://github.com/aarnavbhat23/extrusion-net" target="_blank" rel="noopener" aria-label="extrusion-net on GitHub">
-              <div class="plate-fill"><div class="plate-slot" data-slot><img src="assets/v2/figures/extrusion-net.webp" alt="Promoter accuracy by test length: the two-arm extrusion model stays near 100% out to length 512 while RoPE attention falls to 58%" loading="lazy" decoding="async"></div></div>
+            <a class="plate" href="https://github.com/aarnavbhat23/protein-cutoff-audit" target="_blank" rel="noopener" aria-label="Protein Cutoff Audit on GitHub">
+              <div class="plate-fill"><div class="plate-slot" data-slot><img src="assets/v2/figures/protein-cutoff.png" alt="Histogram of the earliest public records for benchmark proteins" loading="lazy" decoding="async"></div></div>
               <svg class="plate-outline" viewBox="0 0 710.995 462.995" preserveAspectRatio="none" aria-hidden="true"><path d="M13.6168 0.497469H697.378C700.858 0.497469 704.195 1.38786 706.655 2.97277C709.115 4.55769 710.498 6.70729 710.498 8.94869V411.208C710.498 413.449 709.115 415.599 706.655 417.183C704.195 418.768 700.858 419.659 697.378 419.659H460.249C454.073 419.659 447.976 420.555 442.411 422.281C436.847 424.008 431.958 426.519 428.107 429.63L399.246 452.95C395.559 455.928 390.878 458.333 385.55 459.986C380.223 461.639 374.385 462.497 368.472 462.497H13.6168C10.1373 462.497 6.80038 461.607 4.34003 460.022C1.87968 458.437 0.497469 456.288 0.497469 454.046V8.94869C0.497469 6.70729 1.87968 4.55769 4.34003 2.97277C6.80038 1.38786 10.1373 0.497469 13.6168 0.497469Z"/></svg>
             </a>
           </div></div>
           <div class="rank" data-par="20"><div class="pin"><span data-split="letter" data-rank>01</span><small>novelty · highest</small></div></div>
           <div class="copy" data-par="110" data-copy><div class="pin">
-            <span class="name-line">extrusion-net</span>
-            <b>Chromatin as an operator.</b> Loop extrusion replaces attention as the model's only long-range mixer. It holds 99.8–100% accuracy at 8× its longest training sequence, where RoPE attention falls to 58%, and it learned the CTCF orientation rule without being told.
-            <span class="novel"><em>New:</em> a biophysical process as a neural routing layer. Nearest prior work: dLEM (2025), stick-breaking attention.</span>
-            <a href="https://github.com/aarnavbhat23/extrusion-net" target="_blank" rel="noopener">repository →</a>
+            <span class="name-line">protein cutoff audit</span>
+            <b>When did these sequences first appear?</b> I traced 651 benchmark protein sequences through archived records. Of those, 621 were already public before the stated cutoff.
+            <a href="https://github.com/aarnavbhat23/protein-cutoff-audit" target="_blank" rel="noopener">repository →</a>
           </div></div>
         </article>
 
         <article class="row row--side right" data-row data-frame="side">
           <div class="player" data-par="60"><div class="pin">
-            <a class="plate" href="https://github.com/aarnavbhat23/next-token-bio" target="_blank" rel="noopener" aria-label="next-token-bio on GitHub">
-              <div class="plate-fill"><div class="plate-slot" data-slot><img src="assets/v2/figures/next-token-bio.webp" alt="Bits per nucleotide by codon position for the 8-gram, LSTM and GPT on held-out E. coli DNA" loading="lazy" decoding="async"></div></div>
+            <a class="plate" href="https://github.com/aarnavbhat23/merfish-blank-codebook-audit" target="_blank" rel="noopener" aria-label="MERFISH Blank Codebook Audit on GitHub">
+              <div class="plate-fill"><div class="plate-slot" data-slot><img src="assets/v2/figures/merfish-pair-coverage.svg" alt="215 target readout pairs appear in blanks and 220 are absent" loading="lazy" decoding="async"></div></div>
               <svg class="plate-outline" viewBox="0 0 710.995 462.995" preserveAspectRatio="none" aria-hidden="true"><path d="M13.6168 0.497469H697.378C700.858 0.497469 704.195 1.38786 706.655 2.97277C709.115 4.55769 710.498 6.70729 710.498 8.94869V411.208C710.498 413.449 709.115 415.599 706.655 417.183C704.195 418.768 700.858 419.659 697.378 419.659H460.249C454.073 419.659 447.976 420.555 442.411 422.281C436.847 424.008 431.958 426.519 428.107 429.63L399.246 452.95C395.559 455.928 390.878 458.333 385.55 459.986C380.223 461.639 374.385 462.497 368.472 462.497H13.6168C10.1373 462.497 6.80038 461.607 4.34003 460.022C1.87968 458.437 0.497469 456.288 0.497469 454.046V8.94869C0.497469 6.70729 1.87968 4.55769 4.34003 2.97277C6.80038 1.38786 10.1373 0.497469 13.6168 0.497469Z"/></svg>
             </a>
           </div></div>
           <div class="rank" data-par="60"><div class="pin"><span data-split="letter" data-rank>02</span></div></div>
           <div class="copy" data-par="110" data-copy><div class="pin">
-            <span class="name-line">next-token-bio</span>
-            <b>Grammar or memory?</b> On 790 protein families never seen in training, the best model beats composition alone by 0.107 bits. In E. coli, the LSTM's gain turns out to be reading-frame inference.
-            <span class="novel"><em>New:</em> family holdouts and codon-phase probes that separate homology from grammar.</span>
-            <a href="https://github.com/aarnavbhat23/next-token-bio" target="_blank" rel="noopener">repository →</a>
+            <span class="name-line">MERFISH blank audit</span>
+            <b>What do the blanks cover?</b> In a published MERFISH panel, 933 of 940 target barcodes use a readout pair absent from every blank.
+            <span class="novel">Follows earlier work in <a href="https://github.com/aarnavbhat23/spatial-biomarker-lab" target="_blank" rel="noopener">Spatial Biomarker Lab</a>.</span>
+            <a href="https://github.com/aarnavbhat23/merfish-blank-codebook-audit" target="_blank" rel="noopener">repository →</a>
           </div></div>
         </article>
 
