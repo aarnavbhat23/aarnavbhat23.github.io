@@ -663,7 +663,6 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
                 <li><a class="hover-accent" href="#research">research</a></li>
                 <li><a class="hover-accent" href="#ranked">ranked</a></li>
                 <li><a class="hover-accent" href="#toolkit">toolkit</a></li>
-                <li><a class="hover-accent" href="#bench">bench</a></li>
                 <li><a class="hover-accent" href="#contact">contact</a></li>
               </ul>
             </nav>
@@ -797,23 +796,83 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
       <div class="ranked-rows" data-rows>
         <div class="rail" data-rail aria-hidden="true"><svg data-rail-svg preserveAspectRatio="none"></svg></div>
         <h2 class="masthead-type ranked-head" id="ranked-title">
-          <span class="line" data-split="word" data-line="0">ranked by</span>
-          <span class="line lastline"><span data-split="word" data-line="1">novelty</span><span class="stop" data-stop>.</span></span>
+          <span class="line" data-split="word" data-line="0">selected</span>
+          <span class="line lastline"><span data-split="word" data-line="1">projects</span><span class="stop" data-stop>.</span></span>
         </h2>
 
         <article class="row row--centre" data-row data-frame="centre">
           <div class="player" data-par="20"><div class="pin">
-            <a class="plate" href="https://github.com/aarnavbhat23/extrusion-net" target="_blank" rel="noopener" aria-label="extrusion-net on GitHub">
-              <div class="plate-fill"><div class="plate-slot" data-slot><img src="assets/v2/figures/extrusion-net.webp" alt="Promoter accuracy by test length: the two-arm extrusion model stays near 100% out to length 512 while RoPE attention falls to 58%" loading="lazy" decoding="async"></div></div>
+            <a class="plate" href="https://github.com/aarnavbhat23/protein-cutoff-audit" target="_blank" rel="noopener" aria-label="Protein Cutoff Audit on GitHub">
+              <div class="plate-fill"><div class="plate-slot" data-slot><img src="assets/v2/figures/protein-cutoff.png" alt="Histogram of the earliest public records for benchmark proteins" loading="lazy" decoding="async"></div></div>
               <svg class="plate-outline" viewBox="0 0 710.995 462.995" preserveAspectRatio="none" aria-hidden="true"><path d="M13.6168 0.497469H697.378C700.858 0.497469 704.195 1.38786 706.655 2.97277C709.115 4.55769 710.498 6.70729 710.498 8.94869V411.208C710.498 413.449 709.115 415.599 706.655 417.183C704.195 418.768 700.858 419.659 697.378 419.659H460.249C454.073 419.659 447.976 420.555 442.411 422.281C436.847 424.008 431.958 426.519 428.107 429.63L399.246 452.95C395.559 455.928 390.878 458.333 385.55 459.986C380.223 461.639 374.385 462.497 368.472 462.497H13.6168C10.1373 462.497 6.80038 461.607 4.34003 460.022C1.87968 458.437 0.497469 456.288 0.497469 454.046V8.94869C0.497469 6.70729 1.87968 4.55769 4.34003 2.97277C6.80038 1.38786 10.1373 0.497469 13.6168 0.497469Z"/></svg>
             </a>
           </div></div>
-          <div class="rank" data-par="20"><div class="pin"><span data-split="letter" data-rank>01</span><small>novelty · highest</small></div></div>
+          <div class="rank" data-par="20"><div class="pin"><span data-split="letter" data-rank>01</span></div></div>
           <div class="copy" data-par="110" data-copy><div class="pin">
-            <span class="name-line">extrusion-net</span>
-            <b>Chromatin as an operator.</b> Loop extrusion replaces attention as the model's only long-range mixer. It holds 99.8–100% accuracy at 8× its longest training sequence, where RoPE attention falls to 58%, and it learned the CTCF orientation rule without being told.
-            <span class="novel"><em>New:</em> a biophysical process as a neural routing layer. Nearest prior work: dLEM (2025), stick-breaking attention.</span>
-            <a href="https://github.com/aarnavbhat23/extrusion-net" target="_blank" rel="noopener">repository →</a>
+            <span class="name-line">protein cutoff audit</span>
+            <b>When did these sequences first appear?</b> I traced 651 benchmark protein sequences through archived records. Of those, 621 were already public before the stated cutoff.
+            <a href="https://github.com/aarnavbhat23/protein-cutoff-audit" target="_blank" rel="noopener">repository →</a>
+          </div></div>
+        </article>
+
+        <article class="row row--side right" data-row data-frame="side">
+          <div class="player" data-par="60"><div class="pin">
+            <a class="plate" href="https://github.com/aarnavbhat23/perturbation-composition-lab" target="_blank" rel="noopener" aria-label="Perturbation Composition Lab on GitHub">
+              <div class="plate-fill"><div class="plate-slot" data-slot><img src="assets/v2/figures/perturbation-composition.webp" alt="Mean combination RMSE for additive, matched ridge and neural models on every Norman and Wessels partition" loading="lazy" decoding="async"></div></div>
+              <svg class="plate-outline" viewBox="0 0 710.995 462.995" preserveAspectRatio="none" aria-hidden="true"><path d="M13.6168 0.497469H697.378C700.858 0.497469 704.195 1.38786 706.655 2.97277C709.115 4.55769 710.498 6.70729 710.498 8.94869V411.208C710.498 413.449 709.115 415.599 706.655 417.183C704.195 418.768 700.858 419.659 697.378 419.659H460.249C454.073 419.659 447.976 420.555 442.411 422.281C436.847 424.008 431.958 426.519 428.107 429.63L399.246 452.95C395.559 455.928 390.878 458.333 385.55 459.986C380.223 461.639 374.385 462.497 368.472 462.497H13.6168C10.1373 462.497 6.80038 461.607 4.34003 460.022C1.87968 458.437 0.497469 456.288 0.497469 454.046V8.94869C0.497469 6.70729 1.87968 4.55769 4.34003 2.97277C6.80038 1.38786 10.1373 0.497469 13.6168 0.497469Z"/></svg>
+            </a>
+          </div></div>
+          <div class="rank" data-par="60"><div class="pin"><span data-split="letter" data-rank>02</span></div></div>
+          <div class="copy" data-par="110" data-copy><div class="pin">
+            <span class="name-line">perturbation lab</span>
+            <b>Two genes at once.</b> 289 unseen combinations across Norman CRISPRa and primary Wessels Cas13 counts. Neural residuals beat additivity on every random split; the gain over ridge is small.
+            <a href="https://github.com/aarnavbhat23/perturbation-composition-lab" target="_blank" rel="noopener">repository →</a>
+          </div></div>
+        </article>
+
+        <article class="row row--centre" data-row data-frame="centre">
+          <div class="player" data-par="20"><div class="pin">
+            <a class="plate" href="https://github.com/aarnavbhat23/spatial-biomarker-lab" target="_blank" rel="noopener" aria-label="Spatial Biomarker Lab on GitHub">
+              <div class="plate-fill"><div class="plate-slot" data-slot><img src="assets/v2/figures/spatial-biomarker.png" alt="Spatial Biomarker Lab study results" loading="lazy" decoding="async"></div></div>
+              <svg class="plate-outline" viewBox="0 0 710.995 462.995" preserveAspectRatio="none" aria-hidden="true"><path d="M13.6168 0.497469H697.378C700.858 0.497469 704.195 1.38786 706.655 2.97277C709.115 4.55769 710.498 6.70729 710.498 8.94869V411.208C710.498 413.449 709.115 415.599 706.655 417.183C704.195 418.768 700.858 419.659 697.378 419.659H460.249C454.073 419.659 447.976 420.555 442.411 422.281C436.847 424.008 431.958 426.519 428.107 429.63L399.246 452.95C395.559 455.928 390.878 458.333 385.55 459.986C380.223 461.639 374.385 462.497 368.472 462.497H13.6168C10.1373 462.497 6.80038 461.607 4.34003 460.022C1.87968 458.437 0.497469 456.288 0.497469 454.046V8.94869C0.497469 6.70729 1.87968 4.55769 4.34003 2.97277C6.80038 1.38786 10.1373 0.497469 13.6168 0.497469Z"/></svg>
+            </a>
+          </div></div>
+          <div class="rank" data-par="20"><div class="pin"><span data-split="letter" data-rank>03</span></div></div>
+          <div class="copy" data-par="110" data-copy><div class="pin">
+            <span class="name-line">spatial biomarker lab</span>
+            <b>How stable is the alignment?</b> I tested registration across a public microscopy grid and measured how strongly the reported error radius depended on the matching cutoff.
+            <a href="https://github.com/aarnavbhat23/spatial-biomarker-lab" target="_blank" rel="noopener">repository →</a>
+          </div></div>
+        </article>
+
+        <article class="row row--side left" data-row data-frame="side">
+          <div class="player" data-par="60"><div class="pin">
+            <a class="plate" href="https://github.com/aarnavbhat23/merfish-blank-codebook-audit" target="_blank" rel="noopener" aria-label="MERFISH Blank Codebook Audit on GitHub">
+              <div class="plate-fill"><div class="plate-slot" data-slot><img src="assets/v2/figures/merfish-pair-coverage.svg" alt="215 target readout pairs appear in blanks and 220 are absent" loading="lazy" decoding="async"></div></div>
+              <svg class="plate-outline" viewBox="0 0 710.995 462.995" preserveAspectRatio="none" aria-hidden="true"><path d="M13.6168 0.497469H697.378C700.858 0.497469 704.195 1.38786 706.655 2.97277C709.115 4.55769 710.498 6.70729 710.498 8.94869V411.208C710.498 413.449 709.115 415.599 706.655 417.183C704.195 418.768 700.858 419.659 697.378 419.659H460.249C454.073 419.659 447.976 420.555 442.411 422.281C436.847 424.008 431.958 426.519 428.107 429.63L399.246 452.95C395.559 455.928 390.878 458.333 385.55 459.986C380.223 461.639 374.385 462.497 368.472 462.497H13.6168C10.1373 462.497 6.80038 461.607 4.34003 460.022C1.87968 458.437 0.497469 456.288 0.497469 454.046V8.94869C0.497469 6.70729 1.87968 4.55769 4.34003 2.97277C6.80038 1.38786 10.1373 0.497469 13.6168 0.497469Z"/></svg>
+            </a>
+          </div></div>
+          <div class="rank" data-par="60"><div class="pin"><span data-split="letter" data-rank>04</span></div></div>
+          <div class="copy" data-par="110" data-copy><div class="pin">
+            <span class="name-line">MERFISH blank audit</span>
+            <b>What do the blanks cover?</b> In a published MERFISH panel, 933 of 940 target barcodes use a readout pair absent from every blank.
+            <span class="novel">Follows earlier work in <a href="https://github.com/aarnavbhat23/spatial-biomarker-lab" target="_blank" rel="noopener">Spatial Biomarker Lab</a>.</span>
+            <a href="https://github.com/aarnavbhat23/merfish-blank-codebook-audit" target="_blank" rel="noopener">repository →</a>
+          </div></div>
+        </article>
+
+        <article class="row row--centre" data-row data-frame="centre">
+          <div class="player" data-par="20"><div class="pin">
+            <a class="plate" href="https://github.com/aarnavbhat23/evidence-retrieval-bench" target="_blank" rel="noopener" aria-label="Evidence Retrieval Bench on GitHub">
+              <div class="plate-fill"><div class="plate-slot" data-slot><img src="assets/v2/figures/evidence-retrieval.webp" alt="Retrieval recall rises with more abstracts while verdict and citation precision stay below the 90% target" loading="lazy" decoding="async"></div></div>
+              <svg class="plate-outline" viewBox="0 0 710.995 462.995" preserveAspectRatio="none" aria-hidden="true"><path d="M13.6168 0.497469H697.378C700.858 0.497469 704.195 1.38786 706.655 2.97277C709.115 4.55769 710.498 6.70729 710.498 8.94869V411.208C710.498 413.449 709.115 415.599 706.655 417.183C704.195 418.768 700.858 419.659 697.378 419.659H460.249C454.073 419.659 447.976 420.555 442.411 422.281C436.847 424.008 431.958 426.519 428.107 429.63L399.246 452.95C395.559 455.928 390.878 458.333 385.55 459.986C380.223 461.639 374.385 462.497 368.472 462.497H13.6168C10.1373 462.497 6.80038 461.607 4.34003 460.022C1.87968 458.437 0.497469 456.288 0.497469 454.046V8.94869C0.497469 6.70729 1.87968 4.55769 4.34003 2.97277C6.80038 1.38786 10.1373 0.497469 13.6168 0.497469Z"/></svg>
+            </a>
+          </div></div>
+          <div class="rank" data-par="20"><div class="pin"><span data-split="letter" data-rank>05</span></div></div>
+          <div class="copy" data-par="110" data-copy><div class="pin">
+            <span class="name-line">evidence retrieval</span>
+            <b>Auditing a citation.</b> A tool that checks a scientific claim against the source it names, across 5,183 abstracts and 1,128 paired stress cases — and reports exactly which part of the chain it can vouch for.
+            <a href="https://github.com/aarnavbhat23/evidence-retrieval-bench" target="_blank" rel="noopener">repository →</a>
           </div></div>
         </article>
 
@@ -824,7 +883,7 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
               <svg class="plate-outline" viewBox="0 0 710.995 462.995" preserveAspectRatio="none" aria-hidden="true"><path d="M13.6168 0.497469H697.378C700.858 0.497469 704.195 1.38786 706.655 2.97277C709.115 4.55769 710.498 6.70729 710.498 8.94869V411.208C710.498 413.449 709.115 415.599 706.655 417.183C704.195 418.768 700.858 419.659 697.378 419.659H460.249C454.073 419.659 447.976 420.555 442.411 422.281C436.847 424.008 431.958 426.519 428.107 429.63L399.246 452.95C395.559 455.928 390.878 458.333 385.55 459.986C380.223 461.639 374.385 462.497 368.472 462.497H13.6168C10.1373 462.497 6.80038 461.607 4.34003 460.022C1.87968 458.437 0.497469 456.288 0.497469 454.046V8.94869C0.497469 6.70729 1.87968 4.55769 4.34003 2.97277C6.80038 1.38786 10.1373 0.497469 13.6168 0.497469Z"/></svg>
             </a>
           </div></div>
-          <div class="rank" data-par="60"><div class="pin"><span data-split="letter" data-rank>02</span></div></div>
+          <div class="rank" data-par="60"><div class="pin"><span data-split="letter" data-rank>06</span></div></div>
           <div class="copy" data-par="110" data-copy><div class="pin">
             <span class="name-line">next-token-bio</span>
             <b>Grammar or memory?</b> On 790 protein families never seen in training, the best model beats composition alone by 0.107 bits. In E. coli, the LSTM's gain turns out to be reading-frame inference.
@@ -835,43 +894,12 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
 
         <article class="row row--centre" data-row data-frame="centre">
           <div class="player" data-par="20"><div class="pin">
-            <a class="plate" href="https://github.com/aarnavbhat23/amp-challenge-2027-encrypted-peptides" target="_blank" rel="noopener" aria-label="Encrypted peptide language model on GitHub">
-              <div class="plate-fill"><div class="plate-slot" data-slot><div class="peptides" data-peptides aria-hidden="true"></div></div></div>
-              <svg class="plate-outline" viewBox="0 0 710.995 462.995" preserveAspectRatio="none" aria-hidden="true"><path d="M13.6168 0.497469H697.378C700.858 0.497469 704.195 1.38786 706.655 2.97277C709.115 4.55769 710.498 6.70729 710.498 8.94869V411.208C710.498 413.449 709.115 415.599 706.655 417.183C704.195 418.768 700.858 419.659 697.378 419.659H460.249C454.073 419.659 447.976 420.555 442.411 422.281C436.847 424.008 431.958 426.519 428.107 429.63L399.246 452.95C395.559 455.928 390.878 458.333 385.55 459.986C380.223 461.639 374.385 462.497 368.472 462.497H13.6168C10.1373 462.497 6.80038 461.607 4.34003 460.022C1.87968 458.437 0.497469 456.288 0.497469 454.046V8.94869C0.497469 6.70729 1.87968 4.55769 4.34003 2.97277C6.80038 1.38786 10.1373 0.497469 13.6168 0.497469Z"/></svg>
-            </a>
-          </div></div>
-          <div class="rank" data-par="20"><div class="pin"><span data-split="letter" data-rank>03</span></div></div>
-          <div class="copy" data-par="110" data-copy><div class="pin">
-            <span class="name-line">encrypted peptides</span>
-            <b>Antimicrobials hidden in proteomes.</b> A 4.8M-parameter conditional generator trained on peptides cut from ordinary proteins, steerable by length and charge. Only 0.435% of what it writes collides with the standard reference set, against 91.7% for the usual AMP databases — so the library explores sequence space the catalogues never covered.
-            <span class="novel"><em>New:</em> a training corpus chosen to sit outside the reference set.</span>
-            <a href="https://github.com/aarnavbhat23/amp-challenge-2027-encrypted-peptides" target="_blank" rel="noopener">repository →</a>
-          </div></div>
-        </article>
-
-        <article class="row row--side left" data-row data-frame="side">
-          <div class="player" data-par="60"><div class="pin">
-            <a class="plate" href="https://github.com/aarnavbhat23/perturbation-composition-lab" target="_blank" rel="noopener" aria-label="Perturbation Composition Lab on GitHub">
-              <div class="plate-fill"><div class="plate-slot" data-slot><img src="assets/v2/figures/perturbation-composition.webp" alt="Mean combination RMSE for additive, matched ridge and neural models on every Norman and Wessels partition" loading="lazy" decoding="async"></div></div>
-              <svg class="plate-outline" viewBox="0 0 710.995 462.995" preserveAspectRatio="none" aria-hidden="true"><path d="M13.6168 0.497469H697.378C700.858 0.497469 704.195 1.38786 706.655 2.97277C709.115 4.55769 710.498 6.70729 710.498 8.94869V411.208C710.498 413.449 709.115 415.599 706.655 417.183C704.195 418.768 700.858 419.659 697.378 419.659H460.249C454.073 419.659 447.976 420.555 442.411 422.281C436.847 424.008 431.958 426.519 428.107 429.63L399.246 452.95C395.559 455.928 390.878 458.333 385.55 459.986C380.223 461.639 374.385 462.497 368.472 462.497H13.6168C10.1373 462.497 6.80038 461.607 4.34003 460.022C1.87968 458.437 0.497469 456.288 0.497469 454.046V8.94869C0.497469 6.70729 1.87968 4.55769 4.34003 2.97277C6.80038 1.38786 10.1373 0.497469 13.6168 0.497469Z"/></svg>
-            </a>
-          </div></div>
-          <div class="rank" data-par="60"><div class="pin"><span data-split="letter" data-rank>04</span></div></div>
-          <div class="copy" data-par="110" data-copy><div class="pin">
-            <span class="name-line">perturbation lab</span>
-            <b>Two genes at once.</b> 289 unseen combinations across Norman CRISPRa and primary Wessels Cas13 counts. Neural residuals beat additivity on every random split; the gain over ridge is small.
-            <a href="https://github.com/aarnavbhat23/perturbation-composition-lab" target="_blank" rel="noopener">repository →</a>
-          </div></div>
-        </article>
-
-        <article class="row row--centre" data-row data-frame="centre">
-          <div class="player" data-par="20"><div class="pin">
             <a class="plate" href="https://github.com/aarnavbhat23/censor-aware-peptide-models" target="_blank" rel="noopener" aria-label="Censor-aware peptide models on GitHub">
               <div class="plate-fill"><div class="plate-slot" data-slot><img src="assets/v2/figures/censor-aware.webp" alt="Observation likelihood and exact-value RMSE for endpoint, censor-aware and constant models across three document splits" loading="lazy" decoding="async"></div></div>
               <svg class="plate-outline" viewBox="0 0 710.995 462.995" preserveAspectRatio="none" aria-hidden="true"><path d="M13.6168 0.497469H697.378C700.858 0.497469 704.195 1.38786 706.655 2.97277C709.115 4.55769 710.498 6.70729 710.498 8.94869V411.208C710.498 413.449 709.115 415.599 706.655 417.183C704.195 418.768 700.858 419.659 697.378 419.659H460.249C454.073 419.659 447.976 420.555 442.411 422.281C436.847 424.008 431.958 426.519 428.107 429.63L399.246 452.95C395.559 455.928 390.878 458.333 385.55 459.986C380.223 461.639 374.385 462.497 368.472 462.497H13.6168C10.1373 462.497 6.80038 461.607 4.34003 460.022C1.87968 458.437 0.497469 456.288 0.497469 454.046V8.94869C0.497469 6.70729 1.87968 4.55769 4.34003 2.97277C6.80038 1.38786 10.1373 0.497469 13.6168 0.497469Z"/></svg>
             </a>
           </div></div>
-          <div class="rank" data-par="20"><div class="pin"><span data-split="letter" data-rank>05</span></div></div>
+          <div class="rank" data-par="20"><div class="pin"><span data-split="letter" data-rank>07</span></div></div>
           <div class="copy" data-par="110" data-copy><div class="pin">
             <span class="name-line">censor-aware models</span>
             <b>What a bound says.</b> MIC >64 µM becomes a survival probability, not a fake measurement at 64. On 15,099 hERG observations the censored likelihood wins in every document split while exact-value error gets worse, and both are reported.
@@ -879,53 +907,8 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
             <a href="https://github.com/aarnavbhat23/censor-aware-peptide-models" target="_blank" rel="noopener">repository →</a>
           </div></div>
         </article>
-
-        <article class="row row--side right" data-row data-frame="side">
-          <div class="player" data-par="60"><div class="pin">
-            <a class="plate" href="https://github.com/aarnavbhat23/evidence-retrieval-bench" target="_blank" rel="noopener" aria-label="Evidence Retrieval Bench on GitHub">
-              <div class="plate-fill"><div class="plate-slot" data-slot><img src="assets/v2/figures/evidence-retrieval.webp" alt="Retrieval recall rises with more abstracts while verdict and citation precision stay below the 90% target" loading="lazy" decoding="async"></div></div>
-              <svg class="plate-outline" viewBox="0 0 710.995 462.995" preserveAspectRatio="none" aria-hidden="true"><path d="M13.6168 0.497469H697.378C700.858 0.497469 704.195 1.38786 706.655 2.97277C709.115 4.55769 710.498 6.70729 710.498 8.94869V411.208C710.498 413.449 709.115 415.599 706.655 417.183C704.195 418.768 700.858 419.659 697.378 419.659H460.249C454.073 419.659 447.976 420.555 442.411 422.281C436.847 424.008 431.958 426.519 428.107 429.63L399.246 452.95C395.559 455.928 390.878 458.333 385.55 459.986C380.223 461.639 374.385 462.497 368.472 462.497H13.6168C10.1373 462.497 6.80038 461.607 4.34003 460.022C1.87968 458.437 0.497469 456.288 0.497469 454.046V8.94869C0.497469 6.70729 1.87968 4.55769 4.34003 2.97277C6.80038 1.38786 10.1373 0.497469 13.6168 0.497469Z"/></svg>
-            </a>
-          </div></div>
-          <div class="rank" data-par="60"><div class="pin"><span data-split="letter" data-rank>06</span></div></div>
-          <div class="copy" data-par="110" data-copy><div class="pin">
-            <span class="name-line">evidence retrieval</span>
-            <b>Auditing a citation.</b> A tool that checks a scientific claim against the source it names, across 5,183 abstracts and 1,128 paired stress cases — and reports exactly which part of the chain it can vouch for.
-            <a href="https://github.com/aarnavbhat23/evidence-retrieval-bench" target="_blank" rel="noopener">repository →</a>
-          </div></div>
-        </article>
-
-        <article class="row row--centre" data-row data-frame="centre">
-          <div class="player" data-par="20"><div class="pin">
-            <a class="plate" href="https://github.com/aarnavbhat23/peptide-leakage-lens" target="_blank" rel="noopener" aria-label="Peptide Leakage Lens on GitHub">
-              <div class="plate-fill"><div class="plate-slot" data-slot><img src="assets/v2/figures/peptide-leakage.webp" alt="Peptide assay AUROC by evaluation split, with 92.7% of random-split test rows already present in training" loading="lazy" decoding="async"></div></div>
-              <svg class="plate-outline" viewBox="0 0 710.995 462.995" preserveAspectRatio="none" aria-hidden="true"><path d="M13.6168 0.497469H697.378C700.858 0.497469 704.195 1.38786 706.655 2.97277C709.115 4.55769 710.498 6.70729 710.498 8.94869V411.208C710.498 413.449 709.115 415.599 706.655 417.183C704.195 418.768 700.858 419.659 697.378 419.659H460.249C454.073 419.659 447.976 420.555 442.411 422.281C436.847 424.008 431.958 426.519 428.107 429.63L399.246 452.95C395.559 455.928 390.878 458.333 385.55 459.986C380.223 461.639 374.385 462.497 368.472 462.497H13.6168C10.1373 462.497 6.80038 461.607 4.34003 460.022C1.87968 458.437 0.497469 456.288 0.497469 454.046V8.94869C0.497469 6.70729 1.87968 4.55769 4.34003 2.97277C6.80038 1.38786 10.1373 0.497469 13.6168 0.497469Z"/></svg>
-            </a>
-          </div></div>
-          <div class="rank" data-par="20"><div class="pin"><span data-split="letter" data-rank>07</span></div></div>
-          <div class="copy" data-par="110" data-copy><div class="pin">
-            <span class="name-line">peptide leakage lens</span>
-            <b>Honest error bars.</b> A 49,172-record peptide benchmark with released prediction heads. Calibrating by peptide family rather than by row lifts reliable coverage from 62.4% to 91.4%.
-            <span class="novel"><em>New:</em> component-level calibration for assay tables.</span>
-            <a href="https://github.com/aarnavbhat23/peptide-leakage-lens" target="_blank" rel="noopener">repository →</a>
-          </div></div>
-        </article>
       </div>
 
-      <div class="bench">
-        <h3 class="masthead-type bench-head"><span data-split="word" data-bench-head>also on the bench</span><span class="stop" data-stop>.</span></h3>
-        <p class="bench-intro">Ranks 08 to 13: benchmarks, released models and reusable tooling.</p>
-        <div class="bench-list" data-bench-list>
-          <a class="bench-item" href="https://github.com/aarnavbhat23/genomespot-lens" target="_blank" rel="noopener"><span class="n">08</span><h3>genomespot lens</h3><span class="tag">pilot</span><p>Does the protein set you feed a physiology model change its answer? Matched random controls for GenomeSPOT, run on a two-genome pilot.</p></a>
-          <a class="bench-item" href="https://github.com/aarnavbhat23/rna-shift-bench" target="_blank" rel="noopener"><span class="n">09</span><h3>rna shift bench</h3><span class="tag">benchmark</span><p>18,000 RNAs in 3,000 families, with a trained folding surrogate and calibrated intervals that hold up under GC and length shift.</p></a>
-          <a class="bench-item" href="https://github.com/aarnavbhat23/bio-evidence" target="_blank" rel="noopener"><span class="n">10</span><h3>bio-evidence</h3><span class="tag">toolkit</span><p>Nine data-integrity checks with public-data cases, from censored assay units to plate shortcuts in JUMP Cell Painting.</p></a>
-          <a class="bench-item" href="https://github.com/aarnavbhat23/toxicity-scaffold-lab" target="_blank" rel="noopener"><span class="n">11</span><h3>toxicity scaffold lab</h3><span class="tag">benchmark</span><p>Twelve Tox21 assays with uncertainty calibrated at the level of chemical scaffolds, so the error bars mean something on new chemistry.</p></a>
-          <a class="bench-item" href="https://github.com/aarnavbhat23/spear-wetlab-false-positive-audit" target="_blank" rel="noopener"><span class="n">12</span><h3>wet-lab false positives</h3><span class="tag">audit</span><p>An adversarial review protocol for a 2,449-row antimicrobial assay table, written so that a clean result is a real one.</p></a>
-          <a class="bench-item" href="https://aarnavbhat23.github.io/amp-top100-atlas/" target="_blank" rel="noopener"><span class="n">13</span><h3>amp structure atlas</h3><span class="tag">tool</span><p>A browser atlas of 100 Boltz-2 predicted peptide structures with residue confidence and PAE, built around Vinay Prabhu's top-100 set.</p></a>
-          
-          
-        </div>
-      </div>
     </section>
   </div>
 </div>
@@ -946,71 +929,6 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
   </div>
 </section>
 
-<!-- ============ BENCH ============ -->
-<section class="lab" id="bench" aria-labelledby="bench-title">
-  <div class="lab-contours" aria-hidden="true"><canvas data-contours="paddock"></canvas></div>
-  <div class="lab-dna" aria-hidden="true"><canvas data-lab-dna></canvas></div>
-  <div class="lab-band" aria-hidden="true"></div>
-  <div class="lab-fig" data-par-lab aria-hidden="true"><div class="pin"><div class="halftone" data-peptide><canvas></canvas></div></div></div>
-  <div class="lab-melt" aria-hidden="true"></div>
-
-  <h2 class="masthead-type lab-head" id="bench-title"><span class="line" data-split="word" data-line="0">from the</span><span class="line lastline"><span data-split="word" data-line="1">bench</span><span class="stop" data-stop>.</span></span></h2>
-
-  <div class="lab-intro">
-    <p class="lab-report" data-split="word" data-report>I design antimicrobial peptides from fragments hidden inside ordinary proteins — a 50,000-sequence library, a shortlist of 100, and a predicted structure for every one of them.</p>
-    <a class="cta2 solid" data-pre data-lab-cta href="https://aarnavbhat23.github.io/amp-top100-atlas/" target="_blank" rel="noopener">
-      <svg class="frame" viewBox="0 0 217 50" preserveAspectRatio="none" aria-hidden="true"><path class="outline" d="M0.5 0.5H216.5V42L209 49.5H0.5Z"/><path class="flood" d="M0.5 0.5H216.5V42L209 49.5H0.5Z"/></svg>
-      <span class="lbl">open the atlas<svg viewBox="0 0 13.71 10.71" aria-hidden="true"><path d="M0 5.35H13M8 10.35L13 5.35L8 0.35"/></svg></span>
-    </a>
-  </div>
-
-  <div class="lab-panels" data-lab-panels>
-    <svg class="pbrk" data-pbrk="meet" style="left:calc(100% - var(--u) * 32 - var(--pu) * 218); top:calc(var(--pu) * 32); transform:rotate(270deg)" viewBox="0 0 10.5 10.5"><path d="M0 0.5H10V10.5"/></svg>
-    <svg class="pbrk" data-pbrk="meet" style="left:calc(100% - var(--u) * 32 - var(--pu) * 10); top:calc(var(--pu) * 32)" viewBox="0 0 10.5 10.5"><path d="M0 0.5H10V10.5"/></svg>
-    <svg class="pbrk" data-pbrk="meet" style="left:calc(100% - var(--u) * 32 - var(--pu) * 10); top:calc(var(--pu) * 95); transform:rotate(90deg)" viewBox="0 0 10.5 10.5"><path d="M0 0.5H10V10.5"/></svg>
-    <svg class="pbrk" data-pbrk="meet" style="left:calc(100% - var(--u) * 32 - var(--pu) * 218); top:calc(var(--pu) * 95); transform:rotate(180deg)" viewBox="0 0 10.5 10.5"><path d="M0 0.5H10V10.5"/></svg>
-    <div class="meet" data-meet style="left:calc(100% - var(--u) * 32 - var(--pu) * 205); top:calc(var(--pu) * 43)"><b>now building</b><span>peptide structure atlas</span><span>extrusion on real genomes</span></div>
-
-    <svg class="pbrk" data-pbrk="stats" style="left:calc(100% - var(--u) * 32 - var(--pu) * 218); top:calc(var(--pu) * 137); transform:rotate(270deg)" viewBox="0 0 10.5 10.5"><path d="M0 0.5H10V10.5"/></svg>
-    <svg class="pbrk" data-pbrk="stats" style="left:calc(100% - var(--u) * 32 - var(--pu) * 10); top:calc(var(--pu) * 137)" viewBox="0 0 10.5 10.5"><path d="M0 0.5H10V10.5"/></svg>
-    <svg class="pbrk" data-pbrk="stats" style="left:calc(100% - var(--u) * 32 - var(--pu) * 10); top:calc(var(--pu) * 525); transform:rotate(90deg)" viewBox="0 0 10.5 10.5"><path d="M0 0.5H10V10.5"/></svg>
-    <svg class="pbrk" data-pbrk="stats" style="left:calc(100% - var(--u) * 32 - var(--pu) * 218); top:calc(var(--pu) * 525); transform:rotate(180deg)" viewBox="0 0 10.5 10.5"><path d="M0 0.5H10V10.5"/></svg>
-    <div class="pstats" style="left:calc(100% - var(--u) * 32 - var(--pu) * 205); top:calc(var(--pu) * 147)">
-      <div class="prow" data-prow><svg viewBox="0 0 31 31"><rect x="2" y="2" width="11" height="11"/><rect x="18" y="2" width="11" height="11"/><rect x="2" y="18" width="11" height="11"/><rect x="18" y="18" width="11" height="11" stroke="#5f9c77"/></svg><div><div class="lbl">peptide library</div><div class="fig" data-split="letter" data-pfig>50k</div></div></div>
-      <div class="prule" data-prule></div>
-      <div class="prow" data-prow><svg viewBox="0 0 31 31"><path d="M3 29V17M11 29V8M19 29V13M27 29V3"/><path d="M1 29.5h29"/></svg><div><div class="lbl">ranked structures</div><div class="fig" data-split="letter" data-pfig>100</div></div></div>
-      <div class="prule" data-prule></div>
-      <div class="prow" data-prow><svg viewBox="0 0 31 31"><path d="M11 2h9M12.5 2v9L4 26.5A2 2 0 0 0 5.8 29.5h19.4a2 2 0 0 0 1.8-3L18.5 11V2"/><path d="M8 20h15"/></svg><div><div class="lbl">parent organisms</div><div class="fig" data-split="letter" data-pfig>574</div></div></div>
-      <div class="prule" data-prule></div>
-      <div class="prow" data-prow><svg viewBox="0 0 31 31"><path d="M3.5 24a12 12 0 1 1 24 0"/><path d="M15.5 24 22 13"/><circle cx="15.5" cy="24" r="1.6"/></svg><div><div class="lbl">held-out families</div><div class="fig" data-split="letter" data-pfig>790</div></div></div>
-    </div>
-  </div>
-
-  <div class="cal" data-cal>
-    <div class="cal-link" data-link data-dir="1" style="left:calc(50% + (410 - 720) * var(--u) * var(--sp)); width:calc(128 * var(--u) * var(--sp))"></div>
-    <div class="cal-link" data-link data-dir="1" style="left:calc(50% + (574 - 720) * var(--u) * var(--sp)); width:calc(128 * var(--u) * var(--sp))"></div>
-    <div class="cal-link" data-link data-dir="-1" style="left:calc(50% + (738 - 720) * var(--u) * var(--sp)); width:calc(128 * var(--u) * var(--sp))"></div>
-    <div class="cal-link" data-link data-dir="-1" style="left:calc(50% + (902 - 720) * var(--u) * var(--sp)); width:calc(128 * var(--u) * var(--sp))"></div>
-
-    <div class="cal-card early" data-card style="left:calc(50% + (392 - 720) * var(--u) * var(--sp) - 60 * var(--u)); width:var(--cal-card-w, calc(120 * var(--u)))"><span class="rd">release 01</span><span class="nm" data-cal-name>perturbation</span><span class="dt">14 oct</span></div>
-    <div class="cal-card early" data-card style="left:calc(50% + (556 - 720) * var(--u) * var(--sp) - 60 * var(--u)); width:var(--cal-card-w, calc(120 * var(--u)))"><span class="rd">release 02</span><span class="nm" data-cal-name>extrusion-net</span><span class="dt">16 oct</span></div>
-    <div class="cal-card live" data-card data-live style="left:calc(50% + (720 - 720) * var(--u) * var(--sp) - 64 * var(--u)); width:var(--cal-card-w, calc(128 * var(--u)))"><span class="rd">release 03</span><span class="nm" data-cal-name>next-token-bio</span><span class="dt">17 oct</span></div>
-    <div class="cal-card" data-card style="left:calc(50% + (884 - 720) * var(--u) * var(--sp) - 60 * var(--u)); width:var(--cal-card-w, calc(120 * var(--u)))"><span class="rd">up next</span><span class="nm" data-cal-name>encode-re2g</span><span class="dt">extrusion</span></div>
-    <div class="cal-card" data-card style="left:calc(50% + (1048 - 720) * var(--u) * var(--sp) - 60 * var(--u)); width:var(--cal-card-w, calc(120 * var(--u)))"><span class="rd">open</span><span class="nm" data-cal-name>blind review</span><span class="dt">evidence</span></div>
-
-    <div class="cal-mark" data-mark style="left:calc(50% + (392 - 720) * var(--u) * var(--sp))"><span>289</span></div>
-    <div class="cal-mark" data-mark style="left:calc(50% + (556 - 720) * var(--u) * var(--sp))"><span>8×</span></div>
-    <div class="cal-mark" data-mark style="left:calc(50% + (720 - 720) * var(--u) * var(--sp))"><svg viewBox="0 0 11 11"><circle class="pulse" data-pulse cx="5.5" cy="5.5" r="5.5" opacity="0"/><circle class="dot" cx="5.5" cy="5.5" r="5.5"/></svg></div>
-    <div class="cal-mark" data-mark style="left:calc(50% + (884 - 720) * var(--u) * var(--sp))"><svg viewBox="0 0 11 11"><circle class="ring" cx="5.5" cy="5.5" r="5"/></svg></div>
-    <div class="cal-mark" data-mark style="left:calc(50% + (1048 - 720) * var(--u) * var(--sp))"><svg viewBox="0 0 11 11"><circle class="ring" cx="5.5" cy="5.5" r="5"/></svg></div>
-
-    <svg class="cal-brk" data-cal-brk="tl" style="left:calc(50% + (652 - 720) * var(--u) * var(--sp) - var(--bracket-spread, 0px)); top:calc(var(--u) * 32 + var(--bracket-drop, 0px) - var(--bracket-spread, 0px)); transform:rotate(270deg)" viewBox="0 0 10.5 10.5"><path d="M0 0.5H10V10.5"/></svg>
-    <svg class="cal-brk" data-cal-brk="tr" style="left:calc(50% + (788 - 720) * var(--u) * var(--sp) - 10 * var(--u) + var(--bracket-spread, 0px)); top:calc(var(--u) * 32 + var(--bracket-drop, 0px) - var(--bracket-spread, 0px))" viewBox="0 0 10.5 10.5"><path d="M0 0.5H10V10.5"/></svg>
-    <svg class="cal-brk" data-cal-brk="br" style="left:calc(50% + (788 - 720) * var(--u) * var(--sp) - 10 * var(--u) + var(--bracket-spread, 0px)); top:calc(var(--u) * 103 + var(--bracket-drop, 0px) + var(--bracket-stretch, 0px) + var(--bracket-spread, 0px)); transform:rotate(90deg)" viewBox="0 0 10.5 10.5"><path d="M0 0.5H10V10.5"/></svg>
-    <svg class="cal-brk" data-cal-brk="bl" style="left:calc(50% + (652 - 720) * var(--u) * var(--sp) - var(--bracket-spread, 0px)); top:calc(var(--u) * 103 + var(--bracket-drop, 0px) + var(--bracket-stretch, 0px) + var(--bracket-spread, 0px)); transform:rotate(180deg)" viewBox="0 0 10.5 10.5"><path d="M0 0.5H10V10.5"/></svg>
-  </div>
-</section>
-
 <!-- ============ FOOTER ============ -->
 <section class="foot" id="contact" aria-labelledby="foot-title">
   <div class="foot-panel">
@@ -1024,7 +942,6 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
     <a href="#research" data-split="letter" data-foot-nav>research</a>
     <a href="#ranked" data-split="letter" data-foot-nav>ranked</a>
     <a href="#toolkit" data-split="letter" data-foot-nav>toolkit</a>
-    <a href="#bench" data-split="letter" data-foot-nav>bench</a>
     <a href="https://github.com/aarnavbhat23" target="_blank" rel="noopener" data-split="letter" data-foot-nav>github</a>
   </nav>
   <p class="foot-row foot-copy" data-foot-row>© 2026 Aarnav Bhat. Code and figures published with every project.</p>
@@ -1052,7 +969,6 @@ html.menu-open { position: relative; overflow: hidden; height: 100%; }
       <li data-sheet-item><a href="#research" data-sheet-link>research</a></li>
       <li data-sheet-item><a href="#ranked" data-sheet-link>ranked</a></li>
       <li data-sheet-item><a href="#toolkit" data-sheet-link>toolkit</a></li>
-      <li data-sheet-item><a href="#bench" data-sheet-link>bench</a></li>
       <li data-sheet-item><a href="#contact" data-sheet-link>contact</a></li>
       <li data-sheet-item><a href="https://github.com/aarnavbhat23" target="_blank" rel="noopener">github</a></li>
     </ul>
@@ -2820,14 +2736,6 @@ function runHandover() {
       });
     }
   }
-
-  // ranks 08 to 15
-  const bh = text($("[data-bench-head]", sec), { unit: "word", stagger: 110 });
-  forward($(".bench-head", sec), group([...bh.list, fade($(".bench-head [data-stop]", sec), { delay: 330 })]));
-  const items = $$(".bench-item", sec);
-  const list = $("[data-bench-list]", sec);
-  const im = items.map((el, i) => rise(el, { dy: 0.75, config: CFG.ROW, delay: i * 70 }));
-  onView(list, { rootMargin: "0% 0% -15% 0%" }, () => im.forEach((m) => m.play()));
 
   const relayout = () => requestAnimationFrame(layoutRail);
   new ResizeObserver(relayout).observe(wrap);
